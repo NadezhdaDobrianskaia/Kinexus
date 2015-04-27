@@ -1,0 +1,116 @@
+﻿/*
+Common css rules
+*/
+/*basic tag defs*/
+body 
+{
+    text-align:center;
+    margin: 0px;
+    background-color:#000;
+    font-family :Arial;
+    font-size: 15px;
+    color:#e1e1e1; 
+}
+h1, h2, h3
+{
+    color:#fc931e;/*orage*/
+}
+
+h1, h2
+{
+    font-size:16px;
+}
+h3
+{
+     font-size: 15px;
+}
+img
+{
+    border: 0px;  
+}
+table
+{
+    border:0px;
+    max-height:90%;
+}
+
+td
+{
+    text-align:left;
+}
+select
+{
+    min-height: 20px;
+    width: 137px;
+}
+.rightAlign
+{
+    text-align:right;
+}
+/*Common tag colour*/
+li,span,label ,a
+{
+     color:#99C7FF;/*blue*/
+     text-decoration:none;
+}
+a:hover
+{
+    color:#808080;
+    text-decoration:none;
+}
+.blueLable
+{
+    color:#99C7FF;/*blue*/
+}
+.orangeLabel
+{
+    color:#fc931e;
+}
+.colStyle
+{
+     background-color:#030303;
+}
+.redval
+{
+    color:Red;
+    font-weight:bold;
+
+}
+.graytext
+{
+    color:#e1e1e1;
+}  
+.whieLink
+{
+    color:#fff;
+}
+.whieLink:hover
+{
+      color:#e1e1e1;
+}
+.textWite a
+{
+     color:#e1e1e1;
+}
+.textWite a:hover
+{
+     color:#99c7ff;
+}
+.noBold
+{
+    font-weight:normal;
+}
+.bold
+{
+    font-weight:Bold;
+    padding-bottom:1px;
+}
+.nameSpan
+{
+    font-size:17px;
+}
+.gray30
+{
+    color:#989898;
+    font-size:13px;
+}

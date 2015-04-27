@@ -1,0 +1,32 @@
+﻿/*
+Print Style sheet
+*/
+
+body
+{
+      Size: 8.5in 11in landscape;
+        margin : 0.25in;
+      background-color:#fff;
+      color:#000;
+}
+/*do not print the banner and menu*/
+#menu, #banner, #menu a, #bar, #header-block ,#ad
+{
+    display:none;
+} 
+/*Force the use of a div for IE7 suport*/
+div .page-preak
+{   
+    page-break-before:always;
+}
+#content-wrap
+{
+    margin-left:0px;
+}
+.column
+{
+    border-style:solid;
+    border-width:1px;
+    width:32%;
+}
+    

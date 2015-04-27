@@ -1,0 +1,137 @@
+﻿/*
+Common css layout rules
+*/
+@import url("Common.css");
+#bar
+{
+    position:absolute;
+    top:120px;
+    background-image:url("../Images/backShim.gif");
+    background-repeat:repeat-x;
+    width:100%;
+    min-height:20px;
+    z-index:100;
+}
+#outter-wrap
+{
+    margin-left:auto;
+    margin-right:auto;
+    width:900px;
+}
+#content-wrap
+{
+    min-height:650px;
+}
+#header-block
+{
+    margin-top:15px;
+
+    min-height:125px;
+}
+#banner
+{
+    background-image:url("../Images/KinexusProductsBanner.jpg");
+    background-repeat:no-repeat;
+    top:0px;
+    min-height:112px;
+}
+#menu
+{
+    position:absolute;
+    top:108px;
+    margin-left:-55px;
+    z-index:121;
+
+}
+#menu ul
+{
+    list-style:none;
+}
+
+#menu li 
+{
+    margin-right:30px;
+    font-size: 0.8em;
+    float:left;  
+}
+.dataTable
+{
+    margin-left:auto;
+    margin-right:auto;
+}
+.dataTable td
+{
+    color:#99CCFF;
+    
+}
+.dataTable td span
+{
+    color:#FFF;
+    padding-left:2px;
+}
+
+.order_field
+{
+    border-width:thin;
+    border-style:solid;
+}
+
+.valid_field
+{
+ 
+}
+
+.invalid_field
+{
+    background-color: #ff9999;
+    border-width:thin;
+    border-style:solid;
+    border-color: #ff0000;
+    padding: 2px;
+}
+
+
+.order_wrapper
+{
+    width: 200px;
+}
+
+.order_left
+{
+    float: left;
+    width: 100px;   
+}
+.order_right
+{
+    float: left;
+    width: 100px;
+}
+
+#foot-menu
+{
+    margin-right:300px;   
+    color:#e1e1e1;
+    display:inline;
+    color:#808080; 
+   
+}
+#foot-menu a
+{
+    color:#808080;
+}
+#foot-menu a:hover
+{
+    color:#e1e1e1;
+}
+#copy-right
+{
+    text-align:left;
+
+    margin-right:300px; 
+    display:inline;
+    
+}
+#form1
+{
+    margin-bottom: 15px;
+}

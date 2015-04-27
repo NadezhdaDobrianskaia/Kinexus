@@ -1,0 +1,256 @@
+﻿/*
+Common css layout rules
+*/
+@import url("Common.css");
+#bar
+{
+	position: absolute;
+	top: 120px;
+	background-image: url("../Images/backShim.gif");
+	background-repeat: repeat-x;
+	width: 100%;
+	min-height: 20px;
+	z-index: 100;
+}
+#outter-wrap
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+}
+#content-wrap
+{
+}
+#header-block
+{
+	margin-top: 15px;
+	min-height: 125px;
+}
+#banner
+{
+	background-image: url("../Images/KinexusProductsBanner.jpg");
+	background-repeat: no-repeat;
+	top: 0px;
+	min-height: 112px;
+}
+#menu
+{
+	position: absolute;
+	top: 108px;
+	margin-left: -55px;
+	z-index: 121;
+}
+#menu ul
+{
+	list-style: none;
+}
+
+#menu li
+{
+	margin-right: 30px;
+	font-size: 0.8em;
+	float: left;
+}
+.dataTable
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+.dataTable td
+{
+	color: #99CCFF;
+}
+.dataTable td span
+{
+	color: #FFF;
+	padding-left: 2px;
+}
+
+.order_field
+{
+	border-width: thin;
+	border-style: solid;
+}
+.valid_field
+{
+}
+
+.invalid_field
+{
+	background-color: #ff9999;
+	border-width: thin;
+	border-style: solid;
+	border-color: #ff0000;
+	padding: 2px;
+}
+
+.order_wrapper
+{
+	width: 200px;
+}
+
+.order_left
+{
+	float: left;
+	width: 100px;
+}
+
+.order_right
+{
+	float: left;
+	width: 100px;
+}
+
+#foot-menu
+{
+	float: left;
+	color: #e1e1e1;
+}
+#foot
+{
+	width: 960px;
+	height: 100px;
+}
+#foot-menu a
+{
+	color: #808080;
+}
+
+#foot-menu a:hover
+{
+	color: #e1e1e1;
+}
+
+#copy-right
+{
+	height: 80px;
+	width: 850px;
+}
+
+/*
+Shopping Cart layout
+*/
+#ShoppingCartMenu
+{
+	width: 96%;
+}
+#ShoppingCartMenu .column .recommendedLink
+{
+	min-height: 20px;
+	text-align: left;
+}
+
+
+#ShoppingCartMenu .colum-hight
+{
+	min-height: 20px;
+}
+
+#ShoppingCartMenu .col-inner
+{
+	height: 20px;
+}
+
+#DropDownMenu
+{
+	width: 100px;
+	margin-left: 15px;
+	padding: 5px 5px 5px 5px;
+	position: relative;
+	background-color: #191919;
+	border: 1px solid #67747D;
+	border-top: 0px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	z-index: 3;
+}
+
+#OrderSummary
+{
+	width: 900px;
+}
+
+#OrderSummary .column .recommendedLink
+{
+	min-height: 20px;
+}
+
+#OrderSummary .colum-hight
+{
+	min-height: 20px;
+}
+
+#OrderSummary .col-inner
+{
+	height: 600px;
+}
+
+#OrderSummary .colLE
+{
+	height: 600px;
+}
+
+#OrderSummary .colRE
+{
+	height: 600px;
+}
+
+#OrderSummary .tableHeader
+{
+	width: 200px;
+	height: 50px;
+	font-size: medium;
+}
+
+#OrderSummary table td
+{
+	color: White;
+}
+
+.tableHeader
+{
+	padding: 0px 0px 5px 0px;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.checkoutLink
+{
+	float: right;
+}
+
+.tblOrder
+{
+	margin-left: 100px;
+	padding-top: 10px;
+	text-align: left;
+}
+
+.tblOrder td
+{
+	padding: 0px 0px 5px 0px;
+	color: White;
+	text-align: left;
+}
+
+
+.tblOrder th
+{
+	text-align: left;
+	padding-bottom: 15px;
+	font-size: 18px;
+}
+
+.checkoutButton
+{
+	float: right;
+	margin-right: 130px;
+}
+
+
+
+.orderNum
+{
+	padding-right: 15px;	
+}

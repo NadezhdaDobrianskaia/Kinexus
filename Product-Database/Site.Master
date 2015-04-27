@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Webpage.SiteMaster" %>
+
+<%@ Register Src="AdRotator.ascx" TagName="AdRotator" TagPrefix="uc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title></title>
+    <link href="/Styles/layout.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/Styles/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="/Scripts/DropDownMenu.js"></script>
+    <script type="text/javascript" src="/Scripts/Common.js"></script>
+    <link rel="shortcut icon" href="http://www.kinexus.ca/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="/Scripts/shadowbox/shadowbox.css"/>
+    <script type="text/javascript" src="/Scripts/shadowbox/shadowbox.js"></script>
+    <script type="text/javascript">
+        Shadowbox.init();
+    </script>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="bar">
+    </div>
+    <div id="outter-wrap">
+        <a name="top"></a>
+        <div id="header-block">
+            <div id="banner">
+                <img alt="Kinexus" src="/Images/Banner.gif" />
+            </div>
+            <div id="menu">
+                <ul>
+                    <li><a href="http://www.kinexus.ca/">HOME</a></li>
+                    <li><a href="Default.aspx">SEARCH</a></li>
+                    <li><a href="/OrderForm.aspx" target="_blank">ORDER</a></li>
+                    <li><a href="credits.aspx">CREDITS</a></li>
+                    <li><a href="http://www.kinexus.ca/contact/contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="content-wrap">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <p>Hi Stuart</p>
+            <div id="foot">
+                <div id="Div1">
+                    <div id="foot-menu">
+                        <a href="http://www.kinexus.ca/">Home</a>&#160;|&#160;<a href="#top">Top</a>
+                    </div>
+                    <div id="copy-right" class="blueLable">
+                        &copy; Kinexus Bioinformatics Corporation 2012 </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

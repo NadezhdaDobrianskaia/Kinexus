@@ -1,0 +1,599 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{76708004-9485-4164-A48B-2FF262872CDF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Product_Database</RootNamespace>
+    <AssemblyName>Product-Database</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabases>false</PublishDatabases>
+    <PackageAsSingleFile>true</PackageAsSingleFile>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <DeployIisAppPath>Default Web Site/</DeployIisAppPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DeployIisAppPath>proteinproduct/proteinproduct</DeployIisAppPath>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+    <PublishDatabaseSettings>&lt;Objects&gt;&lt;ObjectGroup Name="Kinexus Protein ProductDBConnectionStringServer-Deployment" Order="1"&gt;&lt;Destination Path="" /&gt;&lt;Object Type="dbFullSql"&gt;&lt;PreSource Path="Data Source=PHOSPHONET\SQLEXPRESS_2%3bInitial Catalog=&amp;quot%3bKinexus Protein ProductDB&amp;quot%3b%3bIntegrated Security=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" /&gt;&lt;Source Path="obj\Release\AutoScripts\Kinexus Protein ProductDBConnectionStringServer-Deployment_SchemaOnly.sql" Transacted="True" /&gt;&lt;/Object&gt;&lt;/ObjectGroup&gt;&lt;/Objects&gt;</PublishDatabaseSettings>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <PublishDatabases>true</PublishDatabases>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MigraDoc.DocumentObjectModel, Version=1.31.3066.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MigraDoc.DocumentObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering, Version=1.31.3066.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MigraDoc.Rendering.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering, Version=1.31.3066.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MigraDoc.RtfRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.31.1789.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.31.1789.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="Product-Database, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Product-Database.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="AdAdmin.ascx" />
+    <Content Include="AdAdminPage.aspx" />
+    <Content Include="AdRotator.ascx" />
+    <Content Include="App_Data\Kinexus Protein ProductDB.mdf" />
+    <Content Include="App_Data\Kinexus Protein ProductDB_log.ldf">
+      <DependentUpon>Kinexus Protein ProductDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="CartSummary.aspx" />
+    <Content Include="CategoryManager.aspx" />
+    <Content Include="Images\images\AB-NK055_ERK1_CellCL.jpg" />
+    <Content Include="Images\images\AB-NK055_ERK1_TissueL.jpg" />
+    <Content Include="Images\images\AB-NK120-4_p38aMAPK_CellCL.jpg" />
+    <Content Include="Images\images\AB-NK120-4_p38aMAPK_TissueL.jpg" />
+    <Content Include="Images\images\AB-NK120-5_p38aMAPK_CellCL.jpg" />
+    <Content Include="Images\images\AB-NK120-5_p38aMAPK_TissueL.jpg" />
+    <Content Include="Images\images\AB-NK130-3_Akt2_CellCL.jpg" />
+    <Content Include="Images\images\AB-NK130-3_Akt2_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN048-2_Grp78_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN048-2_Grp78_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN054-2_Hsc70_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN054-2_Hsc70_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN054-3_Hsc70_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN054-3_Hsc70_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN057-2_HSP40_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN057-2_HSP40_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN057-3_HSP40_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN057-3_HSP40_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN059-3_HSP60_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN059-3_HSP60_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN060-2_HSP70_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN060-2_HSP70_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN060-3_HSP70_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN061-16_HSP90a_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN061-16_HSP90a_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN061-2_HSP90aB_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN061-2_HSP90aB_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN068-1_SOD-Mn_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN068-1_SOD-Mn_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN127_FKBP52_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN127_FKBP52_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN136-2_Calnexin_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN136-2_Calnexin_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN136-5_Calnexin_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN136-5_Calnexin_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN137-1_Calreticulin_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN137-1_Calreticulin_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN149-2_CrystallinaB_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN149-2_CrystallinaB_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN149-3_CrystallinaB_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN149-3_CrystallinaB_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN150-2_Rab5_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN150-2_Rab5_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN152_HSP27_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN152_HSP27_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN154_Ubiquitin_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN154_Ubiquitin_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN164_HSP90a_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN164_HSP90a_TissueL.jpg" />
+    <Content Include="Images\images\AB-NN165_HSP90b_CellCL.jpg" />
+    <Content Include="Images\images\AB-NN165_HSP90b_TissueL.jpg" />
+    <Content Include="Images\images\AB-PK119_Chk2-T68_CellAL.jpg" />
+    <Content Include="Images\images\AB-PK119_Chk2-T68_CellBL.jpg" />
+    <Content Include="Images\images\AB-PK120_EGFR-T678_CellAL.jpg" />
+    <Content Include="Images\images\AB-PK120_EGFR-T678_CellBL.jpg" />
+    <Content Include="Images\images\AB-PK121_EGFR-T693_CellAL.jpg" />
+    <Content Include="Images\images\AB-PK121_EGFR-T693_CellBL.jpg" />
+    <Content Include="Images\images\AB-PK126_JAK1-Y1022_CellAL.jpg" />
+    <Content Include="Images\images\AB-PK126_JAK1-Y1022_CellBL.jpg" />
+    <Content Include="Images\images\AB-PK132_PKR-T446_CellAL.jpg" />
+    <Content Include="Images\images\AB-PK132_PKR-T446_CellBL.jpg" />
+    <Content Include="Images\images\AB-PK133_VEGFR2-Y1214_CellAL.jpg" />
+    <Content Include="Images\images\AB-PK133_VEGFR2-Y1214_CellBL.jpg" />
+    <Content Include="Images\images\AB-PN114_4E-BP1-T45_CellAL.jpg" />
+    <Content Include="Images\images\AB-PN114_4E-BP1-T45_CellBL.jpg" />
+    <Content Include="Images\images\AB_PK125_ErbB2-Y877_CellAL.jpg" />
+    <Content Include="Images\images\AB_PK125_ErbB2-Y877_CellBL.jpg" />
+    <Content Include="Images\images\KinSub_PE1DDDYF80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DDDYG80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DDDYP80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DDDYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DDIYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DDLYG80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DDLYP80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DDLYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DDLYY80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DDNYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DDYYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DGDSY80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DGMYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DGNYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DPDYA80.jpg" />
+    <Content Include="Images\images\KinSub_PE1DPGYF80.jpg" />
+    <Content Include="Images\images\KinSub_PE1EDLYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1FDDYY80.jpg" />
+    <Content Include="Images\images\KinSub_PE1FPLSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE1MTMTP80.jpg" />
+    <Content Include="Images\images\KinSub_PE1PPLSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RDDYF80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RDDYG80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RDGSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RDGSV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RDLYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1REGSV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RGDYE80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RHLSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RILSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RLLSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RPKSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RPLYF80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RPRSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RQDSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRDSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRDSG80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRDSV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRGSE80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRGSL80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRGSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRGSV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRKSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRKSL80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRKSV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRLSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRLSY80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRMSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RRMYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RTGSG80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RTKSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RTLSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE1RTLYF80.jpg" />
+    <Content Include="Images\images\KinSub_PE2DDDYF80.jpg" />
+    <Content Include="Images\images\KinSub_PE2DDDYG80.jpg" />
+    <Content Include="Images\images\KinSub_PE2DDDYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE2DDIYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE2DDLYP80.jpg" />
+    <Content Include="Images\images\KinSub_PE2DDLYY80.jpg" />
+    <Content Include="Images\images\KinSub_PE2DDNYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE2MTMTP80.jpg" />
+    <Content Include="Images\images\KinSub_PE2RPLSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE2RRDSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE2RRGSE80.jpg" />
+    <Content Include="Images\images\KinSub_PE2RRGSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE2RRGSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE2RRKSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE2RRLSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE2RRMSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE3DDDYF80.jpg" />
+    <Content Include="Images\images\KinSub_PE3DDDYG80.jpg" />
+    <Content Include="Images\images\KinSub_PE3DDDYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE3DDLYY80.jpg" />
+    <Content Include="Images\images\KinSub_PE3RPLSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE3RRDSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE3RRGSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE3RRGSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE3RRMSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE4DDDYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE4RPLSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE4RRDSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE4RRGSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE4RRKSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE4RRLSL80.jpg" />
+    <Content Include="Images\images\KinSub_PE5DDDYV80.jpg" />
+    <Content Include="Images\images\KinSub_PE5RPLSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE5RRGSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE5RRKSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE5RRLSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE6RPLSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE6RRGSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE6RRKSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE6RRLSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE7RRGSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE7RRKSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE7RRLSP80.jpg" />
+    <Content Include="Images\images\KinSub_PE8RRGSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE8RRKSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE9RRGSF80.jpg" />
+    <Content Include="Images\images\KinSub_PE9RRKSF80.jpg" />
+    <Content Include="Images\images\KinSub_PEaRRGSF80.jpg" />
+    <Content Include="Images\images\KinSub_PEaRRKSF80.jpg" />
+    <Content Include="Images\images\KinSub_PEbRRKSF80.jpg" />
+    <Content Include="Images\images\KinSub_PEcRRGSF80.jpg" />
+    <Content Include="Images\images\KinSub_PPE1RRGSF80.jpg" />
+    <Content Include="Images\images\KinSub_PPE5RRDSP80.jpg" />
+    <Content Include="KinaseSubPeptideList.aspx" />
+    <Content Include="ProductInfo_BioactiveCompound.aspx" />
+    <Content Include="ProductInfo_Peptide.aspx" />
+    <Content Include="ProductInfo_Microarray.aspx" />
+    <Content Include="ProductInfo_ProteinEnzyme.aspx" />
+    <Content Include="Credits.aspx" />
+    <Content Include="Images\Ad12 copy.jpg" />
+    <Content Include="Images\colB.png" />
+    <Content Include="Images\colL.jpg" />
+    <Content Include="Images\colL.png" />
+    <Content Include="Images\colLLC.png" />
+    <Content Include="Images\colLRC.png" />
+    <Content Include="Images\colR.png" />
+    <Content Include="Images\colULC.png" />
+    <Content Include="Images\colURC.png" />
+    <Content Include="Images\KinexusOrderFormFooter.jpeg" />
+    <Content Include="Images\KinexusOrderFormHeader.jpeg" />
+    <Content Include="Default.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Manager.aspx" />
+    <Content Include="OrderForm.aspx" />
+    <Content Include="OrderFormScript.aspx" />
+    <Content Include="ProductDataList.aspx" />
+    <Content Include="ProductInfo_Antibody.aspx" />
+    <Content Include="ProductInfo_ProteinSubstrate.aspx" />
+    <Content Include="ProductsList_Microarray.aspx" />
+    <Content Include="ProductsList_Peptide.aspx" />
+    <Content Include="ProductsList_ProteinEnzyme.aspx" />
+    <Content Include="ProductsList_Antibody.aspx" />
+    <Content Include="ProductsList_ProteinSubstrate.aspx" />
+    <Content Include="Scripts\Common.js" />
+    <Content Include="Scripts\jquery.corner.js" />
+    <Content Include="Scripts\shadowbox\loading.gif" />
+    <Content Include="Scripts\shadowbox\next.png" />
+    <Content Include="Scripts\shadowbox\pause.png" />
+    <Content Include="Scripts\shadowbox\play.png" />
+    <Content Include="Scripts\shadowbox\previous.png" />
+    <Content Include="Scripts\shadowbox\shadowbox.css" />
+    <Content Include="Scripts\shadowbox\shadowbox.js" />
+    <Content Include="Scripts\validation.js" />
+    <Content Include="Styles\Common.css" />
+    <Content Include="Styles\CommonLayout.css" />
+    <Content Include="Styles\Layout.css" />
+    <Content Include="Styles\print.css" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="ProductsList_BioactiveCompound.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdAdmin.ascx.cs">
+      <DependentUpon>AdAdmin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdAdmin.ascx.designer.cs">
+      <DependentUpon>AdAdmin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdAdminPage.aspx.cs">
+      <DependentUpon>AdAdminPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdAdminPage.aspx.designer.cs">
+      <DependentUpon>AdAdminPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdRotator.ascx.cs">
+      <DependentUpon>AdRotator.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdRotator.ascx.designer.cs">
+      <DependentUpon>AdRotator.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CartSummary.aspx.cs">
+      <DependentUpon>CartSummary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CartSummary.aspx.designer.cs">
+      <DependentUpon>CartSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CategoryManager.aspx.cs">
+      <DependentUpon>CategoryManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CategoryManager.aspx.designer.cs">
+      <DependentUpon>CategoryManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="KinaseSubPeptideList.aspx.cs">
+      <DependentUpon>KinaseSubPeptideList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KinaseSubPeptideList.aspx.designer.cs">
+      <DependentUpon>KinaseSubPeptideList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInfo_BioactiveCompound.aspx.cs">
+      <DependentUpon>ProductInfo_BioactiveCompound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInfo_BioactiveCompound.aspx.designer.cs">
+      <DependentUpon>ProductInfo_BioactiveCompound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInfo_Peptide.aspx.cs">
+      <DependentUpon>ProductInfo_Peptide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInfo_Peptide.aspx.designer.cs">
+      <DependentUpon>ProductInfo_Peptide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInfo_Microarray.aspx.cs">
+      <DependentUpon>ProductInfo_Microarray.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInfo_Microarray.aspx.designer.cs">
+      <DependentUpon>ProductInfo_Microarray.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInfo_ProteinEnzyme.aspx.cs">
+      <DependentUpon>ProductInfo_ProteinEnzyme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInfo_ProteinEnzyme.aspx.designer.cs">
+      <DependentUpon>ProductInfo_ProteinEnzyme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Credits.aspx.cs">
+      <DependentUpon>Credits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Credits.aspx.designer.cs">
+      <DependentUpon>Credits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manager.aspx.cs">
+      <DependentUpon>Manager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manager.aspx.designer.cs">
+      <DependentUpon>Manager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderForm.aspx.cs">
+      <DependentUpon>OrderForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderForm.aspx.designer.cs">
+      <DependentUpon>OrderForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderFormScript.aspx.cs">
+      <DependentUpon>OrderFormScript.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderFormScript.aspx.designer.cs">
+      <DependentUpon>OrderFormScript.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInfo.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Product.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDataList.aspx.cs">
+      <DependentUpon>ProductDataList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDataList.aspx.designer.cs">
+      <DependentUpon>ProductDataList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInfo_Antibody.aspx.cs">
+      <DependentUpon>ProductInfo_Antibody.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInfo_Antibody.aspx.designer.cs">
+      <DependentUpon>ProductInfo_Antibody.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInfo_ProteinSubstrate.aspx.cs">
+      <DependentUpon>ProductInfo_ProteinSubstrate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInfo_ProteinSubstrate.aspx.designer.cs">
+      <DependentUpon>ProductInfo_ProteinSubstrate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsList_Microarray.aspx.cs">
+      <DependentUpon>ProductsList_Microarray.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductsList_Microarray.aspx.designer.cs">
+      <DependentUpon>ProductsList_Microarray.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsList_Peptide.aspx.cs">
+      <DependentUpon>ProductsList_Peptide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductsList_Peptide.aspx.designer.cs">
+      <DependentUpon>ProductsList_Peptide.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsList_ProteinEnzyme.aspx.cs">
+      <DependentUpon>ProductsList_ProteinEnzyme.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductsList_ProteinEnzyme.aspx.designer.cs">
+      <DependentUpon>ProductsList_ProteinEnzyme.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsList_Antibody.aspx.cs">
+      <DependentUpon>ProductsList_Antibody.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductsList_Antibody.aspx.designer.cs">
+      <DependentUpon>ProductsList_Antibody.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsList_ProteinSubstrate.aspx.cs">
+      <DependentUpon>ProductsList_ProteinSubstrate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductsList_ProteinSubstrate.aspx.designer.cs">
+      <DependentUpon>ProductsList_ProteinSubstrate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsList_BioactiveCompound.aspx.cs">
+      <DependentUpon>ProductsList_BioactiveCompound.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductsList_BioactiveCompound.aspx.designer.cs">
+      <DependentUpon>ProductsList_BioactiveCompound.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Ads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Scripts\shadowbox\LICENSE" />
+    <None Include="Scripts\shadowbox\README" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
