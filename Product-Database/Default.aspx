@@ -23,6 +23,7 @@
 
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
+    <div>
     <form runat="server" method="post" style="height: 456px">
         <asp:PlaceHolder ID="search_box" runat="server"></asp:PlaceHolder>
 

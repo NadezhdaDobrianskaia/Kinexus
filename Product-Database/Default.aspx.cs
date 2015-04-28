@@ -87,9 +87,9 @@ namespace ProductDB
 
         private void load_searchBar(PlaceHolder output, bool special_order)
         {
-            
-            output.Controls.Add(new LiteralControl("<table id=\"searchHome\" ><tr><td colspan=\"4\">" +
-                                "<h2>Search Menu</h2></td>"));
+
+            output.Controls.Add(new LiteralControl("<table id=\"searchHome2\" ><tr><td></td><td>" +
+                                "<h2>Search Menu</h2>"));
             
             //instantiate a textbox for the query string
             TextBox box = new TextBox();
@@ -122,7 +122,11 @@ namespace ProductDB
             //add the control to the panel
             output.Controls.Add(new LiteralControl("</td><td>"));
             output.Controls.Add(search_button);
-            output.Controls.Add(new LiteralControl("</td><td>"));
+            output.Controls.Add(new LiteralControl("</td><td></td></tr>"));
+
+
+            output.Controls.Add(new LiteralControl("<tr>" +
+                "<td></td><td></td><td colspan=\"5\"><span class=\"gray30\">Select desired category and type in at least 2 letters of the product name or view a complete list<span> <br /><br /></td></tr>"));
 
             //close the table
             output.Controls.Add(new LiteralControl("</table>"));

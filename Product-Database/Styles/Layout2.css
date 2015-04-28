@@ -201,12 +201,15 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
 }
 .searchBox 
 {
-    width:400px;
+    width:500px;
 }
 #searchTable h2
 {
     text-align:left;
     margin-left:-178px;
+}
+#searchHome2{
+
 }
 #searchHome
 {
