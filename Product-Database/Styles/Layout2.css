@@ -291,15 +291,5 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
    position: absolute;
 }
 
- div.leftHomeDiv{
-     float :left;
-    border:1px;
-    border-color: white;
- }
- div.rightHomeDiv{
-     float:right;
- }
- div{
-    border:1px;
-    border-color: white;
-}
+
+ 
