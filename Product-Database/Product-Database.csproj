@@ -324,6 +324,7 @@
     <Content Include="Styles\Common.css" />
     <Content Include="Styles\CommonLayout.css" />
     <Content Include="Styles\Layout.css" />
+    <Content Include="Styles\Layout2.css" />
     <Content Include="Styles\print.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />

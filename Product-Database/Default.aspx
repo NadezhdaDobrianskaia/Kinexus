@@ -23,7 +23,7 @@
 
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-    <form runat="server" method="post" style="height: 205px">
+    <form runat="server" method="post" style="height: 456px">
         <asp:PlaceHolder ID="search_box" runat="server"></asp:PlaceHolder>
 
         <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionStringServer %>"

@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head runat="server">
     <title></title>
-    <link href="/Styles/layout.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/Styles/layout2.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/Styles/print.css" rel="stylesheet" type="text/css" media="print" />
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
@@ -47,7 +47,6 @@
             <br />
             <br />
             <br />
-            <p>Hi Stuart</p>
             <div id="foot">
                 <div id="Div1">
                     <div id="foot-menu">
