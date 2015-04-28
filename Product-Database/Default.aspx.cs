@@ -24,8 +24,8 @@ namespace ProductDB
         {
             //load the categories, with special ordering set to true
             load_searchBar(search_box, true);
-            load_categories(search_box, true);
-            load_hyperlinks(search_box, true);
+            //load_categories(search_box, true);
+            //load_hyperlinks(search_box, true);
         }
 
         /// <summary>
@@ -86,12 +86,42 @@ namespace ProductDB
 
         private void load_searchBar(PlaceHolder output, bool special_order)
         {
-
+            
             output.Controls.Add(new LiteralControl("<table id=\"searchHome\" ><tr><td colspan=\"4\">" +
-                                "<h2>Search Menu</h2><span class=\"gray30\">Select desired category and type in at least 2 letters of the product name or view a complete list<span> <br /><br /></td></tr>"));
+                                "<h2>Search Menu</h2></td>"));
+            
+            //instantiate a textbox for the query string
+            TextBox box = new TextBox();
 
+            //instantiate buttons for search and for product list
+            Button search_button = new Button(), list_button = new Button();
 
+            string group = "";
+            //define textbox
+            box.ID = group.Replace(" ", "_") + "_textbx";
+            box.Attributes.Add("class", "searchBox");
+            box.Text = "Enter Search Term";
+            box.Attributes.Add("onfocus", "rmText($(this))");
+            box.Attributes.Add("onblur", "rpText($(this))");
+            //add the control to the panel
+            output.Controls.Add(new LiteralControl("</td><td>"));
+            output.Controls.Add(box);
 
+            //define the search button
+            search_button.Text = "Search";
+            search_button.ID = group.Replace(" ", "_") + "_button";
+
+            //attach the click event
+            search_button.Click += new EventHandler(search_click);
+
+            //attach the form attributes
+            search_button.Attributes.Add("method", "post");
+            search_button.Attributes.Add("type", "submit");
+
+            //add the control to the panel
+            output.Controls.Add(new LiteralControl("</td><td>"));
+            output.Controls.Add(search_button);
+            output.Controls.Add(new LiteralControl("</td><td>"));
 
             //close the table
             output.Controls.Add(new LiteralControl("</table>"));
@@ -296,7 +326,7 @@ namespace ProductDB
                 //define the search button
                 search_button.Text = "Search";
                 search_button.ID = group.Replace(" ", "_") + "_button";
-
+                
                 //attach the click event
                 search_button.Click += new EventHandler(search_click);
 
