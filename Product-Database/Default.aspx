@@ -23,14 +23,14 @@
         .leftHomeDiv{
           float:left;
           border: 2px solid #8AC007;
-          width: auto;
+          width: 200px;
           height: auto;
          }
 
         .rightHomeDiv{
         float:right;
         border: 2px solid #8AC007;
-        width:auto;
+        width:700px;
         
          }
 
