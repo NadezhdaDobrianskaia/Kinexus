@@ -214,12 +214,12 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
 #searchHome
 {
     text-align:center;
-    margin-left:164px;    
+    margin-left:200px;    
 }
 #searchHome h2
 {
     text-align:left;
-    margin-left:+120px;
+   
 }
 
 #searchHome td{

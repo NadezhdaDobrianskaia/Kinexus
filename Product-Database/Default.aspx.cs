@@ -88,7 +88,7 @@ namespace ProductDB
         private void load_searchBar(PlaceHolder output, bool special_order)
         {
 
-            output.Controls.Add(new LiteralControl("<table id=\"searchHome2\" ><tr><td></td><td>" +
+            output.Controls.Add(new LiteralControl("<table id=\"searchHome\" ><tr><td></td><td>" +
                                 "<h2>Search Menu</h2>"));
             
             //instantiate a textbox for the query string
