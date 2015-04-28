@@ -22,6 +22,7 @@ namespace ProductDB
         /// <param name="e">The event arguments.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            SetImageURL();
             //load the categories, with special ordering set to true
             load_searchBar(search_box, true);
             //load_categories(search_box, true);
@@ -438,6 +439,18 @@ namespace ProductDB
             term = term.Replace("_", "[_]");
             term = term.Replace("[", "[[]");
             return term.Replace("%", "[[%]");
+        }
+
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            SetImageURL();
+        }
+
+        private void SetImageURL()
+        {
+            Random rand = new Random();
+            int i = rand.Next(1, 5);
+            Image1.ImageUrl = "~/ImagesHome/" + i.ToString() + ".jpg";
         }
     }
 }

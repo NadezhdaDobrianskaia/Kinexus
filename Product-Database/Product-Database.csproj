@@ -108,6 +108,11 @@
     </Content>
     <Content Include="CartSummary.aspx" />
     <Content Include="CategoryManager.aspx" />
+    <Content Include="ImagesHome\1.jpg" />
+    <Content Include="ImagesHome\2.jpg" />
+    <Content Include="ImagesHome\3.jpg" />
+    <Content Include="ImagesHome\4.jpg" />
+    <Content Include="ImagesHome\5.jpg" />
     <Content Include="Images\images\AB-NK055_ERK1_CellCL.jpg" />
     <Content Include="Images\images\AB-NK055_ERK1_TissueL.jpg" />
     <Content Include="Images\images\AB-NK120-4_p38aMAPK_CellCL.jpg" />
