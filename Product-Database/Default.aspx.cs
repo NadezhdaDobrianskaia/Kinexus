@@ -90,7 +90,7 @@ namespace ProductDB
         {
 
             output.Controls.Add(new LiteralControl("<table id=\"searchHome\" ><tr><td></td><td>" +
-                                "<h2>Search Menu</h2>"));
+                                "<h2>Search Menu</h2></td></tr><td>"));
             
             //instantiate a textbox for the query string
             TextBox box = new TextBox();
@@ -127,7 +127,7 @@ namespace ProductDB
 
 
             output.Controls.Add(new LiteralControl("<tr>" +
-                "<td></td><td></td><td colspan=\"5\"><span class=\"gray30\">Select desired category and type in at least 2 letters of the product name or view a complete list<span> <br /><br /></td></tr>"));
+                "<td></td><td colspan=\"5\"><span class=\"gray30\">Select desired category and type in at least 2 letters of the product name or view a complete list<span> <br /><br /></td></tr>"));
 
             //close the table
             output.Controls.Add(new LiteralControl("</table>"));
@@ -219,9 +219,6 @@ namespace ProductDB
 
             //close the table
             output.Controls.Add(new LiteralControl("</table>"));
-
-
-
         }
         /// <summary>
         /// Loads the categories based on the enabled groupings.
