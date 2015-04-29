@@ -201,22 +201,25 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
 }
 .searchBox 
 {
-    width:240px;
+    width:500px;
 }
 #searchTable h2
 {
     text-align:left;
-    margin-left:-17px;
+    margin-left:-178px;
+}
+#searchHome2{
+
 }
 #searchHome
 {
     text-align:center;
-    margin-left:164px;    
+    margin-left:200px;    
 }
 #searchHome h2
 {
     text-align:left;
-    margin-left:-17px;
+   
 }
 
 #searchHome td{
@@ -288,5 +291,10 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
    position: absolute;
 }
 
- 
+  div{
+     border: 2px solid #8AC007;
+    
+    width: 200px;
+    height: 150px; 
+}
  

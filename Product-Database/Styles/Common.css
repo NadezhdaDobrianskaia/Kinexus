@@ -34,6 +34,7 @@ table
     max-height:90%;
 }
 
+
 td
 {
     text-align:left;
@@ -113,4 +114,5 @@ a:hover
 {
     color:#989898;
     font-size:13px;
+    
 }

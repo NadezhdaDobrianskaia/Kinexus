@@ -108,7 +108,7 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
 {
     color:#fff;
     background-color:#000;
-    text-decoration:underlin;
+    text-decoration:underline;
 }
 .colULC
 {
@@ -199,29 +199,31 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
     text-align:center;
     margin-left:164px;    
 }
-.searchBox 
-{
-    width:240px;
+.searchBox {
+    width: 530px;
+    padding-bottom:0px;
+    margin-bottom:0px;
 }
 #searchTable h2
 {
     text-align:left;
-    margin-left:-17px;
+    margin-left:-178px;
 }
+
 #searchHome
 {
     text-align:center;
-    margin-left:164px;    
+        
 }
 #searchHome h2
 {
     text-align:left;
-    margin-left:-17px;
+   
 }
 
 #searchHome td{
-    padding-left:15px;
-
+    padding-left:0px;
+    padding-bottom:0px;
 }
 
 #searchTable td
@@ -288,5 +290,5 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
    position: absolute;
 }
 
- 
+
  

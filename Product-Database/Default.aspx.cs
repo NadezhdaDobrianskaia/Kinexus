@@ -13,6 +13,7 @@ using System.Text;
 using System.Data.SqlClient;
 namespace ProductDB
 {
+
     public partial class _Default : System.Web.UI.Page
     {
         /// <summary>
@@ -22,8 +23,11 @@ namespace ProductDB
         /// <param name="e">The event arguments.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            SetImageURL();
             //load the categories, with special ordering set to true
-            load_categories(search_box, true);
+            load_searchBar(search_box, true);
+            //load_categories(search_box, true);
+            //load_hyperlinks(search_box, true);
         }
 
         /// <summary>
@@ -81,10 +85,147 @@ namespace ProductDB
             return output;
         }
 
+
+        private void load_searchBar(PlaceHolder output, bool special_order)
+        {
+
+            output.Controls.Add(new LiteralControl("<table id=\"searchHome\" ><tr><td></td><td>" +
+                                "<h2>Search Menu</h2></td></tr><td>"));
+            
+            //instantiate a textbox for the query string
+            TextBox box = new TextBox();
+
+            //instantiate buttons for search and for product list
+            Button search_button = new Button(), list_button = new Button();
+
+            string group = "";
+            //define textbox
+            box.ID = group.Replace(" ", "_") + "_textbx";
+            box.Attributes.Add("class", "searchBox");
+            box.Text = "Enter Search Term";
+            box.Attributes.Add("onfocus", "rmText($(this))");
+            box.Attributes.Add("onblur", "rpText($(this))");
+            //add the control to the panel
+            output.Controls.Add(new LiteralControl("</td><td>"));
+            output.Controls.Add(box);
+
+            //define the search button
+            search_button.Text = "Search";
+            search_button.ID = group.Replace(" ", "_") + "_button";
+
+            //attach the click event
+            search_button.Click += new EventHandler(search_click);
+
+            //attach the form attributes
+            search_button.Attributes.Add("method", "post");
+            search_button.Attributes.Add("type", "submit");
+
+            //add the control to the panel
+            output.Controls.Add(new LiteralControl("</td><td>"));
+            output.Controls.Add(search_button);
+            output.Controls.Add(new LiteralControl("</td><td></td></tr>"));
+
+
+            output.Controls.Add(new LiteralControl("<tr>" +
+                "<td></td><td colspan=\"5\"><span class=\"gray30\">Select desired category and type in at least 2 letters of the product name or view a complete list<span> <br /><br /></td></tr>"));
+
+            //close the table
+            output.Controls.Add(new LiteralControl("</table>"));
+        }
+        private void load_hyperlinks(PlaceHolder output, bool special_order)
+        {
+            //instantiate a collection for enabled groups
+            StringCollection enabled = new StringCollection();
+
+            //determine if there is an application state with enabled groups
+            if (Application["main_order_form"] != null)
+            {
+                //if a state exists grab the data from the state
+                enabled = (StringCollection)Application["main_order_form"];
+            }
+            //no application state exists
+            else
+            {
+                //define the path to the category data file
+                string data_path = Server.MapPath("category_data.mff");
+
+                //the file exists
+                if (File.Exists(data_path))
+                {
+                    StreamReader reader = new StreamReader(data_path);
+                    if (!reader.EndOfStream)
+                    {
+                        string data = reader.ReadLine();
+                        enabled = parseString(data);
+                    }
+
+                    //close the reader
+                    reader.Close();
+                }
+                //the file doesn't exist
+                else
+                {
+                    //redirect to the home page
+                    Response.Redirect("http://kinexus.ca");
+                }
+            }
+
+
+
+            output.Controls.Add(new LiteralControl("<table id=\"searchTable\" ><tr><td colspan=\"4\">" +
+                               "<h2>Search Menu</h2><br /><br /></td></tr>"));
+            //initialize a collection for the group order
+            List<string> groupOrder = new List<string>();
+
+            StringCollection orderedGroups = new StringCollection();
+
+            //arrange the order of the items
+            groupOrder.Add("Antibody");
+            groupOrder.Add("Protein Enzyme");
+            groupOrder.Add("Peptide");
+            groupOrder.Add("Protein Substrate");
+            groupOrder.Add("Bioactive Compound");
+            groupOrder.Add("Array");
+
+            //enable the groups in the order collection
+            for (int i = 0; i < 6; i++)
+            {
+                //add the groups in client's order
+                if (enabled.Contains(groupOrder[i]))
+                {
+                    //add the group to the collection
+                    orderedGroups.Add(groupOrder[i]);
+                }
+            }
+
+            //if the special order flag is set to true then use the orderd group collection otherwise use the enabled colletion
+            StringCollection groups = special_order ? orderedGroups : enabled;
+
+            //traverse all the groups in the enabled collection
+            foreach (string group in groups)
+            {
+                //instantiate a label for the group name
+                Label label = new Label();
+
+                //define the label
+                label.Text = group;
+                label.ID = group.Replace(" ", "_") + "_slabel";
+
+                //add the control to the panel
+                output.Controls.Add(new LiteralControl("<tr><td>"));
+                output.Controls.Add(label);
+                
+            }
+
+            //close the table
+            output.Controls.Add(new LiteralControl("</table>"));
+        }
         /// <summary>
         /// Loads the categories based on the enabled groupings.
         /// </summary>
         /// <param name="output">The placeholder to draw to.</param>
+        /// 
+        
         private void load_categories(PlaceHolder output, bool special_order)
         {
             //instantiate a collection for enabled groups
@@ -123,7 +264,8 @@ namespace ProductDB
                 }
             }
 
-            //add the table tag to the control
+            //add the table tag to the control 
+            
             output.Controls.Add(new LiteralControl("<table id=\"searchTable\" ><tr><td colspan=\"4\">" +
                                 "<h2>Search Menu</h2><span class=\"gray30\">Select desired category and type in at least 2 letters of the product name or view a complete list<span> <br /><br /></td></tr>"));
 
@@ -187,7 +329,7 @@ namespace ProductDB
                 //define the search button
                 search_button.Text = "Search";
                 search_button.ID = group.Replace(" ", "_") + "_button";
-
+                
                 //attach the click event
                 search_button.Click += new EventHandler(search_click);
 
@@ -218,6 +360,16 @@ namespace ProductDB
             //close the table
             output.Controls.Add(new LiteralControl("</table>"));
         }
+        
+
+        
+
+
+
+
+
+
+
 
         /// <summary>
         /// Product list button clicked.
@@ -289,6 +441,18 @@ namespace ProductDB
             term = term.Replace("_", "[_]");
             term = term.Replace("[", "[[]");
             return term.Replace("%", "[[%]");
+        }
+
+        protected void Timer1_Tick(object sender, EventArgs e)
+        {
+            SetImageURL();
+        }
+
+        private void SetImageURL()
+        {
+            Random rand = new Random();
+            int i = rand.Next(1, 5);
+            Image1.ImageUrl = "~/ImagesHome/" + i.ToString() + ".jpg";
         }
     }
 }
