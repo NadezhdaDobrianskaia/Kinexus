@@ -30,7 +30,7 @@ img
 }
 table
 {
-    border:px;
+    border:0px;
     max-height:90%;
 }
 
@@ -114,4 +114,5 @@ a:hover
 {
     color:#989898;
     font-size:13px;
+    
 }
