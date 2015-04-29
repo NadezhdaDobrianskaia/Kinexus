@@ -55,7 +55,7 @@
             height: auto;
             border: 2px solid #496077;
             border-radius:15px;
-            padding:16px 8px 8px 16px;
+            padding:5px 8px 8px 16px;
             height: auto;
             margin-top:10px;
         }
@@ -65,8 +65,8 @@
             border-radius:15px;
             margin-top:10px;
             height: auto;
-            padding-left:15px;
-            padding-right: 15px;
+            padding:5px 16px 8px 16px;
+            
         }
         .HomeImageDiv {
             border: 2px solid #496077;
