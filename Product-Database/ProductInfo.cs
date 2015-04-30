@@ -46,7 +46,7 @@ namespace Product_Database
         {
             try
             {
-                connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Kinexus Protein ProductDBConnectionStringServer"].ConnectionString);
+                connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString"].ConnectionString);
                 SqlCommand command = new SqlCommand("SELECT DISTINCT * FROM [ProductDB] WHERE ([Product_Number] = @Product_Number)", connection);
                 productIDFilter = new SqlParameter();
                 productIDFilter.ParameterName = "@Product_Number";
@@ -459,7 +459,7 @@ namespace Product_Database
         protected void BuildAdColum()
         {
             Page pageHolder = new Page();
-            outputHTML.Append(BuildOpeningColumHTML());
+            //outputHTML.Append(BuildOpeningColumHTML());
             AdRotator ad = (AdRotator)LoadControl("AdRotator.ascx");
             ad.MaxWidth = 295;
             ad.MaxHeight = 100;
@@ -467,7 +467,7 @@ namespace Product_Database
             StringWriter result = new StringWriter();
             HttpContext.Current.Server.Execute(pageHolder, result, false);
             outputHTML.Append(result.ToString());
-            outputHTML.Append(BuildClosingColumHTML());
+            //outputHTML.Append(BuildClosingColumHTML());
 
 
         }

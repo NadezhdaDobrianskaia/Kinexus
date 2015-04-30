@@ -18,6 +18,7 @@ namespace Product_Database
             {
 
                 BuildCommonFirstRow();
+                BuildAdColum();
                 AddLableInofPairToColum("Target Full Name: ", GetDBValue("Product_Name_Long"));
                 AddLableInofPairToColum("Target Alias: ", GetDBValue("Product_Name_Alias"));
                 AddLableInofPairToColum("Product Type Specific: ", GetDBValue("Product_Type_Specific"));
@@ -49,7 +50,6 @@ namespace Product_Database
                 HtmlBufferFlush();
                 BuildFiquersHTML();
                 BuildreferencesHTML();
-                BuildAdColum();
                 FillExtarColums();
                 output.Text += outputHTML;
             }
