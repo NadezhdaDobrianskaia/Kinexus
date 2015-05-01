@@ -26,8 +26,31 @@ namespace ProductDB
             SetImageURL();
             //load the categories, with special ordering set to true
             load_searchBar(search_box, true);
-            //load_categories(search_box, true);
+            load_categories(search_box, true);
             //load_hyperlinks(search_box, true);
+            var data = File.ReadAllText(Server.MapPath("~/InfoHomepage/productsHomepageDescription.txt"));
+            HiddenField1.Value = data.ToString();
+            /*
+            var data2 = File.ReadAllText(Server.MapPath("~/InfoHomepage/productsHomepageContact.txt"));
+            HiddenField2.Value = data2.ToString();
+            */
+            
+            string line;
+            string data3 = "";
+            System.IO.StreamReader file = new System.IO.StreamReader(Server.MapPath("~/InfoHomepage/productsHomepageContact.txt"));
+            while ((line = file.ReadLine()) != null)
+            {
+            
+                PlaceHolderContact.Controls.Add(new LiteralControl(line + "<br />"));          
+            }
+
+            
+                        
+            file.Close();
+
+
+
+
         }
 
         /// <summary>
@@ -362,15 +385,6 @@ namespace ProductDB
         }
         
 
-        
-
-
-
-
-
-
-
-
         /// <summary>
         /// Product list button clicked.
         /// </summary>
@@ -452,7 +466,7 @@ namespace ProductDB
         {
             Random rand = new Random();
             int i = rand.Next(1, 5);
-            Image1.ImageUrl = "~/ImagesHome/" + i.ToString() + ".jpg";
+            Image1.ImageUrl = "~/InfoHomepage/" + i.ToString() + ".jpg";
         }
     }
 }
