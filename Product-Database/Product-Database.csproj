@@ -108,11 +108,6 @@
     </Content>
     <Content Include="CartSummary.aspx" />
     <Content Include="CategoryManager.aspx" />
-    <Content Include="ImagesHome\1.jpg" />
-    <Content Include="ImagesHome\2.jpg" />
-    <Content Include="ImagesHome\3.jpg" />
-    <Content Include="ImagesHome\4.jpg" />
-    <Content Include="ImagesHome\5.jpg" />
     <Content Include="Images\images\AB-NK055_ERK1_CellCL.jpg" />
     <Content Include="Images\images\AB-NK055_ERK1_TissueL.jpg" />
     <Content Include="Images\images\AB-NK120-4_p38aMAPK_CellCL.jpg" />
@@ -286,6 +281,12 @@
     <Content Include="Images\images\KinSub_PEcRRGSF80.jpg" />
     <Content Include="Images\images\KinSub_PPE1RRGSF80.jpg" />
     <Content Include="Images\images\KinSub_PPE5RRDSP80.jpg" />
+    <Content Include="InfoHomepage\1.jpg" />
+    <Content Include="InfoHomepage\2.jpg" />
+    <Content Include="InfoHomepage\3.jpg" />
+    <Content Include="InfoHomepage\4.jpg" />
+    <Content Include="InfoHomepage\5.jpg" />
+    <Content Include="InfoHomepage\productsHomepageDescription.txt" />
     <Content Include="KinaseSubPeptideList.aspx" />
     <Content Include="ProductInfo_BioactiveCompound.aspx" />
     <Content Include="ProductInfo_Peptide.aspx" />
@@ -330,6 +331,7 @@
     <Content Include="Styles\CommonLayout.css" />
     <Content Include="Styles\Layout.css" />
     <Content Include="Styles\Layout2.css" />
+    <Content Include="Styles\Layout3 .css" />
     <Content Include="Styles\print.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />

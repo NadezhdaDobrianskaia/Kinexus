@@ -13,6 +13,7 @@ using System.Text;
 using System.Data.SqlClient;
 namespace ProductDB
 {
+
     public partial class _Default : System.Web.UI.Page
     {
         /// <summary>
@@ -26,7 +27,30 @@ namespace ProductDB
             //load the categories, with special ordering set to true
             load_searchBar(search_box, true);
             load_categories(search_box, true);
-            load_hyperlinks(search_box, true);
+            //load_hyperlinks(search_box, true);
+            var data = File.ReadAllText(Server.MapPath("~/InfoHomepage/productsHomepageDescription.txt"));
+            HiddenField1.Value = data.ToString();
+            /*
+            var data2 = File.ReadAllText(Server.MapPath("~/InfoHomepage/productsHomepageContact.txt"));
+            HiddenField2.Value = data2.ToString();
+            */
+            
+            string line;
+            string data3 = "";
+            System.IO.StreamReader file = new System.IO.StreamReader(Server.MapPath("~/InfoHomepage/productsHomepageContact.txt"));
+            while ((line = file.ReadLine()) != null)
+            {
+            
+                PlaceHolderContact.Controls.Add(new LiteralControl(line + "<br />"));          
+            }
+
+            
+                        
+            file.Close();
+
+
+
+
         }
 
         /// <summary>
@@ -89,7 +113,7 @@ namespace ProductDB
         {
 
             output.Controls.Add(new LiteralControl("<table id=\"searchHome\" ><tr><td></td><td>" +
-                                "<h2>Search Menu</h2>"));
+                                "<h2>Search Menu</h2></td></tr><td>"));
             
             //instantiate a textbox for the query string
             TextBox box = new TextBox();
@@ -126,7 +150,7 @@ namespace ProductDB
 
 
             output.Controls.Add(new LiteralControl("<tr>" +
-                "<td></td><td></td><td colspan=\"5\"><span class=\"gray30\">Select desired category and type in at least 2 letters of the product name or view a complete list<span> <br /><br /></td></tr>"));
+                "<td></td><td colspan=\"5\"><span class=\"gray30\">Select desired category and type in at least 2 letters of the product name or view a complete list<span> <br /><br /></td></tr>"));
 
             //close the table
             output.Controls.Add(new LiteralControl("</table>"));
@@ -218,9 +242,6 @@ namespace ProductDB
 
             //close the table
             output.Controls.Add(new LiteralControl("</table>"));
-
-
-
         }
         /// <summary>
         /// Loads the categories based on the enabled groupings.
@@ -364,15 +385,6 @@ namespace ProductDB
         }
         
 
-        
-
-
-
-
-
-
-
-
         /// <summary>
         /// Product list button clicked.
         /// </summary>
@@ -454,7 +466,7 @@ namespace ProductDB
         {
             Random rand = new Random();
             int i = rand.Next(1, 5);
-            Image1.ImageUrl = "~/ImagesHome/" + i.ToString() + ".jpg";
+            Image1.ImageUrl = "~/InfoHomepage/" + i.ToString() + ".jpg";
         }
     }
 }
