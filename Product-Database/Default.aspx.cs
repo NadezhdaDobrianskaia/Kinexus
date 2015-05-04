@@ -25,8 +25,8 @@ namespace ProductDB
             SetImageURL();
             //load the categories, with special ordering set to true
             load_searchBar(search_box, true);
-            //load_categories(search_box, true);
-            //load_hyperlinks(search_box, true);
+            load_categories(search_box, true);
+            load_hyperlinks(search_box, true);
         }
 
         /// <summary>

@@ -471,6 +471,23 @@ namespace Product_Database
 
 
         }
+
+        /// <summary>
+        /// Creates an add to be added to a control
+        /// </summary>
+        /// <returns></returns>
+        protected void BuildAdvertisement(Control control)
+        {
+            AdRotator ad = (AdRotator)LoadControl("AdRotator.ascx");
+            ad.MaxWidth = 295;
+            ad.MaxHeight = 100;
+            control.Controls.Add(ad);
+            Page pageHolder = new Page();
+            pageHolder.Controls.Add(ad);
+            StringWriter result = new StringWriter();
+            HttpContext.Current.Server.Execute(pageHolder, result, false);
+            outputHTML.Append(result.ToString());
+        }
         /// <summary>
         /// 
         /// </summary>

@@ -14,11 +14,10 @@ namespace Product_Database
         
          protected void Page_Load(object sender, EventArgs e)
         {
+            BuildAdColum();
             if (loadData())
-            {
-
+            {                
                 BuildCommonFirstRow();
-                BuildAdColum();
                 AddLableInofPairToColum("Target Full Name: ", GetDBValue("Product_Name_Long"));
                 AddLableInofPairToColum("Target Alias: ", GetDBValue("Product_Name_Alias"));
                 AddLableInofPairToColum("Product Type Specific: ", GetDBValue("Product_Type_Specific"));

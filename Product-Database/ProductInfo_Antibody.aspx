@@ -8,6 +8,7 @@
         <a class="checkoutLink" href="./CartSummary.aspx">View Shopping Cart</a><asp:ImageButton ID="ImageButton1" runat="server" CssClass="cartImg" ImageUrl="~/Images/cart2.png"
             onmouseover="mopen('DropDownMenu')" onmouseout="mclosetime()" 
             Height="23px" Width="157px" />
+        <asp:PlaceHolder ID="advertisement" runat="server"></asp:PlaceHolder>
         <div id="DropDownMenu" style="visibility: hidden; top: 36px; left: -6px;" onmouseover="mcancelclosetime()"
             onmouseout="mclosetime()" class="">
             <%
