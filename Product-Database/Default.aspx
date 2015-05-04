@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="ProductDB._Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
@@ -27,7 +27,6 @@
             margin-top: 12px;
             margin-bottom: 0px;
         }
-
         /**/
         .FirstLeftHomeDiv{
           float:left;
@@ -36,7 +35,6 @@
           text-align:left;
          padding:0px;
          margin:0px;
-
          }
         .FirstRightHomeDiv{
             float:right;
@@ -44,13 +42,11 @@
            padding:0px;
            margin:0px;
         }
-
          .HomeCategoryList{
             list-style-type: none;
             padding:0px 15px 30px 15px; margin:0px;
             text-align:left;   
         }
-
         .HomeDiv{
             height: auto;
             border: 2px solid #496077;
@@ -59,7 +55,6 @@
             height: auto;
             margin-top:10px;
         }
-
         .HomeSearchDiv{
             border: 2px solid #496077;
             border-radius:15px;
@@ -75,7 +70,6 @@
             height: auto;
             margin-top:10px;
         }
-
         .ProductsHomepageEnd{
           text-align:left;
           width:100%;
@@ -107,8 +101,6 @@
         .SecondRightHomeDiv p {
             clear:left;
         }
-
-
         .ProductsContact{
         font-size:13px;
         }
@@ -120,7 +112,6 @@
           var data = $("#<%=HiddenField1.ClientID %>").val();
           $('#pTextData').text(data);
       });
-
     </script>
 
 
@@ -217,4 +208,3 @@
            
 
 </asp:Content>
-
