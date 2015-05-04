@@ -107,7 +107,23 @@
         .SecondRightHomeDiv p {
             clear:left;
         }
+
+
+        .ProductsContact{
+        font-size:13px;
+        }
     </style>
+    
+    <!-- script responsible to help populate the products homepage description from a "~/InfoHomepage/productsHomepageDescription.txt file-->
+    <script type="text/javascript" language="javascript">
+      $(document).ready(function () {
+          var data = $("#<%=HiddenField1.ClientID %>").val();
+          $('#pTextData').text(data);
+      });
+
+    </script>
+
+
 
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
@@ -128,7 +144,10 @@
                 </ul>
                 </div>
                <div class="HomeDiv">
-                <p>This is where the text about the company will go. aksjdflksdjfkdsjfkljsldfkjsldkf alkdjlfaksjdflksjd ;lajdlfkj lkajdslkfdjs ;lkajdsflksjd lkajds;fklj ;akljdsf;laskjf alkdfsj;ladskj kaljdladskjf ;lkajdflkdfjs ;lakjdslfkajdsf ;lkajdlfkjads ;lkajdlkjafds;lk lakjds;lfakdsjlf;l aldskja;dlkjj a;lkdjf;sldkj ;alkdsjf;ldskj ;lakdsjfladskjf ;lkajdslfkjdsl;f ;akljdslfkj </p>
+                   <asp:HiddenField ID="HiddenField1" runat="server" />
+                   <p id="pTextData">
+                    </p>
+                  
                 </div>
             </div>
 
@@ -136,7 +155,7 @@
                <div class="HomeSearchDiv">
                 <asp:PlaceHolder ID="search_box" runat="server"></asp:PlaceHolder>
 
-                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionStringServer %>"
+                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
                 SelectCommand="SELECT * FROM [ProductDB]"></asp:SqlDataSource>
 
             </div>
@@ -155,8 +174,44 @@
             
         </div>
         <div class="ProductsHomepageEnd">
-            <div class="SecondLeftHomeDiv"><p>this is where the list will go</p></div>
-            <div class="SecondRightHomeDiv"><p>this is where the description will go</p></div>
+            <div class="SecondLeftHomeDiv">
+
+                <asp:PlaceHolder ID="PlaceHolderNewPdt" runat="server">
+
+                
+                <asp:SqlDataSource ID="SqlDataSourceNewPdt" runat="server"
+                     ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
+                    SelectCommand="SELECT [Product_Name_Short], [Product_Number],[Product_Type_General] FROM [ProductDB] WHERE Product_Name_Long='Mitogen-activated protein kinase 14'" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">
+                    <SelectParameters>
+                        <asp:Parameter DefaultValue="Antibody" Name="Product_Type_General" Type="String" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+                
+                </asp:PlaceHolder>
+
+                <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSourceNewPdt">
+                    <ItemTemplate>
+                        <table>
+                            <tr>
+                                <td><%# (((ListViewDataItem)Container).DisplayIndex + 1) %>.</td>
+                                <td><asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("Product_Name_Short") %>'
+                                            NavigateUrl='<%#"~/ProductInfo_" + Eval("Product_Type_General")+".aspx?Product_Number=" + Eval("Product_Number")%>'></asp:HyperLink>
+                                </td>
+                            
+                            </tr>
+                        </table>
+                    </ItemTemplate>
+                </asp:ListView>
+            </div>
+            <div class="SecondRightHomeDiv">
+                <p class="ProductsContact">
+                    <asp:PlaceHolder ID="PlaceHolderContact" runat="server">
+                       
+
+
+                    </asp:PlaceHolder>
+                </p>
+            </div>
         </div>
     </form>
            
