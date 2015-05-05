@@ -43,7 +43,7 @@
                 }    
             %>
         </div>
-            <p>I am in Antibody page</p>
+           
     </div>
     </form>
     <div class="productInfo">
