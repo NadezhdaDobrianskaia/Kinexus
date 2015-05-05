@@ -8,7 +8,7 @@
         minLength: 1
     });
     $("#ctl00_MainContent_Protein_Substrate_textbx").autocomplete({
-        source: "ProductDataList.aspx?cat=Protein Substrate ",
+        source: "ProductDataList.aspx?cat=Protein Substrate",
         minLength: 1
     });
     $("#ctl00_MainContent_Microarray_textbx").autocomplete({

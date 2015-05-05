@@ -166,13 +166,19 @@
         </div>
         <div class="ProductsHomepageEnd">
             <div class="SecondLeftHomeDiv">
-
+                <h2>New Products</h2>
                 <asp:PlaceHolder ID="PlaceHolderNewPdt" runat="server">
 
                 
                 <asp:SqlDataSource ID="SqlDataSourceNewPdt" runat="server"
                      ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
-                    SelectCommand="SELECT [Product_Name_Short], [Product_Number],[Product_Type_General] FROM [ProductDB] WHERE Product_Name_Long='Mitogen-activated protein kinase 14'" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">
+                    SelectCommand="
+                    SELECT [New_Product_Order], [Product_Number],[Product_Type_General],[Brief_Description] 
+                    FROM [ProductDB]
+                    Where New_Product_Order != 0
+
+" 
+                    ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Antibody" Name="Product_Type_General" Type="String" />
                     </SelectParameters>
@@ -181,11 +187,15 @@
                 </asp:PlaceHolder>
 
                 <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSourceNewPdt">
+                    
                     <ItemTemplate>
+
+
                         <table>
+                            
                             <tr>
                                 <td><%# (((ListViewDataItem)Container).DisplayIndex + 1) %>.</td>
-                                <td><asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("Product_Name_Short") %>'
+                                <td><asp:HyperLink ID="HyperLink1" runat="server" Text='<%# Eval("Brief_Description") %>'
                                             NavigateUrl='<%#"~/ProductInfo_" + Eval("Product_Type_General")+".aspx?Product_Number=" + Eval("Product_Number")%>'></asp:HyperLink>
                                 </td>
                             

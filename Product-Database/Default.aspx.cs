@@ -26,7 +26,7 @@ namespace ProductDB
             SetImageURL();
             //load the categories, with special ordering set to true
             load_searchBar(search_box, true);
-            load_categories(search_box, true);
+            //load_categories(search_box, true);
             //load_hyperlinks(search_box, true);
             var data = File.ReadAllText(Server.MapPath("~/InfoHomepage/productsHomepageDescription.txt"));
             HiddenField1.Value = data.ToString();
@@ -114,14 +114,16 @@ namespace ProductDB
 
             output.Controls.Add(new LiteralControl("<table id=\"searchHome\" ><tr><td></td><td>" +
                                 "<h2>Search Menu</h2></td></tr><td>"));
-            
+
             //instantiate a textbox for the query string
             TextBox box = new TextBox();
 
             //instantiate buttons for search and for product list
             Button search_button = new Button(), list_button = new Button();
 
-            string group = "";
+            string group = "Peptide"; // this had been the problem changing code compared to old code
+                                       //need a drop down selection list to help choose and add the id to the dropbox
+
             //define textbox
             box.ID = group.Replace(" ", "_") + "_textbx";
             box.Attributes.Add("class", "searchBox");
@@ -155,6 +157,7 @@ namespace ProductDB
             //close the table
             output.Controls.Add(new LiteralControl("</table>"));
         }
+        /*
         private void load_hyperlinks(PlaceHolder output, bool special_order)
         {
             //instantiate a collection for enabled groups
@@ -384,7 +387,7 @@ namespace ProductDB
             output.Controls.Add(new LiteralControl("</table>"));
         }
         
-
+        */
         /// <summary>
         /// Product list button clicked.
         /// </summary>
