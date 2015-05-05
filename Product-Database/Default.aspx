@@ -130,6 +130,7 @@
     
     <form runat="server" method="post" style="height: auto;">
         <div class="productsHomepage">
+            <!-- this is the list of types of products Kinexus has -->
             <div class ="FirstLeftHomeDiv">
                <div class="HomeDiv">           
                 <ul class="HomeCategoryList">
@@ -143,7 +144,9 @@
                     <li><asp:HyperLink ID="HyperLink7" runat="server" Text="Bioactive Compound" NavigateUrl="~/ProductsList_BioactiveCompound.aspx"></asp:HyperLink></li>                                                       
                 </ul>
                 </div>
-               <div class="HomeDiv">
+               
+                <!-- this is the discription of the Kinexus products search page has -->
+                <div class="HomeDiv">
                    <asp:HiddenField ID="HiddenField1" runat="server" />
                    <p id="pTextData">
                     </p>
@@ -151,14 +154,18 @@
                 </div>
             </div>
 
+
             <div class ="FirstRightHomeDiv">
-               <div class="HomeSearchDiv">
+               <!-- this is the search of Kinexus products -->
+                <div class="HomeSearchDiv">
                 <asp:PlaceHolder ID="search_box" runat="server"></asp:PlaceHolder>
 
                 <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
                 SelectCommand="SELECT * FROM [ProductDB]"></asp:SqlDataSource>
 
             </div>
+
+               <!-- this is the pictures displayed on Kinexus products homepage-->
                <div class="HomeImageDiv">
                 <asp:ScriptManager ID="ScriptManager1" runat="server">
                 </asp:ScriptManager>
@@ -174,11 +181,11 @@
             
         </div>
         <div class="ProductsHomepageEnd">
+            
+            <!-- this is the NEW PRODUCTS section on Kinexus products search page-->
             <div class="SecondLeftHomeDiv">
                 <h2>New Products</h2>
                 <asp:PlaceHolder ID="PlaceHolderNewPdt" runat="server">
-
-                
                 <asp:SqlDataSource ID="SqlDataSourceNewPdt" runat="server"
                      ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
                     SelectCommand="
@@ -213,6 +220,8 @@
                     </ItemTemplate>
                 </asp:ListView>
             </div>
+
+            <!-- this is the contacts of Kinexus products search page-->
             <div class="SecondRightHomeDiv">
                 <p class="ProductsContact">
                     <asp:PlaceHolder ID="PlaceHolderContact" runat="server">
