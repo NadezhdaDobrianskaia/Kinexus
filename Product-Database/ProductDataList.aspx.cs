@@ -17,9 +17,9 @@ namespace ProductDB
 
     public partial class ProductDataList : System.Web.UI.Page
     {
-
+        
         private const char Alias_Delim = ';';
-        private static string[] StanderdDBColumns = { "Product_Number ", "Product_Name_Short", "Product_Type_General" };
+        private static string[] StanderdDBColumns = { "Product_Number", "Product_Name_Short", "Product_Name_Long", "Product_Name_Alias" };
         /// <summary>
         /// A data class to represent the autocompleet data for JSON sterilization 
         /// </summary>
@@ -47,7 +47,7 @@ namespace ProductDB
             for (int i = 0; i < DBColumns.Length; i++)
             {
                 string colum = DBColumns[i];
-                sql += "SELECT " + colum + " FROM ProductDB WHERE( ";
+                sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General" + " FROM ProductDB WHERE( ";
                 if (cat != null)
                 {
                     sql += "Product_Type_General ='" + cat + "' AND ";
@@ -85,8 +85,7 @@ namespace ProductDB
                     //establish an connection to the SQL server 
                     SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString"].ConnectionString);
 
-                    SqlCommand command = new SqlCommand(
-                        BuildSQL(term, cat, mode), connection);
+                    SqlCommand command = new SqlCommand(BuildSQL(term, cat, mode), connection);
                     connection.Open();
                     reader = command.ExecuteReader();
                     
@@ -94,7 +93,8 @@ namespace ProductDB
                     while (reader.Read())
                     {
                         AutocompleteInfo info = new AutocompleteInfo();
-                        string value = reader[0].ToString();
+                        string value = reader["Product_Number"].ToString() + "      " + reader["Product_Name_Short"]
+                            + "      " + reader["Product_Type_General"];
                         //string lable = reader[1].ToString();
                         if (value.Contains(Alias_Delim + " "))
                         {
