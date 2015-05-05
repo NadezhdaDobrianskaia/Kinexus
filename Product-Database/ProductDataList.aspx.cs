@@ -42,8 +42,17 @@ namespace ProductDB
 
             }
             string sql = "";//initialize  to and empty string ;
-            string SeachSql = " LIKE'" + EscapeSQlLikeString(term) + "%'";//build the like string
-            //lop thor all the clumn to concat i= 
+            string SeachSql = " LIKE'%" + EscapeSQlLikeString(term) + "%'";//build the like string
+            //lop thor all the clumn to concat i=
+            sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General FROM ProductDB WHERE ";
+            for (int i = 0; i < DBColumns.Length; i++)
+            {
+                sql += "(" + DBColumns[i] + " IS NOT NULL AND " + DBColumns[i] + SeachSql + ")";
+                if (i != DBColumns.Length - 1)
+                    sql += " OR ";
+            }
+
+            /* Uncomment this and replace the other code if you plan to search by category.
             for (int i = 0; i < DBColumns.Length; i++)
             {
                 string colum = DBColumns[i];
@@ -58,6 +67,8 @@ namespace ProductDB
                     sql += " UNION ";
                 }
             }
+             */
+
             return sql + ";";
 
         }
