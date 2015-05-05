@@ -42,7 +42,6 @@
                 }    
             %>
         </div>
-                    <p>I am in Peptide page</p>
     </div>
     </form>
 <div class="productInfo">

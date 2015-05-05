@@ -19,7 +19,7 @@ namespace ProductDB
     {
 
         private const char Alias_Delim = ';';
-        private static string[] StanderdDBColumns = { "Product_Name_Short ", "Product_Name_Long", "Product_Name_Alias" };
+        private static string[] StanderdDBColumns = { "Product_Number ", "Product_Name_Short", "Product_Type_General" };
         /// <summary>
         /// A data class to represent the autocompleet data for JSON sterilization 
         /// </summary>
@@ -72,6 +72,7 @@ namespace ProductDB
                 mode = new string[1];
                 mode[0] = "Product_Number";
             }
+
             if (term != null)//
             {
                 //URl encode to protect against SQL injection attracts 

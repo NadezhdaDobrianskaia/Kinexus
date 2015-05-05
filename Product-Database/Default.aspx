@@ -1,4 +1,4 @@
-<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
     CodeBehind="Default.aspx.cs" Inherits="ProductDB._Default" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
@@ -146,7 +146,7 @@
                <div class="HomeSearchDiv">
                 <asp:PlaceHolder ID="search_box" runat="server"></asp:PlaceHolder>
 
-                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
+                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString %>"
                 SelectCommand="SELECT * FROM [ProductDB]"></asp:SqlDataSource>
 
             </div>
@@ -171,7 +171,7 @@
 
                 
                 <asp:SqlDataSource ID="SqlDataSourceNewPdt" runat="server"
-                     ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
+                     ConnectionString="Data Source=UOI100-HP\SQLEXPRESS;Initial Catalog=comp4900;Integrated Security=True"
                     SelectCommand="SELECT [Product_Name_Short], [Product_Number],[Product_Type_General] FROM [ProductDB] WHERE Product_Name_Long='Mitogen-activated protein kinase 14'" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Antibody" Name="Product_Type_General" Type="String" />

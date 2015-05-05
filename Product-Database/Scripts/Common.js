@@ -23,6 +23,10 @@
         source: "ProductDataList.aspx?cat=Peptide",
         minLength: 1
     });
+    $("#ctl00_MainContent_unifiedSearchBar_textbx").autocomplete({
+		source: "ProductDataList.aspx?",
+		minLength: 1
+	});
     
     //adds extra mark 
     $(".column").each(function (i) {
