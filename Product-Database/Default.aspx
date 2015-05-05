@@ -172,7 +172,7 @@
                 
                 <asp:SqlDataSource ID="SqlDataSourceNewPdt" runat="server"
                      ConnectionString="Data Source=UOI100-HP\SQLEXPRESS;Initial Catalog=comp4900;Integrated Security=True"
-                    SelectCommand="SELECT [Product_Name_Short], [Product_Number],[Product_Type_General] FROM [ProductDB] WHERE Product_Name_Long='Mitogen-activated protein kinase 14'" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">                    <SelectParameters>
+                    SelectCommand="SELECT [New_Product_Order], [Product_Number],[Product_Type_General], [Brief_Description] FROM [ProductDB] WHERE New_Product_Order !=0" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">                    <SelectParameters>
                         <asp:Parameter DefaultValue="Antibody" Name="Product_Type_General" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
