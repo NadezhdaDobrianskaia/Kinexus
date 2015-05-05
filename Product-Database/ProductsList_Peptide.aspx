@@ -37,7 +37,7 @@
             <td class="style2">
                 <asp:TextBox ID="Peptide_textbx" runat="server"></asp:TextBox>
                 <%-- connection string for textbox --%>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionStringServer %>"
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString %>"
                     SelectCommand="SELECT [Product_Name_Short] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Short] IS NOT NULL)
 UNION
 SELECT [Product_Name_Long] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Long] IS NOT NULL)
@@ -52,7 +52,7 @@ SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Pr
             <td>
                 <asp:Button ID="ButtonSearch" runat="server" Text="Search" OnClick="Button1_Click" />
                 <%-- connection string for datalink --%>
-                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionStringServer %>"
+                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString %>"
                     SelectCommand="SELECT * FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General)">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Peptides" Name="Product_Type_General" Type="String" />
@@ -102,7 +102,7 @@ SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Pr
                     </GroupTemplate>
                 </asp:ListView>
                 <%-- connection string for productlist --%>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionStringServer %>"
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString %>"
                     SelectCommand="SELECT [Product_Name_Short], [Product_Number] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General) ORDER BY [Product_Name_Short], [Product_Number]">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Peptide" Name="Product_Type_General" Type="String" />

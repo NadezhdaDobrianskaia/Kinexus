@@ -17,10 +17,8 @@ namespace ProductDB
 
     public partial class ProductDataList : System.Web.UI.Page
     {
-
+        
         private const char Alias_Delim = ';';
-
-        //The columns to search by
         private static string[] StanderdDBColumns = { "Product_Number", "Product_Name_Short", "Product_Name_Long", "Product_Name_Alias" };
         /// <summary>
         /// A data class to represent the autocompleet data for JSON sterilization 
@@ -49,7 +47,7 @@ namespace ProductDB
             for (int i = 0; i < DBColumns.Length; i++)
             {
                 string colum = DBColumns[i];
-                sql += "SELECT " + colum + ", Product_Name_Short, Product_Type_General" + " FROM ProductDB WHERE( ";
+                sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General" + " FROM ProductDB WHERE( ";
                 if (cat != null)
                 {
                     sql += "Product_Type_General ='" + cat + "' AND ";
@@ -74,6 +72,7 @@ namespace ProductDB
                 mode = new string[1];
                 mode[0] = "Product_Number";
             }
+
             if (term != null)//
             {
                 //URl encode to protect against SQL injection attracts 
@@ -84,7 +83,7 @@ namespace ProductDB
                 try
                 {
                     //establish an connection to the SQL server 
-                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Kinexus Protein ProductDBConnectionString"].ConnectionString);
+                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString"].ConnectionString);
 
                     SqlCommand command = new SqlCommand(BuildSQL(term, cat, mode), connection);
                     connection.Open();

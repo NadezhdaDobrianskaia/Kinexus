@@ -26,8 +26,8 @@ namespace Product_Database
         public enum columSize { mini, med, full }
         private int htmlBufferLines;
         public const int MAX_CAHR_PER_LINE = 40;
-        public const int MAX_LINE_PER_MED_COLUM = 24;
-        public const int MAX_LINE_PER_COLUM = 24;
+        public const int MAX_LINE_PER_MED_COLUM = 28;
+        public const int MAX_LINE_PER_COLUM = 28;
         public const int MAX_MINI_COLUM = 3;
         public const int MAX_MED_COLUM = 3;
         private int columcount;
@@ -46,11 +46,7 @@ namespace Product_Database
         {
             try
             {
-                //Data Source=.\SQLEXPRESS;Initial Catalog="Kinexus Protein ProductDB";Integrated Security=True
-                    //Kinexus Protein ProductDBConnectionStringServer
-
-
-                connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Kinexus Protein ProductDBConnectionString"].ConnectionString);
+                connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString"].ConnectionString);
                 SqlCommand command = new SqlCommand("SELECT DISTINCT * FROM [ProductDB] WHERE ([Product_Number] = @Product_Number)", connection);
                 productIDFilter = new SqlParameter();
                 productIDFilter.ParameterName = "@Product_Number";
@@ -141,7 +137,7 @@ namespace Product_Database
                         if (extraBlockSpace && (newNumberOfLines != MAX_LINE_PER_MED_COLUM || (newNumberOfLines != MAX_LINE_PER_COLUM && size == columSize.full)))
                         {
                             //append line breaks
-                            HTMLBuffer.Append(" <br /> <br />");
+                            HTMLBuffer.Append("<br /><br />");
                             //increment number of lines so it includes html line breaks
                             newNumberOfLines++;
                         }
@@ -463,7 +459,7 @@ namespace Product_Database
         protected void BuildAdColum()
         {
             Page pageHolder = new Page();
-            outputHTML.Append(BuildOpeningColumHTML());
+            //outputHTML.Append(BuildOpeningColumHTML());
             AdRotator ad = (AdRotator)LoadControl("AdRotator.ascx");
             ad.MaxWidth = 295;
             ad.MaxHeight = 100;
@@ -471,9 +467,26 @@ namespace Product_Database
             StringWriter result = new StringWriter();
             HttpContext.Current.Server.Execute(pageHolder, result, false);
             outputHTML.Append(result.ToString());
-            outputHTML.Append(BuildClosingColumHTML());
+            //outputHTML.Append(BuildClosingColumHTML());
 
 
+        }
+
+        /// <summary>
+        /// Creates an add to be added to a control
+        /// </summary>
+        /// <returns></returns>
+        protected void BuildAdvertisement(Control control)
+        {
+            AdRotator ad = (AdRotator)LoadControl("AdRotator.ascx");
+            ad.MaxWidth = 295;
+            ad.MaxHeight = 100;
+            control.Controls.Add(ad);
+            Page pageHolder = new Page();
+            pageHolder.Controls.Add(ad);
+            StringWriter result = new StringWriter();
+            HttpContext.Current.Server.Execute(pageHolder, result, false);
+            outputHTML.Append(result.ToString());
         }
         /// <summary>
         /// 

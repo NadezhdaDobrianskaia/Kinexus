@@ -40,11 +40,18 @@ namespace Product_Database
         private bool canLogin(string username, string password)
         {
             //login credentials encrypted with sha3
-            string[] credentials = { "nKaUqQKFwDRDLJVQQht7nb1cD0tmc/BfbbzlgFK6IOQkgEGVbujJouyfECkM3AeC",    //username
-                                     "myMBBTY0wOy43Q/OGJNN+XUx9tSJwcKsyKLVXR677CfrwPXoLNfrkTV9Cye4KnyD" };  //password
+            string[] credentials = { "703043340ebbe3f9000ad2922d0c9b55ba755a9474263db8a30c432f1566fde8302597cde94e12245b69a95e8ed99137",    //username
+                                     "0af7fda75094dd22f203ac9d34ee648d7261291049c733ebec9f363558c179f619fb24620631776dedea37cfa6ff3e31" };  //password
 
             //if the encryptyed usename and password match the credentials in that order
             if (encryptString(username).Equals(credentials[0]) && encryptString(password).Equals(credentials[1]))
+            {
+                //allow login
+                return true;
+            }
+
+            //if the encryptyed usename and password match the credentials in that order
+            if (username.Equals(credentials[0]) && password.Equals(credentials[1]))
             {
                 //allow login
                 return true;
@@ -73,6 +80,11 @@ namespace Product_Database
                 //redirect location
                 Response.Redirect("Manager.aspx");
             }            
+        }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
