@@ -38,7 +38,9 @@ namespace ProductDB
                 products_page_content();
             }
         }
-
+        /// <summary>
+        /// Reading in all data in order to display the products homepage
+        /// </summary>
         private void products_page_content()
         {
 
