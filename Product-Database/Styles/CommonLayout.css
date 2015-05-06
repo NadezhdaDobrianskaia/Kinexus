@@ -38,7 +38,7 @@ Common css layout rules
 {
 	position: absolute;
 	top: 108px;
-	margin-left: -55px;
+	margin-left: 0px;
 	z-index: 121;
 }
 #menu ul
