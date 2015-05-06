@@ -42,7 +42,7 @@ namespace ProductDB
 
             }
             string sql = "";//initialize  to and empty string ;
-            string SeachSql = " LIKE'%" + EscapeSQlLikeString(term) + "%'";//build the like string
+            string SeachSql = " LIKE'" + EscapeSQlLikeString(term) + "%'";//build the like string
             //lop thor all the clumn to concat i=
             sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General FROM ProductDB WHERE ";
             for (int i = 0; i < DBColumns.Length; i++)
