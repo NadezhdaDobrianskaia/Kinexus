@@ -172,7 +172,7 @@ namespace ProductDB
             //instantiate buttons for search and for product list
             Button search_button = new Button(), list_button = new Button();
 
-            string group = ""; // this had been the problem changing code compared to old code
+            string group = "unifiedSearchBar"; // this had been the problem changing code compared to old code
                                        //need a drop down selection list to help choose and add the id to the dropbox
 
             //define textbox
@@ -460,14 +460,58 @@ namespace ProductDB
         /// <param name="e">The event arguments.</param>
         protected void search_click(object sender, EventArgs e)
         {
+            string product_group = "";
+            string product_name = "";
+            string product_num = "";
             //cast the sender as a button
             Button button_sender = (Button)sender;
 
             //grab the group tag on the button
-            string button_group = button_sender.ID.Substring(0, button_sender.ID.Length - 7);
+            string group_id = button_sender.ID.Substring(0, button_sender.ID.Length - 7); //unifiedsearch etc.
 
             //get the value in the associated textbox from the post data and strip the tags
-            string box_value = Server.HtmlEncode(Request.Form["ctl00$MainContent$" + button_group + "_textbx"]);
+            string box_value = Server.HtmlEncode(Request.Form["ctl00$MainContent$" + group_id + "_textbx"]);
+
+            for (int i = 0; i < box_value.Length; i++)
+            {
+                if (box_value[i] == ' ' && box_value[i + 1] == '-' && box_value[i + 2] == ' ')
+                {
+                    product_num = box_value.Substring(0, i);
+                    ++i;
+                    ++i;
+
+                }
+
+            }
+
+            for (int i = 0; i < product_num.Length; i++)
+            {
+                if (product_num[i] == 'A' && product_num[i + 1] == 'B')
+                {
+                    product_group = "Antibody";
+                }
+                else if (product_num[i] == 'S' && product_num[i + 1] == 'P')
+                {
+                    product_group = "Peptide";
+                }
+                else if (product_num[i] == 'B' && product_num[i + 1] == 'C')
+                {
+                    product_group = "BioactiveCompound";
+                }
+                else if (product_num[i] == 'P' && product_num[i + 1] == 'E')
+                {
+                    product_group = "ProteinEnzyme";
+                }
+                else if (product_num[i] == 'M' && product_num[i + 1] == 'A')
+                {
+                    product_group = "MicroArray";
+                }
+                else if (product_num[i] == 'P' && product_num[i + 1] == 'S')
+                {
+                    product_group = "ProteinSubstrate";
+                }
+
+            }
 
             //if the query value box is empty do nothing
             if (box_value.Trim().Length == 0 || box_value.Trim() == "Enter Search Term")
@@ -479,10 +523,16 @@ namespace ProductDB
             //select the product table from the database
             DataView productTable = (DataView)SqlDataSource7.Select(DataSourceSelectArguments.Empty);
 
-            //filter data from the selected database table
-            productTable.RowFilter = "Product_Name_Short = '" + box_value + "' " +
-                                     "OR Product_Name_Long = '" + box_value + "' " +
-                                     "OR Product_Name_Alias LIKE '%" + EscapeSQlLikeString(box_value) + "%'";
+            if (group_id.Equals("unifiedSearchBar"))
+            {
+                //filter data from the selected database table
+                productTable.RowFilter = "Product_Number = '" + product_num + "' ";
+                /*
+                                          "OR Product_Name_Long = '" + box_value + "' " +
+                                         "OR Product_Name_Alias LIKE '%" + EscapeSQlLikeString(box_value) + "%'" +
+                                         "OR Pep_Sequence LIKE '%" + EscapeSQlLikeString(box_value) + "%'";*/
+
+            }
          
             //create a dataview row
             DataRowView row = (DataRowView)productTable[0];
@@ -493,12 +543,12 @@ namespace ProductDB
             //set the product values
             product.Product_Name = box_value;
             product.Product_Number = row["Product_Number"].ToString();
-
+            
             //if the page is valid
             if (Page.IsValid)
             {
-                //redirect to the associated product detail page
-                Response.Redirect("~/ProductInfo_" + button_group.Replace("_", string.Empty) + ".aspx?Product_Number=" + product.Product_Number);
+                //redirect to the associated product detail page .Replace("_", string.Empty) 
+                Response.Redirect("~/ProductInfo_" + product_group.Replace("_", string.Empty)  + ".aspx?Product_Number=" + product.Product_Number);
             }
         }
         /// <summary>

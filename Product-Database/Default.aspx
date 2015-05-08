@@ -146,8 +146,8 @@
                <div class="HomeSearchDiv">
                 <asp:PlaceHolder ID="search_box" runat="server"></asp:PlaceHolder>
 
-                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
-                SelectCommand="SELECT * FROM [ProductDB]" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString2 %>"
+                SelectCommand="SELECT * FROM [ProductDB]"></asp:SqlDataSource>
 
             </div>
                <div class="HomeImageDiv">
@@ -171,7 +171,7 @@
 
                 
                 <asp:SqlDataSource ID="SqlDataSourceNewPdt" runat="server"
-                     ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
+                     ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString2 %>"
                     SelectCommand="SELECT [New_Product_Order], [Product_Number],[Product_Type_General], [Brief_Description] FROM [ProductDB] WHERE New_Product_Order !=0" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">                    <SelectParameters>
                         <asp:Parameter DefaultValue="Antibody" Name="Product_Type_General" Type="String" />
                     </SelectParameters>

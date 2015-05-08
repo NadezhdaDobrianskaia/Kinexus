@@ -19,7 +19,7 @@ namespace ProductDB
     {
         
         private const char Alias_Delim = ';';
-        private static string[] StanderdDBColumns = { "Product_Number", "Product_Name_Short", "Product_Name_Long", "Product_Name_Alias" };
+        private static string[] StanderdDBColumns = { "Product_Number", "Product_Name_Short", "Product_Name_Long", "Product_Name_Alias", "Pep_Sequence" };
         /// <summary>
         /// A data class to represent the autocompleet data for JSON sterilization 
         /// </summary>
@@ -44,7 +44,7 @@ namespace ProductDB
             string sql = "";//initialize  to and empty string ;
             string SeachSql = " LIKE'%" + EscapeSQlLikeString(term) + "%'";//build the like string
             //lop thor all the clumn to concat i=
-            sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General FROM ProductDB WHERE ";
+            sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General, Pep_Sequence FROM ProductDB WHERE ";
             for (int i = 0; i < DBColumns.Length; i++)
             {
                 sql += "(" + DBColumns[i] + " IS NOT NULL AND " + DBColumns[i] + SeachSql + ")";
@@ -91,10 +91,11 @@ namespace ProductDB
                 cat = Server.HtmlEncode(cat);
                 SqlDataReader reader = null;
                 List<AutocompleteInfo> data = new List<AutocompleteInfo>();
+                
                 try
                 {
                     //establish an connection to the SQL server 
-                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Kinexus Protein ProductDBConnectionString"].ConnectionString);
+                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString2"].ConnectionString);
 
                     SqlCommand command = new SqlCommand(BuildSQL(term, cat, mode), connection);
                     connection.Open();
@@ -104,8 +105,8 @@ namespace ProductDB
                     while (reader.Read())
                     {
                         AutocompleteInfo info = new AutocompleteInfo();
-                        string value = reader["Product_Number"].ToString() + "      " + reader["Product_Name_Short"]
-                            + "      " + reader["Product_Type_General"];
+                        string value = reader["Product_Number"].ToString() + " - " + reader["Product_Name_Short"]
+                            + " : " + reader["Product_Type_General"];
                         //string lable = reader[1].ToString();
                         if (value.Contains(Alias_Delim + " "))
                         {
