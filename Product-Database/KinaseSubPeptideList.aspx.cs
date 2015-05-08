@@ -15,7 +15,7 @@ namespace Product_Database
         public ArrayList row = new ArrayList();
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Kinexus Protein ProductDBConnectionStringServer"].ConnectionString);
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString"].ConnectionString);
             SqlDataReader reader = null;
             try
             {
