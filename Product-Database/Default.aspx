@@ -44,23 +44,30 @@
         /* category type list items*/
         .HomeCategoryList{
             list-style-type: none;
-            padding:0px 15px 30px 15px; margin:0px;
-            text-align:left;   
+            padding:0px 15px 30px 0px; margin:0px;
+            text-align:left;  
+            line-height: 150%;
         }
         .CategoryDiv{
             min-height: 170px;
             border: 2px solid #496077;
             border-radius:15px;
-            padding:5px 8px 8px 16px;
+            padding:5px 8px 8px 24px;
             margin-top:10px;
         }
+       
         /*Homepage description*/
         .DescriptionHomePage{
-            min-height: 360px;
+            min-height: 375px;
             border: 2px solid #496077;
             border-radius:15px;
-            padding:5px 8px 8px 16px;
+            padding:5px 8px 8px 24px;
             margin-top:10px;
+            font-size: 15px;
+        }
+
+        #pTextData {
+            line-height: 110%;
         }
         /*----------- end of left column of the top part of the products homepage -------------*/
 
@@ -78,12 +85,12 @@
             border: 2px solid #496077;
             border-radius:15px;
             margin-top:10px;
-            min-height: 110px;
+            min-height: 115px;
             padding:5px 16px 8px 16px;
             
         }
         #HomeImageDiv {
-            min-height: 420px;
+            min-height: 430px;
             border: 2px solid #496077;
             border-radius:15px;
             padding:8px 8px 8px 8px; 
@@ -107,7 +114,7 @@
           min-height: 290px;
           border: 2px solid #496077;
           border-radius:15px;
-          padding:8px 4px 8px 16px;
+          padding:8px 4px 8px 24px;
           margin-top:10px;
         }
         .SecondRightHomeDiv {
@@ -118,6 +125,7 @@
             border-radius:15px;
             margin-top:10px;
             padding:8px 4px 8px 16px;
+            font-size: 14px;
            
         }
         .SecondRightHomeDiv p {
@@ -134,21 +142,24 @@
         .newPdtHyperlink a:link{
             color:#e1e1e1;
             font-size:12px;
-            margin-right: 5px;
+           // margin-right: 5px;
         }
 
         .newPdtHyperlink a:hover{
-            color: #99C7FF;
-            margin-right: 5px;
+            color: #99C7FF !important;
+            //margin-right: 5px;
         }
 
         .newPdtHyperlink a:visited {
             color: #e1e1e1;
-                        margin-right: 5px;
+            // margin-right: 5px;
         }
+       
 
         .newPdtLeftColumn{
             float: left;
+            margin-left: -5px;
+            
         }
         .newPdtRightColumn {
             float: right;
@@ -193,21 +204,23 @@
             <div class ="FirstLeftHomeDiv">
                 <!-- category list -->
                <div class="CategoryDiv">           
+                   <h2>Search Category List</h2>
                 <ul class="HomeCategoryList">
-                    <li><h2>Search Category List</h2></li>
-                    <li><asp:HyperLink ID="HyperLink1" runat="server" Text ="Antibody" NavigateUrl="~/ProductsList_Antibody.aspx"></asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink2" runat="server" Text ="Peptide" NavigateUrl="~/ProductsList_Peptide.aspx"></asp:HyperLink></li> 
-                    <li><asp:HyperLink ID="HyperLink3" runat="server" Text ="Protein Enzyme" NavigateUrl="~/ProductsList_ProteinEnzyme.aspx"></asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink4" runat="server" Text ="Protein Substrate" NavigateUrl="~/ProductsList_ProteinSubstrate.aspx"></asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink5" runat="server" Text="Cell/Tissue Lysate"></asp:HyperLink></li>
+                    
                     <li><asp:HyperLink ID="HyperLink6" runat="server" Text="Array" NavigateUrl="~/ProductsList_Microarray.aspx"></asp:HyperLink></li>
-                   <!-- <li><asp:HyperLink ID="HyperLink7" runat="server" Text="Enzyme Assay"></asp:HyperLink></li>   
-                    <li><asp:HyperLink ID="HyperLink8" runat="server" Text="Bioactive Compound" NavigateUrl="~/ProductsList_BioactiveCompound.aspx"></asp:HyperLink></li>
-                       -->                                                       
+                    <li><asp:HyperLink ID="HyperLink1" runat="server" Text ="Antibody" NavigateUrl="~/ProductsList_Antibody.aspx"></asp:HyperLink></li>
+                    <!--<li><asp:HyperLink ID="HyperLink8" runat="server" Text="Bioactive Compound" NavigateUrl="~/ProductsList_BioactiveCompound.aspx"></asp:HyperLink></li>-->                                                       
+                    <li><asp:HyperLink ID="HyperLink5" runat="server" Text="Cell/Tissue Lysate"></asp:HyperLink></li>
+                    <!-- <li><asp:HyperLink ID="HyperLink7" runat="server" Text="Enzyme Assay"></asp:HyperLink></li>  -->
+                    <li><asp:HyperLink ID="HyperLink2" runat="server" Text ="Peptide" NavigateUrl="~/ProductsList_Peptide.aspx"></asp:HyperLink></li> 
+                    <!--<li><asp:HyperLink ID="HyperLink3" runat="server" Text ="Protein Enzyme" NavigateUrl="~/ProductsList_ProteinEnzyme.aspx"></asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink4" runat="server" Text ="Protein Substrate" NavigateUrl="~/ProductsList_ProteinSubstrate.aspx"></asp:HyperLink></li>
+                     -->
                 </ul>
                 </div>
                 <!--Description of Kinexus products homepage-->
                <div class="DescriptionHomePage">
+                   <h2>The Company</h2>
                    <asp:HiddenField ID="HiddenField1" runat="server" />
                    <p id="pTextData">
                     </p>
