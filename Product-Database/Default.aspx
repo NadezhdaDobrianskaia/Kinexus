@@ -207,14 +207,14 @@
                    <h2>Search Category List</h2>
                 <ul class="HomeCategoryList">
                     
-                    <li><asp:HyperLink ID="HyperLink6" runat="server" Text="Array" NavigateUrl="~/ProductsList_Microarray.aspx"></asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink1" runat="server" Text ="Antibody" NavigateUrl="~/ProductsList_Antibody.aspx"></asp:HyperLink></li>
-                    <!--<li><asp:HyperLink ID="HyperLink8" runat="server" Text="Bioactive Compound" NavigateUrl="~/ProductsList_BioactiveCompound.aspx"></asp:HyperLink></li>-->                                                       
-                    <li><asp:HyperLink ID="HyperLink5" runat="server" Text="Cell/Tissue Lysate"></asp:HyperLink></li>
-                    <!-- <li><asp:HyperLink ID="HyperLink7" runat="server" Text="Enzyme Assay"></asp:HyperLink></li>  -->
-                    <li><asp:HyperLink ID="HyperLink2" runat="server" Text ="Peptide" NavigateUrl="~/ProductsList_Peptide.aspx"></asp:HyperLink></li> 
-                    <!--<li><asp:HyperLink ID="HyperLink3" runat="server" Text ="Protein Enzyme" NavigateUrl="~/ProductsList_ProteinEnzyme.aspx"></asp:HyperLink></li>
-                    <li><asp:HyperLink ID="HyperLink4" runat="server" Text ="Protein Substrate" NavigateUrl="~/ProductsList_ProteinSubstrate.aspx"></asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink1" runat="server" Text="Array" NavigateUrl="~/ProductsList_Microarray.aspx"></asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink2" runat="server" Text ="Antibody" NavigateUrl="~/ProductsList_Antibody.aspx"></asp:HyperLink></li>
+                    <!--<li><asp:HyperLink ID="HyperLink3" runat="server" Text="Bioactive Compound" NavigateUrl="~/ProductsList_BioactiveCompound.aspx"></asp:HyperLink></li>-->                                                       
+                    <li><asp:HyperLink ID="HyperLink4" runat="server" Text="Cell/Tissue Lysate"></asp:HyperLink></li>
+                    <!-- <li><asp:HyperLink ID="HyperLink5" runat="server" Text="Enzyme Assay"></asp:HyperLink></li>  -->
+                    <li><asp:HyperLink ID="HyperLink6" runat="server" Text ="Peptide" NavigateUrl="~/ProductsList_Peptide.aspx"></asp:HyperLink></li> 
+                    <!--<li><asp:HyperLink ID="HyperLink7" runat="server" Text ="Protein Enzyme" NavigateUrl="~/ProductsList_ProteinEnzyme.aspx"></asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink8" runat="server" Text ="Protein Substrate" NavigateUrl="~/ProductsList_ProteinSubstrate.aspx"></asp:HyperLink></li>
                      -->
                 </ul>
                 </div>
@@ -246,7 +246,7 @@
                         
 
                         <!--<asp:Image ID="Image1" Height="410px" Width="600px" runat="server" />-->
-                        <asp:Timer ID="Timer1" runat="server" Interval="5000" OnTick="Timer1_Tick"></asp:Timer>
+                        <asp:Timer ID="Timer1" runat="server" Interval="8000" OnTick="Timer1_Tick"></asp:Timer>
                      </ContentTemplate>
  
                 </asp:UpdatePanel>   
