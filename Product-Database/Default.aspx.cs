@@ -443,7 +443,10 @@ namespace ProductDB
                 {
                     product_group = "ProteinSubstrate";
                 }
-
+                else if (product_num[i] == 'L' && product_num[i + 1] == 'C')
+                {
+                    product_group = "Lysate";
+                }
             }
 
             //if the query value box is empty do nothing
