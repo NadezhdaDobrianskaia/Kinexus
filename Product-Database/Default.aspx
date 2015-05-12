@@ -245,7 +245,7 @@
                         
 
                         <!--<asp:Image ID="Image1" Height="410px" Width="600px" runat="server" />-->
-                        <asp:Timer ID="Timer1" runat="server" Interval="8000" OnTick="Timer1_Tick"></asp:Timer>
+                        <asp:Timer ID="Timer1" runat="server" Interval="20000" OnTick="Timer1_Tick"></asp:Timer>
                      </ContentTemplate>
  
                 </asp:UpdatePanel>   
