@@ -1,6 +1,5 @@
-http://www.yahoo.com
-http://www.kinexus.ca
-http://www.google.com
-https://www.google.com/doodles
-http://time.com/3054279/50-best-websites-2014/
-https://www.thebestdesigns.com/
+http://www.kinexusproducts.ca/ProductInfo_Antibody.aspx?Product_Number=AB-PG001
+http://www.kinexusproducts.ca/ProductInfo_Array.aspx?Product_Number=AR_KAM880
+http://www.kinexusproducts.ca/ProductsList_Cell/TissueLysate.aspx
+http://www.kinexusproducts.ca/ProductsList_Antibody.aspx
+http://www.kinexusproducts.ca/KinaseSubPeptideList.aspx

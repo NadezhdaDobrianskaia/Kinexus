@@ -10,7 +10,7 @@
 namespace Product_Database {
     
     
-    public partial class ProductInfo_Microarray {
+    public partial class ProductInfo_Array {
         
         /// <summary>
         /// Form1 control.

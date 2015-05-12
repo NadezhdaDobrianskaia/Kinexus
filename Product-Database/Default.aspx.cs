@@ -292,7 +292,7 @@ namespace ProductDB
             groupOrder.Add("Peptide");
             groupOrder.Add("Protein Substrate");
             groupOrder.Add("Bioactive Compound");
-            groupOrder.Add("Microarray");
+            groupOrder.Add("Array");
 
             //enable the groups in the order collection
             for(int i=0; i<6; i++)
@@ -437,7 +437,7 @@ namespace ProductDB
                 }
                 else if (product_num[i] == 'M' && product_num[i + 1] == 'A')
                 {
-                    product_group = "MicroArray";
+                    product_group = "Array";
                 }
                 else if (product_num[i] == 'P' && product_num[i + 1] == 'S')
                 {

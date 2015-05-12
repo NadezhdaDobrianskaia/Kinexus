@@ -1,7 +1,7 @@
-﻿<%-- ProductsList_Microarray.aspx
+﻿<%-- ProductsList_Array.aspx
      @author Lili Hao --%>
 <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
-    CodeBehind="ProductsList_Microarray.aspx.cs" Inherits="ProductDB.ProductsList_Protein_Microarrays" %>
+    CodeBehind="ProductsList_Array.aspx.cs" Inherits="ProductDB.ProductsList_Protein_Arrays" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
@@ -24,7 +24,7 @@
         <tr>
             <td class="style4">
                 <div class="column nameColumn">
-                    <span class="bold"><span class="bluelable">Product Type:</span><span class=orangeLabel>  Microarrays</sapn></span>
+                    <span class="bold"><span class="bluelable">Product Type:</span><span class=orangeLabel>  arrays</sapn></span>
                 </div>
             </td>
             <td class="style2">
@@ -37,10 +37,10 @@ UNION
 SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Alias] IS NOT NULL)
 ">
                     <SelectParameters>
-                        <asp:Parameter DefaultValue="Microarray" Name="Product_Type_General" Type="String" />
+                        <asp:Parameter DefaultValue="Array" Name="Product_Type_General" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
-                <asp:TextBox id="Microarray_textbx" runat="server"></asp:TextBox>
+                <asp:TextBox id="Array_textbx" runat="server"></asp:TextBox>
             </td>
             <td>
              <asp:Button ID="Button1" runat="server" Text="Search" 
@@ -61,11 +61,11 @@ SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Pr
                                        </td>
                                     <td class="listPnum">
                                         <asp:HyperLink Label ID="HyperLink2" runat="server" Text='<%# Eval("Product_Number") %>'
-                                            NavigateUrl='<%#"~/ProductInfo_Microarray.aspx?Product_Number=" + Eval("Product_Number") %>'></asp:HyperLink>
+                                            NavigateUrl='<%#"~/ProductInfo_Array.aspx?Product_Number=" + Eval("Product_Number") %>'></asp:HyperLink>
                                     </td>
                                     <td class="listname">
                                         <asp:HyperLink Label ID="HyperLink1" runat="server" Text='<%# Eval("Product_Name_Short") %>'
-                                            NavigateUrl='<%#"~/ProductInfo_Microarray.aspx?Product_Number=" + Eval("Product_Number")%>'></asp:HyperLink>
+                                            NavigateUrl='<%#"~/ProductInfo_Array.aspx?Product_Number=" + Eval("Product_Number")%>'></asp:HyperLink>
                                     </td>
                                 </tr>
                     </ItemTemplate>
@@ -96,7 +96,7 @@ SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Pr
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionStringServer %>"
                     SelectCommand="SELECT [Product_Number],[Product_Name_Long] ,[Product_Name_Short] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General) ORDER BY [Product_Type_General], [Product_Number]">
                     <SelectParameters>
-                        <asp:Parameter DefaultValue="Microarray" Name="Product_Type_General" Type="String" />
+                        <asp:Parameter DefaultValue="Array" Name="Product_Type_General" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
             </td>

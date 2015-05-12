@@ -10,7 +10,7 @@
 namespace ProductDB {
     
     
-    public partial class ProductsList_Protein_Microarrays {
+    public partial class ProductsList_Protein_Arrays {
         
         /// <summary>
         /// Form1 control.
@@ -31,13 +31,13 @@ namespace ProductDB {
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
         
         /// <summary>
-        /// Microarray_textbx control.
+        /// Array_textbx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Microarray_textbx;
+        protected global::System.Web.UI.WebControls.TextBox Array_textbx;
         
         /// <summary>
         /// Button1 control.

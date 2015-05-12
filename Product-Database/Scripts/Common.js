@@ -14,8 +14,8 @@
         source: "ProductDataList.aspx?cat=Protein Substrate",
         minLength: 1,
     }).width(400);
-    $("#ctl00_MainContent_Microarray_textbx").autocomplete({
-        source: "ProductDataList.aspx?cat=Microarray",
+    $("#ctl00_MainContent_Array_textbx").autocomplete({
+        source: "ProductDataList.aspx?cat=Array",
         minLength: 1,
     }).width(400);
     $("#ctl00_MainContent_Bioactive_Compound_textbx").autocomplete({

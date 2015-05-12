@@ -221,7 +221,7 @@
                    <h2>Search Category List</h2>
                 <ul class="HomeCategoryList">
                     
-                    <li><asp:HyperLink ID="HyperLink1" runat="server" Text="Array" NavigateUrl="~/ProductsList_Microarray.aspx"></asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink1" runat="server" Text="Array" NavigateUrl="~/ProductsList_Array.aspx"></asp:HyperLink></li>
                     <li><asp:HyperLink ID="HyperLink2" runat="server" Text ="Antibody" NavigateUrl="~/ProductsList_Antibody.aspx"></asp:HyperLink></li>
                     <!--<li><asp:HyperLink ID="HyperLink3" runat="server" Text="Bioactive Compound" NavigateUrl="~/ProductsList_BioactiveCompound.aspx"></asp:HyperLink></li>-->                                                       
                     <li><asp:HyperLink ID="HyperLink4" runat="server" Text="Cell/Tissue Lysate"></asp:HyperLink></li>
