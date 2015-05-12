@@ -76,6 +76,15 @@ namespace ProductDB {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink7;
         
         /// <summary>
+        /// HyperLink8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink8;
+        
+        /// <summary>
         /// HiddenField1 control.
         /// </summary>
         /// <remarks>
@@ -121,6 +130,24 @@ namespace ProductDB {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
+        /// HyperLinkImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkImage;
+        
+        /// <summary>
+        /// ImageButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
+        
+        /// <summary>
         /// Image1 control.
         /// </summary>
         /// <remarks>
@@ -139,22 +166,22 @@ namespace ProductDB {
         protected global::System.Web.UI.Timer Timer1;
         
         /// <summary>
-        /// PlaceHolderNewPdt control.
+        /// PlaceHolderNewPdtleft control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolderNewPdt;
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolderNewPdtleft;
         
         /// <summary>
-        /// SqlDataSourceNewPdt control.
+        /// SqlDataSourceNewPdtLeft control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceNewPdt;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceNewPdtLeft;
         
         /// <summary>
         /// ListView1 control.
@@ -164,6 +191,33 @@ namespace ProductDB {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView ListView1;
+        
+        /// <summary>
+        /// PlaceHolderNewPdtRight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder PlaceHolderNewPdtRight;
+        
+        /// <summary>
+        /// SqlDataSourceNewPdtRight control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSourceNewPdtRight;
+        
+        /// <summary>
+        /// ListView2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView ListView2;
         
         /// <summary>
         /// PlaceHolderContact control.
