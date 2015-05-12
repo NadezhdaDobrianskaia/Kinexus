@@ -61,7 +61,8 @@ a:hover
 }
 .blueLable
 {
-    color:#99C7FF;/*blue*/
+    color:#99C7FF;
+    margin-left: 46px;
 }
 .orangeLabel
 {

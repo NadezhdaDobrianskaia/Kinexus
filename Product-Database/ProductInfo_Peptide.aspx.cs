@@ -35,6 +35,16 @@ namespace Product_Database
                 AddLableInofPairToColum("Storage Conditions: ", GetDBValue("Storage_Conditions"));
                 AddLableInofPairToColum("Storage Stability: ", GetDBValue("Storage_Stability"));
                 AddLableInofPairToColum("Peptide Recommended Enzyme:", GetDBValue("Pep_Recommended_Enzyme"));
+                AddLableLinkPairToColum("Related Product 1: ", GetDBValue("Related_Product_1_Url"), GetDBValue("Related_Product_1"));
+                AddLableLinkPairToColum("Related Product 2: ", GetDBValue("Related_Product_2_Url"), GetDBValue("Related_Product_2"));
+                AddLableLinkPairToColum("Related Product 3: ", GetDBValue("Related_Product_3_Url"), GetDBValue("Related_Product_3"));
+                AddLableLinkPairToColum("Related Product 4: ", GetDBValue("Related_Product_4_Url"), GetDBValue("Related_Product_4"));
+                AddLableLinkPairToColum("Related Product 5: ", GetDBValue("Related_Product_5_Url"), GetDBValue("Related_Product_5"));
+                AddLableLinkPairToColum("Related Product 6: ", GetDBValue("Related_Product_6_Url"), GetDBValue("Related_Product_6"));
+                AddLableLinkPairToColum("Related Product 7: ", GetDBValue("Related_Product_7_Url"), GetDBValue("Related_Product_7"));
+                AddLableLinkPairToColum("Related Product 8: ", GetDBValue("Related_Product_8_Url"), GetDBValue("Related_Product_8"));
+                AddLableLinkPairToColum("Related Product 9: ", GetDBValue("Related_Product_9_Url"), GetDBValue("Related_Product_9"));
+                AddLableLinkPairToColum("Related Product 10: ", GetDBValue("Related_Product_10_Url"), GetDBValue("Related_Product_10"));
                 BuildTargetLinksHTML();
                 BuildFiquersHTML();
                 BuildreferencesHTML();
