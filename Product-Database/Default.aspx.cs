@@ -23,36 +23,57 @@ namespace ProductDB
         /// <param name="e">The event arguments.</param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            SetImageURL();
-            //load the categories, with special ordering set to true
-            load_searchBar(search_box, true);
-            //load_categories(search_box, true);
-            //load_hyperlinks(search_box, true);
-            var data = File.ReadAllText(Server.MapPath("~/InfoHomepage/productsHomepageDescription.txt"));
-            HiddenField1.Value = data.ToString();
-            /*
-            var data2 = File.ReadAllText(Server.MapPath("~/InfoHomepage/productsHomepageContact.txt"));
-            HiddenField2.Value = data2.ToString();
-            */
-            
-            string line;
-            string data3 = "";
-            System.IO.StreamReader file = new System.IO.StreamReader(Server.MapPath("~/InfoHomepage/productsHomepageContact.txt"));
-            while ((line = file.ReadLine()) != null)
-            {
-            
-                PlaceHolderContact.Controls.Add(new LiteralControl(line + "<br />"));          
+
+            //load the image as the first load
+            if (!IsPostBack) { 
+                SetImageURL();
             }
 
+            //load the search bar
+            load_searchBar(search_box, true); //load_categories(search_box, true);
+
             
-                        
+            //To read the description of the company, contacts and hyperlinks
+            if (!IsPostBack) { 
+                products_page_content();
+            }
+        }
+        /// <summary>
+        /// Reading in all data in order to display the products homepage
+        /// </summary>
+        private void products_page_content()
+        {
+
+            System.IO.StreamReader myFile = new System.IO.StreamReader(Server.MapPath("~/InfoHomepage/productsHomepageDescription.txt"));
+            string myString = myFile.ReadToEnd();
+            HiddenField1.Value = myString;
+            myFile.Close();
+            //to read in the contacts on the products homepage
+            System.IO.StreamReader file = new System.IO.StreamReader(Server.MapPath("~/InfoHomepage/productsHomepageContact.txt"));
+            string line;
+            while ((line = file.ReadLine()) != null)
+            {
+                PlaceHolderContact.Controls.Add(new LiteralControl(line + "<br />"));
+            }
+
             file.Close();
 
+            if (Application["HyperLinkList"] == null)//is the list of hyperlinks cahsed in mem
+            {
 
-
+                StringCollection LinkEntries = new StringCollection();  //AN array of hyperlinks in the InfoHomepage folder under ImagesLinks.txt
+                //To read the links in the controls
+                System.IO.StreamReader file2 = new System.IO.StreamReader(Server.MapPath("~/InfoHomepage/ImagesLinks.txt"));
+                string line2;
+                while ((line2 = file2.ReadLine()) != null)
+                {
+                    LinkEntries.Add(line2);
+                }
+                file2.Close();
+                Application.Add("HyperLinkList", LinkEntries);//crate new cach
+            }
 
         }
-
         /// <summary>
         /// Divides the target string into a collection of strings based on the delimiter.
         /// </summary>
@@ -211,94 +232,6 @@ namespace ProductDB
             output.Controls.Add(new LiteralControl("</table>"));
         }
         /*
-        private void load_hyperlinks(PlaceHolder output, bool special_order)
-        {
-            //instantiate a collection for enabled groups
-            StringCollection enabled = new StringCollection();
-
-            //determine if there is an application state with enabled groups
-            if (Application["main_order_form"] != null)
-            {
-                //if a state exists grab the data from the state
-                enabled = (StringCollection)Application["main_order_form"];
-            }
-            //no application state exists
-            else
-            {
-                //define the path to the category data file
-                string data_path = Server.MapPath("category_data.mff");
-
-                //the file exists
-                if (File.Exists(data_path))
-                {
-                    StreamReader reader = new StreamReader(data_path);
-                    if (!reader.EndOfStream)
-                    {
-                        string data = reader.ReadLine();
-                        enabled = parseString(data);
-                    }
-
-                    //close the reader
-                    reader.Close();
-                }
-                //the file doesn't exist
-                else
-                {
-                    //redirect to the home page
-                    Response.Redirect("http://kinexus.ca");
-                }
-            }
-
-
-
-            output.Controls.Add(new LiteralControl("<table id=\"searchTable\" ><tr><td colspan=\"4\">" +
-                               "<h2>Search Menu</h2><br /><br /></td></tr>"));
-            //initialize a collection for the group order
-            List<string> groupOrder = new List<string>();
-
-            StringCollection orderedGroups = new StringCollection();
-
-            //arrange the order of the items
-            groupOrder.Add("Antibody");
-            groupOrder.Add("Protein Enzyme");
-            groupOrder.Add("Peptide");
-            groupOrder.Add("Protein Substrate");
-            groupOrder.Add("Bioactive Compound");
-            groupOrder.Add("Array");
-
-            //enable the groups in the order collection
-            for (int i = 0; i < 6; i++)
-            {
-                //add the groups in client's order
-                if (enabled.Contains(groupOrder[i]))
-                {
-                    //add the group to the collection
-                    orderedGroups.Add(groupOrder[i]);
-                }
-            }
-
-            //if the special order flag is set to true then use the orderd group collection otherwise use the enabled colletion
-            StringCollection groups = special_order ? orderedGroups : enabled;
-
-            //traverse all the groups in the enabled collection
-            foreach (string group in groups)
-            {
-                //instantiate a label for the group name
-                Label label = new Label();
-
-                //define the label
-                label.Text = group;
-                label.ID = group.Replace(" ", "_") + "_slabel";
-
-                //add the control to the panel
-                output.Controls.Add(new LiteralControl("<tr><td>"));
-                output.Controls.Add(label);
-                
-            }
-
-            //close the table
-            output.Controls.Add(new LiteralControl("</table>"));
-        }
         /// <summary>
         /// Loads the categories based on the enabled groupings.
         /// </summary>
@@ -563,16 +496,93 @@ namespace ProductDB
             return term.Replace("%", "[[%]");
         }
 
+        /// <summary>
+        /// Responsible for switching images every few seconds
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Timer1_Tick(object sender, EventArgs e)
         {
             SetImageURL();
         }
 
+       
+        /// <summary>
+        /// Responsible for slide image on the homepage
+        /// </summary>
         private void SetImageURL()
         {
+           
+            if (ViewState["ImageDisplayed"] == null)
+            {
+                ImageButton1.ImageUrl = "~/InfoHomepage/1.jpg";              
+               // ImageButton1.ToolTip = "1.jpg" ;
+                /*Image1.ImageUrl = "~/InfoHomepage/1.jpg";*/
+                ViewState["ImageDisplayed"] = 1;
+                
+            }
+            else{
+                int i = (int)ViewState["ImageDisplayed"]; 
+                if (i < 5)
+                {
+                    i++;
+                    /*Image1.ImageUrl = "~/InfoHomepage/" + i.ToString() + ".jpg";*/
+                    ImageButton1.ImageUrl = "~/InfoHomepage/" + i.ToString() + ".jpg";
+                   // ImageButton1.ToolTip = i.ToString() + ".jpg";
+                    ViewState["ImageDisplayed"] = i;
+                    
+                }else {
+
+                    ImageButton1.ImageUrl = "~/InfoHomepage/1.jpg";
+                    //ImageButton1.ToolTip = i.ToString();
+                    /*Image1.ImageUrl = "~/InfoHomepage/1.jpg";*/
+                    ViewState["ImageDisplayed"] = 1;
+                    
+                }
+            }
+                /* the below code if you want to display images at random
             Random rand = new Random();
             int i = rand.Next(1, 5);
             Image1.ImageUrl = "~/InfoHomepage/" + i.ToString() + ".jpg";
+                 */
+        }
+
+
+        
+        /// <summary>
+        /// when the image button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+
+            Timer1.Enabled = false;
+            //Response.Redirect("http://google.com", true);
+
+            StringCollection Hyper;
+            //hard coded defaults, this is a fail safe.
+            //if thire is not infoefile use the following link 
+            string url = "http://www.kinexus.ca/ourServices/ourServices.html";
+            string alt = "AD";
+
+            if (ViewState["ImageDisplayed"] == null)
+            {
+                Hyper = (StringCollection)Application["HyperLinkList"];//read the adlist cash
+                    url = Hyper[0];
+                    Response.Redirect(url, true);
+                    Timer1.Enabled = true;
+            }
+            
+            else { 
+            
+                int i = (int)ViewState["ImageDisplayed"];
+                Hyper = (StringCollection)Application["HyperLinkList"];//read the adlist cash
+                url = Hyper[(i - 1)];
+                Response.Redirect(url, true);
+
+            }
+            Timer1.Enabled = true;
         }
     }
 }
