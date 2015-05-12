@@ -29,13 +29,13 @@
             </td>
             <td class="style2">
              <%-- connection string for textbox --%>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionStringServer %>"
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
                     SelectCommand="SELECT [Product_Name_Short] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Short] IS NOT NULL)
 UNION
 SELECT [Product_Name_Long] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Long] IS NOT NULL)
 UNION
 SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Alias] IS NOT NULL)
-">
+" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Array" Name="Product_Type_General" Type="String" />
                     </SelectParameters>
@@ -93,8 +93,8 @@ SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Pr
                     </GroupTemplate>
                 </asp:ListView>
                  <%-- connection string for productlist --%>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionStringServer %>"
-                    SelectCommand="SELECT [Product_Number],[Product_Name_Long] ,[Product_Name_Short] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General) ORDER BY [Product_Type_General], [Product_Number]">
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
+                    SelectCommand="SELECT [Product_Number],[Product_Name_Long] ,[Product_Name_Short] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General) ORDER BY [Product_Type_General], [Product_Number]" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Array" Name="Product_Type_General" Type="String" />
                     </SelectParameters>
