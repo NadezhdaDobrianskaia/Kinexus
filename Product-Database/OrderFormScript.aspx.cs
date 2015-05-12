@@ -60,7 +60,7 @@ namespace ProductDB
                     string queryString = "SELECT " + queryType + ", Price_Size_Small, Price_Size_Medium, Price_Size_Large, Pack_Size_Small, Pack_Size_Medium, Pack_Size_Large FROM ProductDB WHERE " + queryKey;
 
                     //make the connection to the database
-                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString"].ConnectionString);
+                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Kinexus Protein ProductDBConnectionString"].ConnectionString);
 
                     //run the query
                     SqlCommand command = new SqlCommand(queryString, connection);

@@ -95,7 +95,7 @@ namespace ProductDB
                 try
                 {
                     //establish an connection to the SQL server 
-                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString2"].ConnectionString);
+                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Kinexus Protein ProductDBConnectionString"].ConnectionString);
 
                     SqlCommand command = new SqlCommand(BuildSQL(term, cat, mode), connection);
                     connection.Open();

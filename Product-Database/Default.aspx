@@ -55,6 +55,21 @@
             padding:5px 8px 8px 24px;
             margin-top:10px;
         }
+        .CategoryDiv a:link{
+            color:#99C7FF;
+            
+           // margin-right: 5px;
+        }
+
+        .CategoryDiv a:hover{
+            color: #e1e1e1 !important;
+            //margin-right: 5px;
+        }
+
+        .CategoryDiv a:visited {
+            color: #99C7FF;
+            // margin-right: 5px;
+        }
        
         /*Homepage description*/
         .DescriptionHomePage{
