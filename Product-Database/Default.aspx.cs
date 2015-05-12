@@ -193,7 +193,7 @@ namespace ProductDB
             //instantiate buttons for search and for product list
             Button search_button = new Button(), list_button = new Button();
 
-            string group = "unifiedSearchBar"; // this had been the problem changing code compared to old code
+            string group = ""; // this had been the problem changing code compared to old code
                                        //need a drop down selection list to help choose and add the id to the dropbox
 
             //define textbox
