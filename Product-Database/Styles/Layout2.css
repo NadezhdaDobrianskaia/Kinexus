@@ -76,7 +76,7 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
     background-color:#191919;
     width:160px;
     max-height:300px;
-    width:200px !important; 
+    width:494px !important; 
     overflow:auto;
 
 }
@@ -84,7 +84,7 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
 {
 
     background-color:#191919;
-    width:201px;
+    width:200px;
 }
 
 .ui-menu-item

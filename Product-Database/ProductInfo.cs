@@ -46,7 +46,7 @@ namespace Product_Database
         {
             try
             {
-                connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Kinexus Protein ProductDBConnectionString"].ConnectionString);
+                connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString2"].ConnectionString);
                 SqlCommand command = new SqlCommand("SELECT DISTINCT * FROM [ProductDB] WHERE ([Product_Number] = @Product_Number)", connection);
                 productIDFilter = new SqlParameter();
                 productIDFilter.ParameterName = "@Product_Number";

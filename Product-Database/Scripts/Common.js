@@ -1,32 +1,36 @@
 ﻿$(document).ready(function () {
+
+     
     $("#ctl00_MainContent_Antibody_textbx").autocomplete({
         source: "ProductDataList.aspx?cat=Antibody",
-        minLength: 1
+        minLength: 1,
+        width:400
     });
     $("#ctl00_MainContent_Protein_Enzyme_textbx").autocomplete({
         source: "ProductDataList.aspx?cat=Protein Enzyme",
-        minLength: 1
+        minLength: 1,  
     });
     $("#ctl00_MainContent_Protein_Substrate_textbx").autocomplete({
         source: "ProductDataList.aspx?cat=Protein Substrate",
-        minLength: 1
-    });
+        minLength: 1,
+    }).width(400);
     $("#ctl00_MainContent_Microarray_textbx").autocomplete({
         source: "ProductDataList.aspx?cat=Microarray",
-        minLength: 1
-    });
+        minLength: 1,
+    }).width(400);
     $("#ctl00_MainContent_Bioactive_Compound_textbx").autocomplete({
         source: "ProductDataList.aspx?cat=Bioactive Compound",
-        minLength: 1
-    });
+        minLength: 1,
+    }).width(400);
     $("#ctl00_MainContent_Peptide_textbx").autocomplete({
         source: "ProductDataList.aspx?cat=Peptide",
+        minLength: 1,
+    }).width(400);
+
+    $("#ctl00_MainContent_unifiedSearchBar_textbx").autocomplete({
+        source: "ProductDataList.aspx?",
         minLength: 1
     });
-    $("#ctl00_MainContent_unifiedSearchBar_textbx").autocomplete({
-		source: "ProductDataList.aspx?",
-		minLength: 1
-	});
     
     //adds extra mark 
     $(".column").each(function (i) {
