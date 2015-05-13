@@ -1,13 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductInfo_Antibody.aspx.cs" Inherits="Product_Database.ProductInfo_Antibody" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductInfo_Lysate.aspx.cs" Inherits="Product_Database.ProductInfo_Lysate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <form id="Form1" runat="server">
     <div id="ShoppingCartMenu" class="column recommendedLink">
-        <asp:ImageButton ID="ImageButton1" runat="server" CssClass="blueLable" ImageUrl="~/Images/cart2.png"
+        <asp:ImageButton ID="ImageButton1" runat="server" CssClass="cartImg" ImageUrl="~/Images/cart2.png"
             onmouseover="mopen('DropDownMenu')" onmouseout="mclosetime()" 
-            Height="23px" Width="157px" /><a class="checkoutLink" href="./CartSummary.aspx">View Shopping Cart</a>
+            Height="23px" Width="157px" />
+        <a class="checkoutLink" href="./CartSummary.aspx">View Shopping Cart</a>
         <div id="DropDownMenu" style="visibility: hidden;" onmouseover="mcancelclosetime()"
             onmouseout="mclosetime()" class="">
             <%
@@ -45,8 +45,7 @@
 
     </div>
     </form>
-    <div class="productInfo">
-        <asp:Literal ID="output" runat="server"></asp:Literal>
-    </div>
-
+<div class="productInfo">
+    <asp:Literal ID="output" runat="server"></asp:Literal>
+</div>
 </asp:Content>
