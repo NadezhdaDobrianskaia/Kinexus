@@ -289,6 +289,7 @@
     <Content Include="InfoHomepage\productsHomepageDescription.txt" />
     <Content Include="KinaseSubPeptideList.aspx" />
     <Content Include="ProductInfo_BioactiveCompound.aspx" />
+    <Content Include="ProductInfo_Lysate.aspx" />
     <Content Include="ProductInfo_Peptide.aspx" />
     <Content Include="ProductInfo_Array.aspx" />
     <Content Include="ProductInfo_ProteinEnzyme.aspx" />
@@ -312,6 +313,7 @@
     <Content Include="ProductDataList.aspx" />
     <Content Include="ProductInfo_Antibody.aspx" />
     <Content Include="ProductInfo_ProteinSubstrate.aspx" />
+    <Content Include="ProductsList_Lysate.aspx" />
     <Content Include="ProductsList_Array.aspx" />
     <Content Include="ProductsList_Peptide.aspx" />
     <Content Include="ProductsList_ProteinEnzyme.aspx" />
@@ -427,6 +429,13 @@
     <Compile Include="ProductInfo_BioactiveCompound.aspx.designer.cs">
       <DependentUpon>ProductInfo_BioactiveCompound.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProductInfo_Lysate.aspx.cs">
+      <DependentUpon>ProductInfo_Lysate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInfo_Lysate.aspx.designer.cs">
+      <DependentUpon>ProductInfo_Lysate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductInfo_Peptide.aspx.cs">
       <DependentUpon>ProductInfo_Peptide.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -517,6 +526,13 @@
     </Compile>
     <Compile Include="ProductInfo_ProteinSubstrate.aspx.designer.cs">
       <DependentUpon>ProductInfo_ProteinSubstrate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsList_Lysate.aspx.cs">
+      <DependentUpon>ProductsList_Lysate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductsList_Lysate.aspx.designer.cs">
+      <DependentUpon>ProductsList_Lysate.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductsList_Array.aspx.cs">
       <DependentUpon>ProductsList_Array.aspx</DependentUpon>
