@@ -1,5 +1,5 @@
 http://www.kinexusproducts.ca/ProductInfo_Antibody.aspx?Product_Number=AB-PG001
 http://localhost:1161/ProductInfo_Array.aspx?Product_Number=AR_KAM880
-http://www.kinexusproducts.ca/ProductsList_Cell/TissueLysate.aspx
+http://www.kinexusproducts.ca/ProductsList_Lysate.aspx
 http://www.kinexusproducts.ca/ProductsList_Antibody.aspx
 http://www.kinexusproducts.ca/KinaseSubPeptideList.aspx
