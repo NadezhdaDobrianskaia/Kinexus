@@ -38,18 +38,13 @@ namespace ProductDB
                 
                 if (!isChecked)
                 {
-                    
                     ViewState["CheckedStatus"] = true;
-                    
-                    ViewState["checkboxId"] = "unifiedSearchBar_checked";
-                    
+                    search_TextBox.ID = "unifiedSearchBar" + "_checked" + "_textbx";
                 }
                 else
                 {
-                   
-                    ViewState["checkboxId"] = "unifiedSearchBar";
+                    search_TextBox.ID = "unifiedSearchBar" + "_textbx";
                     ViewState["CheckedStatus"] = false;
-                    
                 }
             }
             /*

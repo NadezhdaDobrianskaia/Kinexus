@@ -248,22 +248,19 @@
             <div class ="FirstRightHomeDiv">
                
                <!--Search of Kinexus products homepage-->
-               <asp:ScriptManager ID="ScriptManager1" runat="server">
-                </asp:ScriptManager>
+               
                 <div class="HomeSearchDiv">
-                   <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                       <ContentTemplate>
+                   
                            <asp:PlaceHolder ID="search_box" runat="server"></asp:PlaceHolder>
                            <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
                             SelectCommand="SELECT * FROM [ProductDB]"></asp:SqlDataSource>
-                       </ContentTemplate>
-                </asp:UpdatePanel>
-         
+                      
             </div>
 
               <!--Pictures of Kinexus products homepage-->
                <div id="HomeImageDiv" >
-                
+               <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager> 
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
                         <!--<asp:HyperLink  ID="HyperLinkImage" runat="server" Text ="" NavigateUrl="http://google.com">   </asp:HyperLink>-->
