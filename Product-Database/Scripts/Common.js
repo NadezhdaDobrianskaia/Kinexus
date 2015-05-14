@@ -28,11 +28,11 @@
     }).width(400);
 
     $("#ctl00_MainContent_unifiedSearchBar_textbx").autocomplete({
-        source: "ProductDataList.aspx?",
+        source: "ProductDataList.aspx?Search_Checkbox=false",
         minLength: 1
     });
 
-    $("#ctl00_MainContent_unifiedSearchBar_checkedtextbx").autocomplete({
+    $("#ctl00_MainContent_unifiedSearchBar_checked_textbx").autocomplete({
         source: "ProductDataList.aspx?Search_Checkbox=true",
         minLength: 1
     });

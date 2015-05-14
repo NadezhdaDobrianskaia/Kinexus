@@ -17,9 +17,47 @@ namespace ProductDB
     public partial class _Default : System.Web.UI.Page
     {
         public Boolean search_checked = false;
+        public TextBox search_TextBox;
+
         public Boolean getChecked()
         {
             return search_checked;
+        }
+
+
+        protected void checkbox_checked(object sender, EventArgs e)
+        {
+            if (ViewState["CheckedStatus"] == null)
+            {
+                ViewState["CheckedStatus"] = false;
+            }
+            else
+            {
+                bool isChecked = (bool)ViewState["CheckedStatus"];
+                if (!isChecked)
+                {
+                    search_checked = true;
+                    search_TextBox.ID = "unifiedSearchBar" + "_checked" + "_textbx";
+                }
+                else
+                {
+                    search_TextBox.ID = "unifiedSearchBar" + "_textbx";
+                    search_checked = false;
+                }
+            }
+            /*
+            if (!search_checked)
+            {
+                search_checked = true;
+                search_TextBox.ID = "unifiedSearchBar" + "_checked" + "_textbx";
+                //Response.Write(search_TextBox.ID);
+            }
+            else
+            {
+                search_TextBox.ID = "unifiedSearchBar" + "_textbx";
+                search_checked = false;
+                //Response.Write(search_TextBox.ID);
+            }*/
         }
         /// <summary>
         /// Event fired on page load.
@@ -32,6 +70,7 @@ namespace ProductDB
             //load the image as the first load
             if (!IsPostBack) { 
                 SetImageURL();
+                checkbox_checked(sender,e);
             }
 
             //load the search bar
@@ -193,7 +232,7 @@ namespace ProductDB
                                 "<h2>Search Menu</h2></td></tr><td>"));
             
             //instantiate a textbox for the query string
-            TextBox box = new TextBox();
+            search_TextBox = new TextBox();
 
             //instantiate buttons for search and for product list
             Button search_button = new Button(), list_button = new Button();
@@ -203,16 +242,16 @@ namespace ProductDB
                                        //need a drop down selection list to help choose and add the id to the dropbox
 
             //define textbox
-            box.ID = group.Replace(" ", "_") + "_textbx";
-            box.Attributes.Add("class", "searchBox");
-            box.Text = "Enter Search Term";
-            box.Attributes.Add("onfocus", "rmText($(this))");
-            box.Attributes.Add("onblur", "rpText($(this))");
+            search_TextBox.ID = group.Replace(" ", "_") + "_textbx";
+            search_TextBox.Attributes.Add("class", "searchBox");
+            search_TextBox.Text = "Enter Search Term";
+            search_TextBox.Attributes.Add("onfocus", "rmText($(this))");
+            search_TextBox.Attributes.Add("onblur", "rpText($(this))");
             //add the control to the panel
             output.Controls.Add(new LiteralControl("</td><td>"));
-            output.Controls.Add(box);
+            output.Controls.Add(search_TextBox);
 
-            Console.Write(box.ID);
+            //Response.Write(search_TextBox.ID);
 
             //define the search button
             search_button.Text = "Search";
@@ -234,16 +273,23 @@ namespace ProductDB
             output.Controls.Add(new LiteralControl("<tr>" +
                 "<td></td><td colspan=\"5\"><span class=\"gray30\">Select desired category and type in at least 2 letters of the product name or view a complete list<span></td></tr>"));
             output.Controls.Add(new LiteralControl("<tr><td>"));
+            search_checkbox.AutoPostBack = true;
+            search_checkbox.CheckedChanged += new EventHandler(checkbox_checked);
             output.Controls.Add(search_checkbox);
             output.Controls.Add(new LiteralControl("</td><td><span class=\"gray30\">Check to search from anywhere in search string, uncheck to search from beginning only.<span></td></tr>"));
+
+            /*
             if (search_checkbox.Checked)
             {
                 search_checked = true;
+                box.ID = "unifiedSearchBar" + "_checked" + "_textbx";
             }
             else
             {
+                box.ID = "unifiedSearchBar" + "_textbx";
                 search_checked = false;
             }
+             */
 
             //close the table
             output.Controls.Add(new LiteralControl("</table>"));
