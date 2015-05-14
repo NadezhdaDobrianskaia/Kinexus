@@ -35,13 +35,13 @@
             <td class="style3">
                 <asp:TextBox ID="Antibody_textbx" runat="server"></asp:TextBox>
                 <%-- connection string for textbox --%>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString%>"
                     SelectCommand="SELECT [Product_Name_Short] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Short] IS NOT NULL)
 UNION
 SELECT [Product_Name_Long] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Long] IS NOT NULL)
 UNION
 SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Alias] IS NOT NULL)
-" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">
+" ProviderName="<%$ ConnectionStrings:comp4900ConnectionString.ProviderName %>">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Protein Antibody" Name="Product_Type_General" />
                     </SelectParameters>
@@ -51,8 +51,8 @@ SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Pr
                 <asp:Button ID="Button1" runat="server" Text="Search"  OnClick="Button1_Click"
                     Style="margin-left: 1px" ValidationGroup="Antibodies" />
                 <%-- connection string for datalink --%>
-                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
-                    SelectCommand="SELECT * FROM [ProductDB]" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString%>"
+                    SelectCommand="SELECT * FROM [ProductDB]" ProviderName="<%$ ConnectionStrings:comp4900ConnectionString.ProviderName %>"></asp:SqlDataSource>
             </td>
         </tr>
         <tr>
@@ -107,7 +107,7 @@ SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Pr
                     </GroupTemplate>
                 </asp:ListView>
                 <%-- connection string for productlist --%>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString%>"
                     SelectCommand="SELECT [Product_Name_Short], [Product_Number] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General) ORDER BY [Product_Name_Short], [Product_Number]">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Antibody" Name="Product_Type_General" Type="String" />

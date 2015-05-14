@@ -31,7 +31,7 @@
             </td>
             <td id="recommend" class="style4" valign="top">
                 <div class="column recommendedLink" style="height: 30px;">
-                    <span class="orangeLabel"><a href="#">Click here to get a list of recommended substrate
+                    <span class="orangeLabel"><a href="/KinaseSubPeptideList">Click here to get a list of recommended substrate
                         peptides for assay of ~500 human protein kinases</a></span></div>
             </td>
             <td class="style2">

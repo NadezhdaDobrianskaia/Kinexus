@@ -26,8 +26,8 @@ namespace Product_Database
         public enum columSize { mini, med, full }
         private int htmlBufferLines;
         public const int MAX_CAHR_PER_LINE = 40;
-        public const int MAX_LINE_PER_MED_COLUM = 28;
-        public const int MAX_LINE_PER_COLUM = 28;
+        public const int MAX_LINE_PER_MED_COLUM = 27;
+        public const int MAX_LINE_PER_COLUM = 27;
         public const int MAX_MINI_COLUM = 3;
         public const int MAX_MED_COLUM = 3;
         private int columcount;
@@ -277,7 +277,7 @@ namespace Product_Database
                             HTML.Append(BuildOpeningColumHTML());
                         }
                         count++;
-                        HTML.Append("<a href=\"../Images/images/" + img + "\" target=\"_blank\" rel=\"shadowbox\"><img src=\"../Images/images/" + img + "\" height=\"130px\" width=\"275px\" / ></a>" + text + "<br/><br/>");
+                        HTML.Append("<a href=\"../Images/images/" + img + "\" target=\"_blank\" rel=\"shadowbox\"><img src=\"../Images/images/" + img + "\" height=\"130px\" width=\"260px\" / ></a><div id='figureText'>" + text + "</div><br/><br/>");
 
                     }
 
