@@ -5,9 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <form id="Form1" runat="server">
     <div id="ShoppingCartMenu" class="column recommendedLink">
+        <a class="checkoutLink" href="./CartSummary.aspx">View Shopping Cart</a>
         <asp:ImageButton ID="ImageButton1" runat="server" CssClass="blueLable" ImageUrl="~/Images/cart2.png"
             onmouseover="mopen('DropDownMenu')" onmouseout="mclosetime()" 
-            Height="23px" Width="157px" /><a class="checkoutLink" href="./CartSummary.aspx">View Shopping Cart</a>
+            Height="23px" Width="157px" />
         <div id="DropDownMenu" style="visibility: hidden;" onmouseover="mcancelclosetime()"
             onmouseout="mclosetime()" class="">
             <%
