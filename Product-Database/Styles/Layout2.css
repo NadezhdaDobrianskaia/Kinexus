@@ -273,12 +273,13 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
 }
 .listPnum
 {
-
+    font-size: 12px;
     width:92px;
     vertical-align:top;
 }
 .listname
 {
+    font-size: 12px;
     margin-left:2px;
     vertical-align:top;
 }

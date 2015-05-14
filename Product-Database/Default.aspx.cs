@@ -273,13 +273,12 @@ namespace ProductDB
             output.Controls.Add(new LiteralControl("</td><td></td></tr>"));
 
             
-            output.Controls.Add(new LiteralControl("<tr>" +
-                "<td></td><td colspan=\"5\"><span class=\"gray30\">Select desired category and type in at least 2 letters of the product name or view a complete list<span></td></tr>"));
-            output.Controls.Add(new LiteralControl("<tr><td>"));
+           
+            output.Controls.Add(new LiteralControl("<tr><td></td><td>"));
             search_checkbox.AutoPostBack = true;
             search_checkbox.CheckedChanged += new EventHandler(checkbox_checked);
             output.Controls.Add(search_checkbox);
-            output.Controls.Add(new LiteralControl("</td><td><span class=\"gray30\">Check to search from anywhere in search string, uncheck to search from beginning only.<span></td></tr>"));
+            output.Controls.Add(new LiteralControl("<span class=\"gray30\">Check to search from anywhere in search string, uncheck to search from beginning only.<span></td></tr>"));
 
             /*
             if (search_checkbox.Checked)

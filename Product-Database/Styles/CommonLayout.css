@@ -138,7 +138,7 @@ Shopping Cart layout
 */
 #ShoppingCartMenu
 {
-	width: 100%;
+	width: 96%;
 }
 #ShoppingCartMenu .column .recommendedLink
 {
@@ -160,8 +160,8 @@ Shopping Cart layout
 #DropDownMenu
 {
 	width: 100px;
-	margin-left: 30px;
-	margin-top: 5px;
+	margin-left: 160px;
+	margin-top: 0px;
 	padding: 5px 5px 5px 5px;
 	position: relative;
 	background-color: #191919;
