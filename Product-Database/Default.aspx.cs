@@ -27,13 +27,15 @@ namespace ProductDB
 
         protected void checkbox_checked(object sender, EventArgs e)
         {
-            if (ViewState["CheckedStatus"] == null)
+            if (ViewState["CheckedStatus"] == null && ViewState["checkboxId"] == null)
             {
                 ViewState["CheckedStatus"] = false;
+                ViewState["checkboxId"] = "unifiedSearchBar";
             }
             else
             {
                 bool isChecked = (bool)ViewState["CheckedStatus"];
+                
                 if (!isChecked)
                 {
                     ViewState["CheckedStatus"] = true;
@@ -236,7 +238,7 @@ namespace ProductDB
             Button search_button = new Button(), list_button = new Button();
             CheckBox search_checkbox = new CheckBox();
             search_checkbox.Attributes.Add("class", "searchCheckBox");
-            string group = "unifiedSearchBar"; // this had been the problem changing code compared to old code
+            string group = (string)ViewState["checkboxId"]; // this had been the problem changing code compared to old code
                                        //need a drop down selection list to help choose and add the id to the dropbox
 
             //define textbox
@@ -245,6 +247,7 @@ namespace ProductDB
             search_TextBox.Text = "Enter Search Term";
             search_TextBox.Attributes.Add("onfocus", "rmText($(this))");
             search_TextBox.Attributes.Add("onblur", "rpText($(this))");
+            search_TextBox.AutoPostBack = true;
             //add the control to the panel
             output.Controls.Add(new LiteralControl("</td><td>"));
             output.Controls.Add(search_TextBox);
