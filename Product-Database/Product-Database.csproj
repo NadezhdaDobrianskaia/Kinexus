@@ -288,6 +288,7 @@
     <Content Include="InfoHomepage\5.jpg" />
     <Content Include="InfoHomepage\productsHomepageDescription.txt" />
     <Content Include="KinaseSubPeptideList.aspx" />
+    <Content Include="ProductInfo_Microarrays.aspx" />
     <Content Include="ProductInfo_BioactiveCompound.aspx" />
     <Content Include="ProductInfo_Lysate.aspx" />
     <Content Include="ProductInfo_Peptide.aspx" />
@@ -421,6 +422,13 @@
     </Compile>
     <Compile Include="KinaseSubPeptideList.aspx.designer.cs">
       <DependentUpon>KinaseSubPeptideList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInfo_Microarrays.aspx.cs">
+      <DependentUpon>ProductInfo_Microarrays.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInfo_Microarrays.aspx.designer.cs">
+      <DependentUpon>ProductInfo_Microarrays.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductInfo_BioactiveCompound.aspx.cs">
       <DependentUpon>ProductInfo_BioactiveCompound.aspx</DependentUpon>

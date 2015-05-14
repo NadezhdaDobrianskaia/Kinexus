@@ -124,6 +124,10 @@ namespace ProductDB
             string cat = Request.QueryString["cat"];
             string[] mode = null;
             string checkbox = Request.QueryString["Search_Checkbox"];
+
+            if (checkbox == null)
+                checkbox = "false";
+
             if (Request.QueryString["mode"] != null)
             {
                 mode = new string[1];
@@ -141,8 +145,8 @@ namespace ProductDB
                 try
                 {
                     //establish an connection to the SQL server 
-                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Kinexus Protein ProductDBConnectionString"].ConnectionString);
-                    if (checkbox.Equals(true))
+                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString"].ConnectionString);
+                    if (checkbox == "true")
                     {
                         SqlCommand command = new SqlCommand(BuildSQLAnywhere(term, cat, mode), connection);
                         connection.Open();
