@@ -183,6 +183,7 @@
         }
         .newPdtRightColumn {
             float: right;
+            margin-right: 10px;
         }
 
        /*---------end of bottom part of products homepage */
