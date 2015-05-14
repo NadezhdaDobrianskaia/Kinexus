@@ -36,13 +36,13 @@ namespace ProductDB
                 bool isChecked = (bool)ViewState["CheckedStatus"];
                 if (!isChecked)
                 {
-                    search_checked = true;
+                    ViewState["CheckedStatus"] = true;
                     search_TextBox.ID = "unifiedSearchBar" + "_checked" + "_textbx";
                 }
                 else
                 {
                     search_TextBox.ID = "unifiedSearchBar" + "_textbx";
-                    search_checked = false;
+                    ViewState["CheckedStatus"] = false;
                 }
             }
             /*
