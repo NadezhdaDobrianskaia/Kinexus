@@ -20,6 +20,8 @@ namespace ProductDB
         
         private const char Alias_Delim = ';';
         private static string[] StanderdDBColumns = { "Product_Number", "Product_Name_Short", "Product_Name_Long", "Product_Name_Alias", "Pep_Sequence" };
+        
+      
         /// <summary>
         /// A data class to represent the autocompleet data for JSON sterilization 
         /// </summary>
@@ -34,7 +36,48 @@ namespace ProductDB
         /// <param name="cat">the Category of the product tto be listed</param>
         /// <param name="DBColumns"></param>>
         /// <returns>An Sql query string </returns>
-        private string BuildSQL(string term, string cat, string[] DBColumns)
+        private string BuildSQLAnywhere(string term, string cat, string[] DBColumns)
+        {
+            if (DBColumns == null)
+            {
+                DBColumns = StanderdDBColumns;
+
+            }
+            string sql = "";//initialize  to and empty string ;
+            string SeachSql = " LIKE'%" + EscapeSQlLikeString(term) + "%'";//build the like string
+            //lop thor all the clumn to concat i=
+            sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General, Pep_Sequence FROM ProductDB WHERE ";
+          
+            
+            for (int i = 0; i < DBColumns.Length; i++)
+            {
+                sql += "(" + DBColumns[i] + " IS NOT NULL AND " + DBColumns[i] + SeachSql + ")";
+                if (i != DBColumns.Length - 1)
+                    sql += " OR ";
+            }
+
+            /* Uncomment this and replace the other code if you plan to search by category.
+            for (int i = 0; i < DBColumns.Length; i++)
+            {
+                string colum = DBColumns[i];
+                sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General" + " FROM ProductDB WHERE( ";
+                if (cat != null)
+                {
+                    sql += "Product_Type_General ='" + cat + "' AND ";
+                }
+                sql += colum + " IS NOT NULL AND " + colum + SeachSql + ")";
+                if (i < DBColumns.Length - 1)
+                {
+                    sql += " UNION ";
+                }
+            }
+             */
+
+            return sql + ";";
+
+        }
+
+        private string BuildSQLBeginning(string term, string cat, string[] DBColumns)
         {
             if (DBColumns == null)
             {
@@ -45,6 +88,8 @@ namespace ProductDB
             string SeachSql = " LIKE'" + EscapeSQlLikeString(term) + "%'";//build the like string
             //lop thor all the clumn to concat i=
             sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General, Pep_Sequence FROM ProductDB WHERE ";
+
+
             for (int i = 0; i < DBColumns.Length; i++)
             {
                 sql += "(" + DBColumns[i] + " IS NOT NULL AND " + DBColumns[i] + SeachSql + ")";
@@ -78,6 +123,7 @@ namespace ProductDB
             String term = Request["term"];
             string cat = Request.QueryString["cat"];
             string[] mode = null;
+            string checkbox = Request.QueryString["Search_Checkbox"];
             if (Request.QueryString["mode"] != null)
             {
                 mode = new string[1];
@@ -96,10 +142,19 @@ namespace ProductDB
                 {
                     //establish an connection to the SQL server 
                     SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString2"].ConnectionString);
-
-                    SqlCommand command = new SqlCommand(BuildSQL(term, cat, mode), connection);
-                    connection.Open();
-                    reader = command.ExecuteReader();
+                    if (checkbox.Equals(true))
+                    {
+                        SqlCommand command = new SqlCommand(BuildSQLAnywhere(term, cat, mode), connection);
+                        connection.Open();
+                        reader = command.ExecuteReader();
+                    }
+                    else
+                    {
+                        SqlCommand command = new SqlCommand(BuildSQLBeginning(term, cat, mode), connection);
+                        connection.Open();
+                        reader = command.ExecuteReader();
+                    }
+                    
                     
 
                     while (reader.Read())

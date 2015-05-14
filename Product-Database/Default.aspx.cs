@@ -16,6 +16,11 @@ namespace ProductDB
 
     public partial class _Default : System.Web.UI.Page
     {
+        public Boolean search_checked = false;
+        public Boolean getChecked()
+        {
+            return search_checked;
+        }
         /// <summary>
         /// Event fired on page load.
         /// </summary>
@@ -43,7 +48,7 @@ namespace ProductDB
         /// </summary>
         private void products_page_content()
         {
-
+            
             System.IO.StreamReader myFile = new System.IO.StreamReader(Server.MapPath("~/InfoHomepage/productsHomepageDescription.txt"));
             string myString = myFile.ReadToEnd();
             HiddenField1.Value = myString;
@@ -225,12 +230,20 @@ namespace ProductDB
             output.Controls.Add(search_button);
             output.Controls.Add(new LiteralControl("</td><td></td></tr>"));
 
-
+            
             output.Controls.Add(new LiteralControl("<tr>" +
                 "<td></td><td colspan=\"5\"><span class=\"gray30\">Select desired category and type in at least 2 letters of the product name or view a complete list<span></td></tr>"));
             output.Controls.Add(new LiteralControl("<tr><td>"));
             output.Controls.Add(search_checkbox);
             output.Controls.Add(new LiteralControl("</td><td><span class=\"gray30\">Check to search from anywhere in search string, uncheck to search from beginning only.<span></td></tr>"));
+            if (search_checkbox.Checked)
+            {
+                search_checked = true;
+            }
+            else
+            {
+                search_checked = false;
+            }
 
             //close the table
             output.Controls.Add(new LiteralControl("</table>"));
