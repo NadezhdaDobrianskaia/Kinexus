@@ -78,10 +78,11 @@ namespace ProductDB
             //load the search bar
             load_searchBar(search_box, true); //load_categories(search_box, true);
 
+            products_page_content();
             
             //To read the description of the company, contacts and hyperlinks
             if (!IsPostBack) { 
-                products_page_content();
+                //products_page_content();
             }
         }
         /// <summary>

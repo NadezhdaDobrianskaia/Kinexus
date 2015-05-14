@@ -129,7 +129,7 @@
         }
         .SecondLeftHomeDiv {
           float:left;
-          width:64%;
+          width:62%;
           min-height: 290px;
           border: 2px solid #496077;
           border-radius:15px;
@@ -138,13 +138,14 @@
         }
         .SecondRightHomeDiv {
             float:right;
-            width:30%;
+            width:31%;
             height:290px;
             border: 2px solid #496077;
             border-radius:15px;
             margin-top:10px;
-            padding:8px 4px 8px 16px;
-            font-size: 14px;
+            padding:8px 4px 8px 20px;
+            font-size: 15px;
+            
            
         }
         .SecondRightHomeDiv p {
@@ -182,6 +183,7 @@
         }
         .newPdtRightColumn {
             float: right;
+            margin-right: 10px;
         }
 
        /*---------end of bottom part of products homepage */

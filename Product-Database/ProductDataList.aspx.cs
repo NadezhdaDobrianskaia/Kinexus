@@ -166,7 +166,7 @@ namespace ProductDB
                     while (reader.Read())
                     {
                         AutocompleteInfo info = new AutocompleteInfo();
-                        string value = reader["Product_Number"].ToString() + " - " + reader["Product_Name_Short"]
+                        string value = reader["Product_Name_Short"] + " - " + reader["Product_Number"].ToString()
                             + " : " + reader["Product_Type_General"];
                         //string lable = reader[1].ToString();
                         if (value.Contains(Alias_Delim + " "))
