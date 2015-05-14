@@ -218,8 +218,6 @@ namespace ProductDB
             output.Controls.Add(search_button);
             output.Controls.Add(new LiteralControl("</td><td></td></tr>"));
 
-            output.Controls.Add(new LiteralControl("<tr>" +
-    "<td></td><td colspan=\"5\"><span class=\"gray30\">Select desired category and type in at least 2 letters of the product name or view a complete list<span> <br /><br /></td></tr>"));
 
             output.Controls.Add(new LiteralControl("</table>"));
         }
@@ -237,7 +235,7 @@ namespace ProductDB
             //instantiate buttons for search and for product list
             Button search_button = new Button(), list_button = new Button();
             CheckBox search_checkbox = new CheckBox();
-
+            search_checkbox.Attributes.Add("class", "searchCheckBox");
             string group = "unifiedSearchBar"; // this had been the problem changing code compared to old code
                                        //need a drop down selection list to help choose and add the id to the dropbox
 
@@ -267,6 +265,7 @@ namespace ProductDB
             //add the control to the panel
             output.Controls.Add(new LiteralControl("</td><td>"));
             output.Controls.Add(search_button);
+
             output.Controls.Add(new LiteralControl("</td><td></td></tr>"));
 
             

@@ -209,6 +209,10 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
     padding-bottom:0px;
     margin-bottom:0px;
 }
+.searchCheckBox{
+    margin-left:0px;
+    padding-left: 0px;
+}
 #searchTable h2
 {
     text-align:left;

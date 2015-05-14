@@ -236,7 +236,7 @@ namespace Product_Database
             string queryString = "SELECT DISTINCT Product_Type_General FROM ProductDB";
 
             //make the connection to the database
-            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString"].ConnectionString);
+            SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Kinexus Protein ProductDBConnectionString"].ConnectionString);
 
             //run the query
             SqlCommand command = new SqlCommand(queryString, connection);

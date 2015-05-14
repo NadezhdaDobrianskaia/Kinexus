@@ -19,6 +19,10 @@
         {
             width: 428px;
         }
+        .searchCheckBox{
+    margin-left:0px;
+    padding-left: 0px;
+}
         .productsHomepage{
             width:100%;
             margin-left:1px;
@@ -224,7 +228,7 @@
                     <li><asp:HyperLink ID="HyperLink1" runat="server" Text="Array" NavigateUrl="~/ProductsList_Array.aspx"></asp:HyperLink></li>
                     <li><asp:HyperLink ID="HyperLink2" runat="server" Text ="Antibody" NavigateUrl="~/ProductsList_Antibody.aspx"></asp:HyperLink></li>
                     <!--<li><asp:HyperLink ID="HyperLink3" runat="server" Text="Bioactive Compound" NavigateUrl="~/ProductsList_BioactiveCompound.aspx"></asp:HyperLink></li>-->                                                       
-                    <li><asp:HyperLink ID="HyperLink4" runat="server" Text="Cell/Tissue Lysate"></asp:HyperLink></li>
+                    <li><asp:HyperLink ID="HyperLink4" runat="server" Text="Cell/Tissue Lysate" NavigateUrl="~/ProductsList_Lysate.aspx"></asp:HyperLink></li>
                     <!-- <li><asp:HyperLink ID="HyperLink5" runat="server" Text="Enzyme Assay"></asp:HyperLink></li>  -->
                     <li><asp:HyperLink ID="HyperLink6" runat="server" Text ="Peptide" NavigateUrl="~/ProductsList_Peptide.aspx"></asp:HyperLink></li> 
                     <!--<li><asp:HyperLink ID="HyperLink7" runat="server" Text ="Protein Enzyme" NavigateUrl="~/ProductsList_ProteinEnzyme.aspx"></asp:HyperLink></li>
@@ -242,16 +246,18 @@
             </div>
 
             <div class ="FirstRightHomeDiv">
+               
                <!--Search of Kinexus products homepage-->
                <div class="HomeSearchDiv">
                    
                        <ContentTemplate>
-                           <asp:PlaceHolder ID="search_box" runat="server"></asp:PlaceHolder>
+                <asp:PlaceHolder ID="search_box" runat="server"></asp:PlaceHolder>
                            <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString %>"
                             SelectCommand="SELECT * FROM [ProductDB]"></asp:SqlDataSource>
                        </ContentTemplate>
          
             </div>
+
               <!--Pictures of Kinexus products homepage-->
                <div id="HomeImageDiv" >
                 <asp:ScriptManager ID="ScriptManager1" runat="server">

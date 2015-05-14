@@ -24,7 +24,7 @@
         <tr>
             <td class="style4">
                 <div class="column nameColumn">
-                    <span class="bold"><span class="bluelable">Product Type:</span><span class=orangeLabel>  arrays</sapn></span>
+                    <span class="bold"><span class="bluelable">Product Type:</span><span class=orangeLabel>  Arrays</sapn></span>
                 </div>
             </td>
             <td class="style2">
