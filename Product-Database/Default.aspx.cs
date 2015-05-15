@@ -78,12 +78,13 @@ namespace ProductDB
             //load the search bar
             load_searchBar(search_box, true); //load_categories(search_box, true);
 
-            products_page_content();
             
             //To read the description of the company, contacts and hyperlinks
             if (!IsPostBack) { 
-                //products_page_content();
+                products_page_content();
             }
+
+            loadContacts();
         }
         /// <summary>
         /// Reading in all data in order to display the products homepage
@@ -95,15 +96,21 @@ namespace ProductDB
             string myString = myFile.ReadToEnd();
             HiddenField1.Value = myString;
             myFile.Close();
-            //to read in the contacts on the products homepage
-            System.IO.StreamReader file = new System.IO.StreamReader(Server.MapPath("~/InfoHomepage/productsHomepageContact.txt"));
-            string line;
-            while ((line = file.ReadLine()) != null)
+            
+            if (Application["ContactsInfo"] == null)
             {
-                PlaceHolderContact.Controls.Add(new LiteralControl(line + "<br />"));
+                System.IO.StreamReader fileContact = new System.IO.StreamReader(Server.MapPath("~/InfoHomepage/productsHomepageContact.txt"));
+                StringCollection ContactInfoText = new StringCollection();
+                string line;
+                while ((line = fileContact.ReadLine()) != null)
+                {
+                    ContactInfoText.Add(line);
+                }
+
+                fileContact.Close();
+                Application.Add("ContactsInfo", ContactInfoText);//crate new cach
             }
 
-            file.Close();
 
             if (Application["HyperLinkList"] == null)//is the list of hyperlinks cahsed in mem
             {
@@ -120,6 +127,25 @@ namespace ProductDB
                 Application.Add("HyperLinkList", LinkEntries);//crate new cach
             }
 
+        }
+
+
+        /// <summary>
+        /// loads the contacts information on to the page is a post back is called
+        /// </summary>
+        private void loadContacts()
+        {
+            if (Application["ContactsInfo"] == null){
+                products_page_content();
+            }
+            else { 
+                StringCollection Contact = (StringCollection)Application["ContactsInfo"];
+            
+                foreach (string line in Contact)
+                {
+                    PlaceHolderContact.Controls.Add(new LiteralControl(line + "<br />"));
+                }
+            }
         }
         /// <summary>
         /// Divides the target string into a collection of strings based on the delimiter.

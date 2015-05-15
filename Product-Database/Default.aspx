@@ -205,6 +205,8 @@
     </script>
 
 
+
+
     <!-- starting and stopping the timer-->
     <script type="text/javascript" language="javascript">
         function stopTimer(x) {
@@ -352,8 +354,9 @@
                        
 
 
-                    </asp:PlaceHolder>
+                    </asp:PlaceHolder>    
                 </p>
+                
             </div>
         </div>
     </div>
