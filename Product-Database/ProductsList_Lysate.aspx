@@ -33,7 +33,7 @@
         <div id="productListSearchBar">
                 <asp:TextBox ID="Lysate_textbx" runat="server"></asp:TextBox>
             <%-- connection string for textbox --%>
-            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
             SelectCommand="SELECT [Product_Name_Short] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Short] IS NOT NULL)
             UNION
             SELECT [Product_Name_Long] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Long] IS NOT NULL)
@@ -48,7 +48,7 @@
             <asp:Button ID="Button1" runat="server" Text="Search"  OnClick="Button1_Click"
                     />
             <%-- connection string for datalink --%>
-            <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
+            <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
             SelectCommand="SELECT * FROM [ProductDB]" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>"></asp:SqlDataSource>
             
         </div>

@@ -270,6 +270,7 @@ namespace ProductDB
 
             //define textbox
             search_TextBox.ID = group.Replace(" ", "_") + "_textbx";
+            
             search_TextBox.Attributes.Add("class", "searchBox");
             search_TextBox.Text = "Enter Search Term";
             search_TextBox.Attributes.Add("onfocus", "rmText($(this))");
@@ -300,10 +301,12 @@ namespace ProductDB
             
            
             output.Controls.Add(new LiteralControl("<tr><td></td><td>"));
-            search_checkbox.AutoPostBack = true;
+            search_checkbox.AutoPostBack = false;
+            search_checkbox.Visible = false;
             search_checkbox.CheckedChanged += new EventHandler(checkbox_checked);
             output.Controls.Add(search_checkbox);
-            output.Controls.Add(new LiteralControl("<span class=\"gray30\">Check to search from anywhere in search string, uncheck to search from beginning only.<span></td></tr>"));
+           // output.Controls.Add(new LiteralControl("<span class=\"gray30\">Check to search from anywhere in search string, uncheck to search from beginning only.<span></td></tr>"));
+            output.Controls.Add(new LiteralControl("<span class=\"gray30\">Recommended minimum of 3 characters in search field to display correct products.<span></td></tr>"));
 
             /*
             if (search_checkbox.Checked)
@@ -483,6 +486,8 @@ namespace ProductDB
         /// <param name="e">The event arguments.</param>
         protected void search_click(object sender, EventArgs e)
         {
+
+
             string product_group = "";
             string product_name = "";
             string product_num = "";
@@ -495,49 +500,15 @@ namespace ProductDB
             //get the value in the associated textbox from the post data and strip the tags
             string box_value = Server.HtmlEncode(Request.Form["ctl00$MainContent$" + group_id + "_textbx"]);
 
-            for (int i = 0; i < box_value.Length; i++)
-            {
-                if (box_value[i] == ' ' && box_value[i + 1] == '-' && box_value[i + 2] == ' ')
-                {
-                    product_num = box_value.Substring(0, i);
-                    ++i;
-                    ++i;
-
-                }
-
-            }
-
-            for (int i = 0; i < product_num.Length; i++)
-            {
-                if (product_num[i] == 'A' && product_num[i + 1] == 'B')
-                {
-                    product_group = "Antibody";
-                }
-                else if (product_num[i] == 'S' && product_num[i + 1] == 'P')
-                {
-                    product_group = "Peptide";
-                }
-                else if (product_num[i] == 'B' && product_num[i + 1] == 'C')
-                {
-                    product_group = "BioactiveCompound";
-                }
-                else if (product_num[i] == 'P' && product_num[i + 1] == 'E')
-                {
-                    product_group = "ProteinEnzyme";
-                }
-                else if (product_num[i] == 'M' && product_num[i + 1] == 'A')
-                {
-                    product_group = "Array";
-                }
-                else if (product_num[i] == 'P' && product_num[i + 1] == 'S')
-                {
-                    product_group = "ProteinSubstrate";
-                }
-                else if (product_num[i] == 'L' && product_num[i + 1] == 'C')
-                {
-                    product_group = "Lysate";
-                }
-            }
+            
+            string myString = search_TextBox.Text;
+            
+            search_TextBox.Text += myString;
+           
+            string[] strArr = myString.Split(':');
+            product_name = strArr[1];
+            product_num = strArr[0];
+            product_group = strArr[2];
 
             //if the query value box is empty do nothing
             if (box_value.Trim().Length == 0 || box_value.Trim() == "Enter Search Term")
@@ -549,8 +520,7 @@ namespace ProductDB
             //select the product table from the database
             DataView productTable = (DataView)SqlDataSource7.Select(DataSourceSelectArguments.Empty);
 
-            if (group_id.Equals("unifiedSearchBar"))
-            {
+      
                 //filter data from the selected database table
                 productTable.RowFilter = "Product_Number = '" + product_num + "' ";
                 /*
@@ -558,23 +528,23 @@ namespace ProductDB
                                          "OR Product_Name_Alias LIKE '%" + EscapeSQlLikeString(box_value) + "%'" +
                                          "OR Pep_Sequence LIKE '%" + EscapeSQlLikeString(box_value) + "%'";*/
 
-            }
-         
+            
+
             //create a dataview row
-            DataRowView row = (DataRowView)productTable[0];
+            //DataRowView row = (DataRowView)productTable[0];
 
             //create a product object
             Product product = new Product();
 
             //set the product values
-            product.Product_Name = box_value;
-            product.Product_Number = row["Product_Number"].ToString();
+            product.Product_Name = product_name;
+            product.Product_Number = product_num;
             
             //if the page is valid
             if (Page.IsValid)
             {
                 //redirect to the associated product detail page .Replace("_", string.Empty) 
-                Response.Redirect("~/ProductInfo_" + product_group.Replace("_", string.Empty)  + ".aspx?Product_Number=" + product.Product_Number);
+                Response.Redirect("~/ProductInfo_" + product_group.Replace("_", string.Empty) + ".aspx?Product_Number=" + product.Product_Number);
             }
         }
         /// <summary>
