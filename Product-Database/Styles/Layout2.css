@@ -298,6 +298,10 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
      color:#99c7ff;
 }
 
+#figureText{
+	font-size: 12px;
+}
+
 #ad
 {
     position:relative;}

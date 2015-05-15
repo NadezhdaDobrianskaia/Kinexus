@@ -248,7 +248,6 @@ namespace ProductDB
             search_TextBox.Text = "Enter Search Term";
             search_TextBox.Attributes.Add("onfocus", "rmText($(this))");
             search_TextBox.Attributes.Add("onblur", "rpText($(this))");
-            search_TextBox.AutoPostBack = true;
             //add the control to the panel
             output.Controls.Add(new LiteralControl("</td><td>"));
             output.Controls.Add(search_TextBox);
