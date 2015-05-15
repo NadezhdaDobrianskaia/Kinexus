@@ -312,4 +312,35 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
 }
 
 
+
+.productsListTop{
+    margin-top:20px;
+    min-height:30px;
+}
+#productListSearchBar {
+    float: right;
+    margin-right:10px;  
+}
+.productsListColumnName{
+    float:left;
+    width:28.5%;
+    margin-left:15px;
+    float:left;
+    margin-bottom:15px;
+    text-align:left;
+    color:#fc931e;
+    float:none;
+    background-color:#252525;
+    min-height:30px;
+    padding:10px;
+    padding-left: 10px;
+    border: 2px solid #496077;
+    border-radius:10px;
+}
+.recommendedSubstrate{
+    float:right;
+    font-size: 12px;
+    margin-top: 15px;
+    margin-right: 10px;
+}
  

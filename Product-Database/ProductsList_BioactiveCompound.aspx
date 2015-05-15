@@ -25,36 +25,37 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <form id="Form1" runat="server">
+
+        <div class="productsListTop">     
+        <div id="productListSearchBar">
+               <asp:TextBox id="Bioactive_Compound_textbx" runat="server"></asp:TextBox>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
+            SelectCommand="SELECT [Product_Name_Short] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Short] IS NOT NULL)
+            UNION
+            SELECT [Product_Name_Long] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Long] IS NOT NULL)
+            UNION
+            SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Alias] IS NOT NULL)
+            " ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">
+            <SelectParameters>
+            <asp:Parameter DefaultValue="Bioactive Compound" Name="Product_Type_General" />
+            </SelectParameters>
+            </asp:SqlDataSource>
+            
+        <asp:Button ID="Button1" runat="server" Text="Search"  onclick="Button1_Click" />
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
+        SelectCommand="SELECT * FROM [ProductDB]" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>"></asp:SqlDataSource>
+            
+        </div>
+ 
+        <div class="productsListColumnName">
+              <span class="bold"><span class="bluelable">Product Type:</span><span class=orangeLabel> Bioactive Compounds</sapn></sapn>
+
+        </div>
+        </div>
+
+
     <table class="style1">
         <tr>
-            <td class="style4">
-             <div class="column nameColumn">
-                    <span class="bold"><span class="bluelable">Product Type:</span><span class=orangeLabel> Bioactive Compounds</sapn></sapn>
-                </div>
-            </td>
-            <td class="style2">
-            <%-- connection string for textbox --%>
-               <asp:TextBox id="Bioactive_Compound_textbx" runat="server"></asp:TextBox>
-                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionStringServer %>"
-                    SelectCommand="SELECT [Product_Name_Short] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Short] IS NOT NULL)
-UNION
-SELECT [Product_Name_Long] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Long] IS NOT NULL)
-UNION
-SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Alias] IS NOT NULL)
-">
-                    <SelectParameters>
-                        <asp:Parameter DefaultValue="Bioactive Compound" Name="Product_Type_General" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
-            </td>
-            <td>
-                <%-- connection string for datalink --%>
-                <asp:Button ID="Button1" runat="server" Text="Search" 
-                    onclick="Button1_Click" />
-                <asp:SqlDataSource ID="SqlDataSource3" runat="server" 
-                    ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionStringServer %>" 
-                    SelectCommand="SELECT * FROM [ProductDB]"></asp:SqlDataSource>
-            </td>
         </tr>
         <tr>
             <td class="style3" colspan="3">
@@ -100,8 +101,8 @@ SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Pr
                     </GroupTemplate>
                 </asp:ListView>
                 <%-- connection string for productlist --%>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionStringServer %>"
-                    SelectCommand="SELECT [Product_Number], [Product_Name_Short] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General) ORDER BY [Product_Name_Short], [Product_Number]">
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
+                    SelectCommand="SELECT [Product_Name_Short], [Product_Number] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General) ORDER BY [Product_Name_Short], [Product_Number]">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Bioactive Compound" Name="Product_Type_General" Type="String" />
                     </SelectParameters>

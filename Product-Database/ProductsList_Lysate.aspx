@@ -27,35 +27,41 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <form runat="server">
+
+            
+<div class="productsListTop">     
+        <div id="productListSearchBar">
+                <asp:TextBox ID="Lysate_textbx" runat="server"></asp:TextBox>
+            <%-- connection string for textbox --%>
+            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
+            SelectCommand="SELECT [Product_Name_Short] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Short] IS NOT NULL)
+            UNION
+            SELECT [Product_Name_Long] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Long] IS NOT NULL)
+            UNION
+            SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Alias] IS NOT NULL)
+            " ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">
+            <SelectParameters>
+            <asp:Parameter DefaultValue="Lysate" Name="Product_Type_General" />
+            </SelectParameters>
+            </asp:SqlDataSource>
+            
+            <asp:Button ID="Button1" runat="server" Text="Search"  OnClick="Button1_Click"
+                    />
+            <%-- connection string for datalink --%>
+            <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
+            SelectCommand="SELECT * FROM [ProductDB]" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>"></asp:SqlDataSource>
+            
+        </div>
+ 
+        <div class="productsListColumnName">
+            <span class="bold"><span class="bluelable">Product Type:</span><span class="orangeLabel">  Cell / Tissue  Lysate</span></span>
+
+        </div>
+        </div>
+
     <table class="style1">
         <tr>
-            <td class="auto-style1">
-            <div class="column nameColumn">
-                    <span class="bold"><span class="bluelable">Product Type:</span><span class="orangeLabel">  Cell / Tissue  Lysate</span></span>
-                </div>
-            </td>
-            <td class="style2">
-                <asp:TextBox ID="Lysate_textbx" runat="server"></asp:TextBox>
-                <%-- connection string for textbox --%>
-                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
-                    SelectCommand="SELECT [Product_Name_Short] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Short] IS NOT NULL)
-UNION
-SELECT [Product_Name_Long] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Long] IS NOT NULL)
-UNION
-SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Alias] IS NOT NULL)
-" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">
-                    <SelectParameters>
-                        <asp:Parameter DefaultValue="Lysate" Name="Product_Type_General" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
-            </td>
-            <td>
-                <asp:Button ID="Button1" runat="server" Text="Search"  OnClick="Button1_Click"
-                    Style="margin-left: 1px" ValidationGroup="Antibodies" />
-                <%-- connection string for datalink --%>
-                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
-                    SelectCommand="SELECT * FROM [ProductDB]" ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>"></asp:SqlDataSource>
-            </td>
+            
         </tr>
         <tr>
             <td class="auto-style1">
