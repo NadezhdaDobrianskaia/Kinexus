@@ -5,32 +5,36 @@
     <style type="text/css">
         .style1
         {
-            width: 100%;
+            width: 110%;
             height: 65px;
         }
-        .style2
-        {
-        }
+        
         .style3
         {
-            width: 200px;
+            
+            width: 0px;
         }
         .style4
         {
-            width: 2897px;
+            width: 0px;
         }
+
+        .auto-style1 {
+            width: 0px;
+        }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <form runat="server">
     <table class="style1">
         <tr>
-            <td class="style4">
+            <td class="auto-style1">
             <div class="column nameColumn">
                     <span class="bold"><span class="bluelable">Product Type:</span><span class="orangeLabel">  Cell / Tissue  Lysate</span></span>
                 </div>
             </td>
-            <td class="style3">
+            <td class="style2">
                 <asp:TextBox ID="Lysate_textbx" runat="server"></asp:TextBox>
                 <%-- connection string for textbox --%>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
@@ -41,7 +45,7 @@ UNION
 SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Product_Type_General AND [Product_Name_Alias] IS NOT NULL)
 " ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">
                     <SelectParameters>
-                        <asp:Parameter DefaultValue="Protein Lysate" Name="Product_Type_General" />
+                        <asp:Parameter DefaultValue="Lysate" Name="Product_Type_General" />
                     </SelectParameters>
                 </asp:SqlDataSource>
             </td>
@@ -54,10 +58,10 @@ SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Pr
             </td>
         </tr>
         <tr>
-            <td class="style4">
+            <td class="auto-style1">
                 &nbsp;
             </td>
-            <td class="style3">
+            <td class="style3" colspan="3">
             </td>
             <td>
                 &nbsp;

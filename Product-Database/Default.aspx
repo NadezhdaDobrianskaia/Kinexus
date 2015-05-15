@@ -13,7 +13,7 @@
         }
         .style3
         {
-            width: 272px;
+            width: 300px;
         }
         .style4
         {
