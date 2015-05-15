@@ -17,9 +17,11 @@ namespace ProductDB
 
     public partial class ProductDataList : System.Web.UI.Page
     {
-
+        
         private const char Alias_Delim = ';';
-        private static string[] StanderdDBColumns = { "Product_Name_Short ", "Product_Name_Long", "Product_Name_Alias" };
+        private static string[] StanderdDBColumns = { "Product_Number", "Product_Name_Short", "Product_Name_Long", "Product_Name_Alias", "Pep_Sequence" };
+        
+      
         /// <summary>
         /// A data class to represent the autocompleet data for JSON sterilization 
         /// </summary>
@@ -34,7 +36,7 @@ namespace ProductDB
         /// <param name="cat">the Category of the product tto be listed</param>
         /// <param name="DBColumns"></param>>
         /// <returns>An Sql query string </returns>
-        private string BuildSQL(string term, string cat, string[] DBColumns)
+        private string BuildSQLAnywhere(string term, string cat, string[] DBColumns)
         {
             if (DBColumns == null)
             {
@@ -42,12 +44,23 @@ namespace ProductDB
 
             }
             string sql = "";//initialize  to and empty string ;
-            string SeachSql = " LIKE'" + EscapeSQlLikeString(term) + "%'";//build the like string
-            //lop thor all the clumn to concat i= 
+            string SeachSql = " LIKE'%" + EscapeSQlLikeString(term) + "%'";//build the like string
+            //lop thor all the clumn to concat i=
+            sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General, Pep_Sequence FROM ProductDB WHERE ";
+          
+            
+            for (int i = 0; i < DBColumns.Length; i++)
+            {
+                sql += "(" + DBColumns[i] + " IS NOT NULL AND " + DBColumns[i] + SeachSql + ")";
+                if (i != DBColumns.Length - 1)
+                    sql += " OR ";
+            }
+
+            /* Uncomment this and replace the other code if you plan to search by category.
             for (int i = 0; i < DBColumns.Length; i++)
             {
                 string colum = DBColumns[i];
-                sql += "SELECT " + colum + " FROM ProductDB WHERE( ";
+                sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General" + " FROM ProductDB WHERE( ";
                 if (cat != null)
                 {
                     sql += "Product_Type_General ='" + cat + "' AND ";
@@ -58,6 +71,49 @@ namespace ProductDB
                     sql += " UNION ";
                 }
             }
+             */
+
+            return sql + ";";
+
+        }
+
+        private string BuildSQLBeginning(string term, string cat, string[] DBColumns)
+        {
+            if (DBColumns == null)
+            {
+                DBColumns = StanderdDBColumns;
+
+            }
+            string sql = "";//initialize  to and empty string ;
+            string SeachSql = " LIKE'" + EscapeSQlLikeString(term) + "%'";//build the like string
+            //lop thor all the clumn to concat i=
+            sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General, Pep_Sequence FROM ProductDB WHERE ";
+
+
+            for (int i = 0; i < DBColumns.Length; i++)
+            {
+                sql += "(" + DBColumns[i] + " IS NOT NULL AND " + DBColumns[i] + SeachSql + ")";
+                if (i != DBColumns.Length - 1)
+                    sql += " OR ";
+            }
+
+            /* Uncomment this and replace the other code if you plan to search by category.
+            for (int i = 0; i < DBColumns.Length; i++)
+            {
+                string colum = DBColumns[i];
+                sql += "SELECT Product_Number, Product_Name_Short, Product_Type_General" + " FROM ProductDB WHERE( ";
+                if (cat != null)
+                {
+                    sql += "Product_Type_General ='" + cat + "' AND ";
+                }
+                sql += colum + " IS NOT NULL AND " + colum + SeachSql + ")";
+                if (i < DBColumns.Length - 1)
+                {
+                    sql += " UNION ";
+                }
+            }
+             */
+
             return sql + ";";
 
         }
@@ -67,11 +123,17 @@ namespace ProductDB
             String term = Request["term"];
             string cat = Request.QueryString["cat"];
             string[] mode = null;
+            string checkbox = Request.QueryString["Search_Checkbox"];
+
+            if (checkbox == null)
+                checkbox = "false";
+
             if (Request.QueryString["mode"] != null)
             {
                 mode = new string[1];
                 mode[0] = "Product_Number";
             }
+
             if (term != null)//
             {
                 //URl encode to protect against SQL injection attracts 
@@ -79,21 +141,33 @@ namespace ProductDB
                 cat = Server.HtmlEncode(cat);
                 SqlDataReader reader = null;
                 List<AutocompleteInfo> data = new List<AutocompleteInfo>();
+                
                 try
                 {
                     //establish an connection to the SQL server 
-                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString"].ConnectionString);
+                    SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Kinexus Protein ProductDBConnectionString"].ConnectionString);
 
-                    SqlCommand command = new SqlCommand(
-                        BuildSQL(term, cat, mode), connection);
-                    connection.Open();
-                    reader = command.ExecuteReader();
+                   
+                    if (checkbox == "true")
+                    {
+                        SqlCommand command = new SqlCommand(BuildSQLAnywhere(term, cat, mode), connection);
+                        connection.Open();
+                        reader = command.ExecuteReader();
+                    }
+                    else
+                    {
+                        SqlCommand command = new SqlCommand(BuildSQLBeginning(term, cat, mode), connection);
+                        connection.Open();
+                        reader = command.ExecuteReader();
+                    }
+                    
                     
 
                     while (reader.Read())
                     {
                         AutocompleteInfo info = new AutocompleteInfo();
-                        string value = reader[0].ToString();
+                        string value = reader["Product_Number"].ToString() + ":" + reader["Product_Name_Short"]
+                            + ":" + reader["Product_Type_General"];
                         //string lable = reader[1].ToString();
                         if (value.Contains(Alias_Delim + " "))
                         {
@@ -139,6 +213,7 @@ namespace ProductDB
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadDataList();
+
         }
         /// <summary>
         /// 

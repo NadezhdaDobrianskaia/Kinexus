@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Product_Database
 {
-    public partial class ProductInfo_Microarray : ProductInfo
+    public partial class ProductInfo_Array : ProductInfo
     {
         /*
          * 
@@ -20,10 +20,10 @@ Scientific Background:	Scientific_Background
 Production Method:	Production_Method
 Storage Conditions:	Storage_Conditions
 Storage Stability:	Storage_Stability
-Microarray Use Description: 	Array_Use_Description
-Microarray Probe Description: 	Array_Probe_Description
-Microarray Slide Type: 	Array_Slide_Type
-Microarray Slide Methodology: 	Array_Slide_Methodology
+Array Use Description: 	Array_Use_Description
+Array Probe Description: 	Array_Probe_Description
+Array Slide Type: 	Array_Slide_Type
+Array Slide Methodology: 	Array_Slide_Methodology
 
          * */
         protected void Page_Load(object sender, EventArgs e)
@@ -39,10 +39,10 @@ Microarray Slide Methodology: 	Array_Slide_Methodology
                 AddLableInofPairToColum("Production Method: ", GetDBValue("Production_Method"));
                 AddLableInofPairToColum("Storage Conditions: ", GetDBValue("Storage_Conditions"));
                 AddLableInofPairToColum("Storage Stability: ", GetDBValue("Storage_Stability"));
-                AddLableInofPairToColum("Microarray Use Description:  ", GetDBValue("Array_Use_Description"));
-                AddLableInofPairToColum("Microarray Probe Description: ", GetDBValue("Array_Probe_Description"));
-                AddLableInofPairToColum("Microarray Slide Type: ", GetDBValue("Array_Slide_Type"));
-                AddLableInofPairToColum("Microarray Slide Methodology: ", GetDBValue("Array_Slide_Methodology"));
+                AddLableInofPairToColum("Array Use Description:  ", GetDBValue("Array_Use_Description"));
+                AddLableInofPairToColum("Array Probe Description: ", GetDBValue("Array_Probe_Description"));
+                AddLableInofPairToColum("Array Slide Type: ", GetDBValue("Array_Slide_Type"));
+                AddLableInofPairToColum("Array Slide Methodology: ", GetDBValue("Array_Slide_Methodology"));
                 HtmlBufferFlush();
                 BuildFiquersHTML();
                 BuildreferencesHTML();

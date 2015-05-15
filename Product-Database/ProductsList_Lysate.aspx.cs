@@ -9,7 +9,7 @@ using System.Data;
 
 namespace ProductDB
 {
-    public partial class WebForm2 : System.Web.UI.Page
+    public partial class ProductsListLysate : System.Web.UI.Page
     {
         int rowID; 
 
@@ -21,15 +21,14 @@ namespace ProductDB
   
         protected void Button1_Click(object sender, EventArgs e)
         {
-
             string product_group = "";
             string product_name = "";
             string product_num = "";
             //cast the sender as a button
             Button button_sender = (Button)sender;
 
-           
-            string myText = Antibody_textbx.Text;
+
+            string myText = Lysate_textbx.Text;
 
 
             string[] strArr = myText.Split(':');
@@ -37,8 +36,14 @@ namespace ProductDB
             product_name = strArr[1];
             product_num = strArr[0];
             product_group = strArr[2];
-
             
+            //grab the group tag on the button
+            string group_id = myText.Substring(0, button_sender.ID.Length - 7); //unifiedsearch etc.
+
+            //get the value in the associated textbox from the post data and strip the tags
+            string box_value = Server.HtmlEncode(Request.Form["ctl00$MainContent$" + "Lysate_textbx"]);
+
+
             //create a product object
             Product product = new Product();
 
@@ -50,9 +55,9 @@ namespace ProductDB
             if (Page.IsValid)
             {
                 //redirect to the associated product detail page .Replace("_", string.Empty) 
-                Response.Redirect("~/ProductInfo_" + product_group.Replace("_", string.Empty) + ".aspx?Product_Number=" + product_num);
+                Response.Redirect("~/ProductInfo_" + product_group.Replace("_", string.Empty) + ".aspx?Product_Number=" + product.Product_Number);
             }
- 
+
 
 
             /*

@@ -10,7 +10,7 @@
 namespace ProductDB {
     
     
-    public partial class WebForm2 {
+    public partial class ProductsList_Protein_Arrays {
         
         /// <summary>
         /// Form1 control.
@@ -22,13 +22,13 @@ namespace ProductDB {
         protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
-        /// Antibody_textbx control.
+        /// Array_textbx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Antibody_textbx;
+        protected global::System.Web.UI.WebControls.TextBox Array_textbx;
         
         /// <summary>
         /// SqlDataSource2 control.

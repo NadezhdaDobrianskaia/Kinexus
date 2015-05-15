@@ -26,8 +26,8 @@ namespace Product_Database
         public enum columSize { mini, med, full }
         private int htmlBufferLines;
         public const int MAX_CAHR_PER_LINE = 40;
-        public const int MAX_LINE_PER_MED_COLUM = 24;
-        public const int MAX_LINE_PER_COLUM = 24;
+        public const int MAX_LINE_PER_MED_COLUM = 27;
+        public const int MAX_LINE_PER_COLUM = 27;
         public const int MAX_MINI_COLUM = 3;
         public const int MAX_MED_COLUM = 3;
         private int columcount;
@@ -46,7 +46,7 @@ namespace Product_Database
         {
             try
             {
-                connection = new SqlConnection(ConfigurationManager.ConnectionStrings["comp4900ConnectionString"].ConnectionString);
+                connection = new SqlConnection(ConfigurationManager.ConnectionStrings["Kinexus Protein ProductDBConnectionString"].ConnectionString);
                 SqlCommand command = new SqlCommand("SELECT DISTINCT * FROM [ProductDB] WHERE ([Product_Number] = @Product_Number)", connection);
                 productIDFilter = new SqlParameter();
                 productIDFilter.ParameterName = "@Product_Number";
@@ -137,7 +137,7 @@ namespace Product_Database
                         if (extraBlockSpace && (newNumberOfLines != MAX_LINE_PER_MED_COLUM || (newNumberOfLines != MAX_LINE_PER_COLUM && size == columSize.full)))
                         {
                             //append line breaks
-                            HTMLBuffer.Append(" <br /> <br />");
+                            HTMLBuffer.Append("<br /><br />");
                             //increment number of lines so it includes html line breaks
                             newNumberOfLines++;
                         }
@@ -277,7 +277,7 @@ namespace Product_Database
                             HTML.Append(BuildOpeningColumHTML());
                         }
                         count++;
-                        HTML.Append("<a href=\"../Images/images/" + img + "\" target=\"_blank\" rel=\"shadowbox\"><img src=\"../Images/images/" + img + "\" height=\"130px\" width=\"275px\" / ></a>" + text + "<br/><br/>");
+                        HTML.Append("<a href=\"../Images/images/" + img + "\" target=\"_blank\" rel=\"shadowbox\"><img src=\"../Images/images/" + img + "\" height=\"130px\" width=\"260px\" / ></a><div id='figureText'>" + text + "</div><br/><br/>");
 
                     }
 

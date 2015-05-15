@@ -8,18 +8,16 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
 }
 .column-list
 {
-    width:120%
+    width:100%
 }
 .column
 {
     width:32%;
-    margin-left:8px;
+    margin-left:1px;
     float:left;
     min-height: 550px;
     margin-bottom:15px;
     text-align:left;
-    padding:2px;
-    
     
 }
 .list{
@@ -78,15 +76,14 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
     background-color:#191919;
     width:160px;
     max-height:300px;
-    width:494px !important; 
+    width:200px !important; 
     overflow:auto;
 
 }
 .ui-widget-content-cobo
 {
-
     background-color:#191919;
-    width:200px;
+    width:201px;
 }
 
 .ui-menu-item
@@ -110,17 +107,16 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
 {
     color:#fff;
     background-color:#000;
-    text-decoration:underline;
+    text-decoration:underlin;
 }
 .colULC
 {
      background-image:url("../Images/colULC.png");
     background-repeat:no-repeat;
     width:14px;
-    min-height:12px;
+    min-height:14px;
     float:left;
     z-index:2;
-	
 }
 .colURC
 {
@@ -128,17 +124,16 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
     background-image:url("../Images/colURC.png");
     background-repeat:no-repeat;
     width:14px;
-    min-height:12px;
+    min-height:14px;
     float:right;
     display:inline;
      z-index:2;
-	 
 }
 .colUE
 {
     background-image:url("../Images/colU.png");
     background-repeat:repeat-x;
-    min-height:12px;
+    min-height:14px;
      z-index:2;
 
 }
@@ -147,10 +142,9 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
      background-image:url("../Images/colLLC.png");
     background-repeat:no-repeat;
     width:14px;
-    min-height:10px;
+    min-height:14px;
     float:left;
     z-index:2;
-	margin-bottom: -10px;
 }
 .colLRC
 {
@@ -158,19 +152,17 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
     background-image:url("../Images/colLRC.png");
     background-repeat:no-repeat;
     width:14px;
-    min-height:10px;
+    min-height:14px;
     float:right;
     display:inline;
      z-index:2;
-	 margin-bottom: -10px;
 }
 .colBE
 {
     background-image:url("../Images/colB.png");
     background-repeat:repeat-x;
-    min-height:10px;
+    min-height:14px;
      z-index:2;
-	 margin-bottom: -10px;
 }
 .colLE
 {
@@ -189,12 +181,13 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
      width:14px;
     height:100%;
     float:right;
+
 }
 .col-inner
 {
    
     height:98%;
-	margin:0;
+    margin:0;
     padding:0;
     background-color:#191919;
     
@@ -205,25 +198,22 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
     text-align:center;
     margin-left:164px;    
 }
-.searchBox {
-    width: 530px;
-    padding-bottom:0px;
-    margin-bottom:0px;
-}
-.searchCheckBox{
-    margin-left:0px;
-    padding-left: 0px;
+.searchBox 
+{
+    width:500px;
 }
 #searchTable h2
 {
     text-align:left;
     margin-left:-178px;
 }
+#searchHome2{
 
+}
 #searchHome
 {
     text-align:center;
-        
+    margin-left:200px;    
 }
 #searchHome h2
 {
@@ -232,8 +222,8 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
 }
 
 #searchHome td{
-    padding-left:0px;
-    padding-bottom:0px;
+    padding-left:15px;
+
 }
 
 #searchTable td
@@ -274,20 +264,14 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
 }
 .listPnum
 {
-    font-size: 12px;
+
     width:92px;
     vertical-align:top;
 }
 .listname
 {
-    font-size: 12px;
     margin-left:2px;
     vertical-align:top;
-}
-
-.productInfo{
-	margin-top: -12px;
-	margin-bottom: 30px;
 }
 
 .productInfo a
@@ -299,10 +283,6 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
      color:#99c7ff;
 }
 
-#figureText{
-	font-size: 12px;
-}
-
 #ad
 {
     position:relative;}
@@ -311,36 +291,10 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
    position: absolute;
 }
 
-
-
-.productsListTop{
-    margin-top:20px;
-    min-height:30px;
-}
-#productListSearchBar {
-    float: right;
-    margin-right:10px;  
-}
-.productsListColumnName{
-    float:left;
-    width:28.5%;
-    margin-left:15px;
-    float:left;
-    margin-bottom:15px;
-    text-align:left;
-    color:#fc931e;
-    float:none;
-    background-color:#252525;
-    min-height:30px;
-    padding:10px;
-    padding-left: 10px;
-    border: 2px solid #496077;
-    border-radius:10px;
-}
-.recommendedSubstrate{
-    float:right;
-    font-size: 12px;
-    margin-top: 15px;
-    margin-right: 10px;
+  div{
+     border: 2px solid #8AC007;
+    
+    width: 200px;
+    height: 150px; 
 }
  

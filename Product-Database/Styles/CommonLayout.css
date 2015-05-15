@@ -17,27 +17,31 @@ Common css layout rules
 	margin-left: auto;
 	margin-right: auto;
 	width: 960px;
+    text-align:center;
 }
 #content-wrap
 {
+
 }
 #header-block
 {
 	margin-top: 15px;
 	min-height: 125px;
+    
 }
 #banner
 {
 	background-image: url("../Images/KinexusProductsBanner.jpg");
-	background-repeat: no-repeat;
+	background-repeat:no-repeat;
 	top: 0px;
 	min-height: 112px;
+   
 }
 #menu
 {
 	position: absolute;
 	top: 108px;
-	margin-left: -55px;
+	margin-left: 0px;
 	z-index: 121;
 }
 #menu ul
@@ -105,15 +109,20 @@ Common css layout rules
 {
 	float: left;
 	color: #e1e1e1;
+
 }
 #foot
 {
 	width: 960px;
 	height: 100px;
+    clear:left;
+    padding-top: 12px;
+
 }
 #foot-menu a
 {
 	color: #808080;
+    
 }
 
 #foot-menu a:hover
@@ -132,7 +141,7 @@ Shopping Cart layout
 */
 #ShoppingCartMenu
 {
-	width: 96%;
+	width: 98.5%;
 }
 #ShoppingCartMenu .column .recommendedLink
 {
@@ -154,7 +163,8 @@ Shopping Cart layout
 #DropDownMenu
 {
 	width: 100px;
-	margin-left: 15px;
+	margin-left: 160px;
+	margin-top: 0px;
 	padding: 5px 5px 5px 5px;
 	position: relative;
 	background-color: #191919;

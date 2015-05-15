@@ -108,11 +108,6 @@
     </Content>
     <Content Include="CartSummary.aspx" />
     <Content Include="CategoryManager.aspx" />
-    <Content Include="ImagesHome\1.jpg" />
-    <Content Include="ImagesHome\2.jpg" />
-    <Content Include="ImagesHome\3.jpg" />
-    <Content Include="ImagesHome\4.jpg" />
-    <Content Include="ImagesHome\5.jpg" />
     <Content Include="Images\images\AB-NK055_ERK1_CellCL.jpg" />
     <Content Include="Images\images\AB-NK055_ERK1_TissueL.jpg" />
     <Content Include="Images\images\AB-NK120-4_p38aMAPK_CellCL.jpg" />
@@ -286,10 +281,18 @@
     <Content Include="Images\images\KinSub_PEcRRGSF80.jpg" />
     <Content Include="Images\images\KinSub_PPE1RRGSF80.jpg" />
     <Content Include="Images\images\KinSub_PPE5RRDSP80.jpg" />
+    <Content Include="InfoHomepage\1.jpg" />
+    <Content Include="InfoHomepage\2.jpg" />
+    <Content Include="InfoHomepage\3.jpg" />
+    <Content Include="InfoHomepage\4.jpg" />
+    <Content Include="InfoHomepage\5.jpg" />
+    <Content Include="InfoHomepage\productsHomepageDescription.txt" />
     <Content Include="KinaseSubPeptideList.aspx" />
+    <Content Include="ProductInfo_Microarrays.aspx" />
     <Content Include="ProductInfo_BioactiveCompound.aspx" />
+    <Content Include="ProductInfo_Lysate.aspx" />
     <Content Include="ProductInfo_Peptide.aspx" />
-    <Content Include="ProductInfo_Microarray.aspx" />
+    <Content Include="ProductInfo_Array.aspx" />
     <Content Include="ProductInfo_ProteinEnzyme.aspx" />
     <Content Include="Credits.aspx" />
     <Content Include="Images\Ad12 copy.jpg" />
@@ -311,7 +314,8 @@
     <Content Include="ProductDataList.aspx" />
     <Content Include="ProductInfo_Antibody.aspx" />
     <Content Include="ProductInfo_ProteinSubstrate.aspx" />
-    <Content Include="ProductsList_Microarray.aspx" />
+    <Content Include="ProductsList_Lysate.aspx" />
+    <Content Include="ProductsList_Array.aspx" />
     <Content Include="ProductsList_Peptide.aspx" />
     <Content Include="ProductsList_ProteinEnzyme.aspx" />
     <Content Include="ProductsList_Antibody.aspx" />
@@ -330,6 +334,7 @@
     <Content Include="Styles\CommonLayout.css" />
     <Content Include="Styles\Layout.css" />
     <Content Include="Styles\Layout2.css" />
+    <Content Include="Styles\Layout3 .css" />
     <Content Include="Styles\print.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
@@ -418,12 +423,26 @@
     <Compile Include="KinaseSubPeptideList.aspx.designer.cs">
       <DependentUpon>KinaseSubPeptideList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProductInfo_Microarrays.aspx.cs">
+      <DependentUpon>ProductInfo_Microarrays.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInfo_Microarrays.aspx.designer.cs">
+      <DependentUpon>ProductInfo_Microarrays.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProductInfo_BioactiveCompound.aspx.cs">
       <DependentUpon>ProductInfo_BioactiveCompound.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProductInfo_BioactiveCompound.aspx.designer.cs">
       <DependentUpon>ProductInfo_BioactiveCompound.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductInfo_Lysate.aspx.cs">
+      <DependentUpon>ProductInfo_Lysate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductInfo_Lysate.aspx.designer.cs">
+      <DependentUpon>ProductInfo_Lysate.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductInfo_Peptide.aspx.cs">
       <DependentUpon>ProductInfo_Peptide.aspx</DependentUpon>
@@ -432,12 +451,12 @@
     <Compile Include="ProductInfo_Peptide.aspx.designer.cs">
       <DependentUpon>ProductInfo_Peptide.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ProductInfo_Microarray.aspx.cs">
-      <DependentUpon>ProductInfo_Microarray.aspx</DependentUpon>
+    <Compile Include="ProductInfo_Array.aspx.cs">
+      <DependentUpon>ProductInfo_Array.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ProductInfo_Microarray.aspx.designer.cs">
-      <DependentUpon>ProductInfo_Microarray.aspx</DependentUpon>
+    <Compile Include="ProductInfo_Array.aspx.designer.cs">
+      <DependentUpon>ProductInfo_Array.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductInfo_ProteinEnzyme.aspx.cs">
       <DependentUpon>ProductInfo_ProteinEnzyme.aspx</DependentUpon>
@@ -516,12 +535,19 @@
     <Compile Include="ProductInfo_ProteinSubstrate.aspx.designer.cs">
       <DependentUpon>ProductInfo_ProteinSubstrate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ProductsList_Microarray.aspx.cs">
-      <DependentUpon>ProductsList_Microarray.aspx</DependentUpon>
+    <Compile Include="ProductsList_Lysate.aspx.cs">
+      <DependentUpon>ProductsList_Lysate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ProductsList_Microarray.aspx.designer.cs">
-      <DependentUpon>ProductsList_Microarray.aspx</DependentUpon>
+    <Compile Include="ProductsList_Lysate.aspx.designer.cs">
+      <DependentUpon>ProductsList_Lysate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsList_Array.aspx.cs">
+      <DependentUpon>ProductsList_Array.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductsList_Array.aspx.designer.cs">
+      <DependentUpon>ProductsList_Array.aspx</DependentUpon>
     </Compile>
     <Compile Include="ProductsList_Peptide.aspx.cs">
       <DependentUpon>ProductsList_Peptide.aspx</DependentUpon>

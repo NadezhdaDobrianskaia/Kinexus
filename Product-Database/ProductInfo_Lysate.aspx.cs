@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Product_Database
 {
-    public partial class ProductInfo_Peptides : ProductInfo
+    public partial class ProductInfo_Lysate : ProductInfo
     {
 
 
@@ -18,23 +18,13 @@ namespace Product_Database
             {
 
                 BuildCommonFirstRow();
-                AddLableInofPairToColum("Peptide Name: ", GetDBValue("Pep_Name"));
+                AddLableInofPairToColum("Full Name: ", GetDBValue("Product_Name_Long"));
                 AddLableInofPairToColum("Alias: ", GetDBValue("Product_Name_Alias"));
-                AddLableInofPairToColum("Product Use: ", GetDBValue("Product_Use"));
-                AddLableInofPairToColum("Scientific Background: ", GetDBValue("Scientific_Background"));
-                AddLableInofPairToColum("Peptide Production Method: ", GetDBValue("Pep_Production_Method"));
-                AddLableInofPairToColum("Peptide Origin: ", GetDBValue("Pep_Origin"));
-                AddLableInofPairToColum("Peptide Sequence: ", GetDBValue("Pep_Sequence"));
-                AddLableInofPairToColum("Peptide Modifications N Terminus: ", GetDBValue("Pep_Modifications_N_Terminus"));
-                AddLableInofPairToColum("Peptide Modifications C Terminus ", GetDBValue("Pep_Modifications_C_Terminus"));
-                AddLableInofPairToColum("Peptide Modifications Other: ", GetDBValue("Pep_Modifications_Other"));
-                AddLableInofPairToColum("Peptide Molecular Mass Calculated : ", GetDBValue("Product_Molecular_Mass_Calculated"));
-                AddLableInofPairToColum("Peptide Purity: ", GetDBValue("Pep_Purity"));
-                AddLableInofPairToColum("Peptide Appearance: ", GetDBValue("Pep_Appearance"));
-                AddLableInofPairToColum("Peptide Form: ", GetDBValue("Pep_Form"));
+                AddLableInofPairToColum("Product Type Specific: ", GetDBValue("Product_Type_Specific"));
+                AddLableInofPairToColum("Product Description: ", GetDBValue("Product_Description"));
+                AddLableInofPairToColum("Product Method: ", GetDBValue("Production_Method"));
                 AddLableInofPairToColum("Storage Conditions: ", GetDBValue("Storage_Conditions"));
-                AddLableInofPairToColum("Storage Stability: ", GetDBValue("Storage_Stability"));
-                AddLableInofPairToColum("Peptide Recommended Enzyme:", GetDBValue("Pep_Recommended_Enzyme"));
+                AddLableInofPairToColum("Lysate Use Description: ", GetDBValue("Lysate_Use_Description"));
                 AddLableLinkPairToColum("Related Product 1: ", GetDBValue("Related_Product_1_Url"), GetDBValue("Related_Product_1"));
                 AddLableLinkPairToColum("Related Product 2: ", GetDBValue("Related_Product_2_Url"), GetDBValue("Related_Product_2"));
                 AddLableLinkPairToColum("Related Product 3: ", GetDBValue("Related_Product_3_Url"), GetDBValue("Related_Product_3"));
@@ -45,6 +35,7 @@ namespace Product_Database
                 AddLableLinkPairToColum("Related Product 8: ", GetDBValue("Related_Product_8_Url"), GetDBValue("Related_Product_8"));
                 AddLableLinkPairToColum("Related Product 9: ", GetDBValue("Related_Product_9_Url"), GetDBValue("Related_Product_9"));
                 AddLableLinkPairToColum("Related Product 10: ", GetDBValue("Related_Product_10_Url"), GetDBValue("Related_Product_10"));
+                AddLableLinkPairToColum("Customer Information Package Download", GetDBValue("Info_Package_Url"), GetDBValue("Info_Package_Url"));
                 BuildTargetLinksHTML();
                 BuildFiquersHTML();
                 BuildreferencesHTML();

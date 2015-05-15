@@ -5,11 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <form id="Form1" runat="server">
     <div id="ShoppingCartMenu" class="column recommendedLink">
-        <a class="checkoutLink" href="./CartSummary.aspx">View Shopping Cart</a><asp:ImageButton ID="ImageButton1" runat="server" CssClass="cartImg" ImageUrl="~/Images/cart2.png"
+        <a class="checkoutLink" href="./CartSummary.aspx">View Shopping Cart</a>
+        <asp:ImageButton ID="ImageButton1" runat="server" CssClass="blueLable" ImageUrl="~/Images/cart2.png"
             onmouseover="mopen('DropDownMenu')" onmouseout="mclosetime()" 
             Height="23px" Width="157px" />
-        <asp:PlaceHolder ID="advertisement" runat="server"></asp:PlaceHolder>
-        <div id="DropDownMenu" style="visibility: hidden; top: 36px; left: -6px;" onmouseover="mcancelclosetime()"
+        <div id="DropDownMenu" style="visibility: hidden;" onmouseover="mcancelclosetime()"
             onmouseout="mclosetime()" class="">
             <%
                 int i = 0;
@@ -43,9 +43,11 @@
                 }    
             %>
         </div>
+
     </div>
     </form>
     <div class="productInfo">
         <asp:Literal ID="output" runat="server"></asp:Literal>
     </div>
+
 </asp:Content>
