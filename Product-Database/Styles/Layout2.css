@@ -8,16 +8,18 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
 }
 .column-list
 {
-    width:100%
+    width:120%
 }
 .column
 {
     width:32%;
-    margin-left:1px;
+    margin-left:8px;
     float:left;
     min-height: 550px;
     margin-bottom:15px;
     text-align:left;
+    padding:2px;
+    
     
 }
 .list{
@@ -187,7 +189,6 @@ Css rules form 3 column layout optized for 1024*768 and auto compleet
      width:14px;
     height:100%;
     float:right;
-
 }
 .col-inner
 {

@@ -8,7 +8,7 @@
     <style type="text/css">
         .style1
         {
-            width: 110%;
+            width: 100%;
         }
         .style3
         {
@@ -18,24 +18,46 @@
         {
             width: 2897px;
         }
+        .productsListTop{
+            margin-top:20px;
+            min-height:30px;
+        }
+        #productListSearchBar {
+            float: right;
+            margin-right:10px;
+            
+        }
+        .columnName{
+            float:left;
+            width:29%;
+    margin-left:8px;
+    float:left;
+    
+    margin-bottom:15px;
+    text-align:left;
+
+    color:#fc931e;
+    float:none;
+    background-color:#252525;
+    min-height:30px;
+    padding:10px;
+    padding-left: 10px;
+        }
+        .recommendedSubstrate{
+            float:right;
+            font-size: 12px;
+            margin-top: 15px;
+            margin-right: 10px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <form id="Form1" runat="server">
-    <table class="style1">
-        <tr>
-            <td class="style4" style="width: 290px;">
-                <div class="column nameColumn">
-                    <span class="bold"><span class="bluelable">Product Type: </span><span class="orangeLabel">
-                        Peptides</span></span>
-                </div>
-            </td>
-            <td id="recommend" class="style4" valign="top">
-                <div class="column recommendedLink" style="height: 30px;">
-                    <span class="orangeLabel"><a href="/KinaseSubPeptideList">Click here to get a list of recommended substrate
-                        peptides for assay of ~500 human protein kinases</a></span></div>
-            </td>
-            <td class="style2">
+    <div class="productsListTop">
+
+        
+        
+        <div id="productListSearchBar">
                 <asp:TextBox ID="Peptide_textbx" runat="server"></asp:TextBox>
                 <%-- connection string for textbox --%>
                 <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
@@ -49,8 +71,8 @@ SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Pr
                         <asp:Parameter DefaultValue="Peptide" Name="Product_Type_General" />
                     </SelectParameters>
                 </asp:SqlDataSource>
-            </td>
-            <td>
+            
+            
                 <asp:Button ID="ButtonSearch" runat="server" Text="Search" OnClick="Button1_Click" />
                 <%-- connection string for datalink --%>
                 <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
@@ -59,7 +81,28 @@ SELECT [Product_Name_Alias] FROM [ProductDB] WHERE ([Product_Type_General] = @Pr
                         <asp:Parameter DefaultValue="Peptides" Name="Product_Type_General" Type="String" />
                     </SelectParameters>
                 </asp:SqlDataSource>
+            </div>
+        
+            
+            <div class="recommendedSubstrate" style="height: 30px;">
+                    <span class="orangeLabel"><a href="/KinaseSubPeptideList">Click this text to get a list of recommended substrate
+                        peptides for assay of ~500 human protein kinases</a></span>
+
+           
+            </div>
+
+        <div class="columnName">
+                    <span class="bold"><span class="bluelable">Product Type: </span><span class="orangeLabel">
+                        Peptides</span></span>
+        </div>
+        </div>
+        <table class="style1">
+        <tr>
+            
+            <td id="recommend" class="style4" valign="top">
+                
             </td>
+            
         </tr>
         <tr>
             <td class="style3" colspan="3">

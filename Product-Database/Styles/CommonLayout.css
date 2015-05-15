@@ -17,6 +17,7 @@ Common css layout rules
 	margin-left: auto;
 	margin-right: auto;
 	width: 960px;
+    text-align:center;
 }
 #content-wrap
 {
@@ -26,13 +27,15 @@ Common css layout rules
 {
 	margin-top: 15px;
 	min-height: 125px;
+    
 }
 #banner
 {
 	background-image: url("../Images/KinexusProductsBanner.jpg");
-	background-repeat: no-repeat;
+	background-repeat:no-repeat;
 	top: 0px;
 	min-height: 112px;
+   
 }
 #menu
 {
@@ -138,7 +141,7 @@ Shopping Cart layout
 */
 #ShoppingCartMenu
 {
-	width: 96%;
+	width: 98.5%;
 }
 #ShoppingCartMenu .column .recommendedLink
 {

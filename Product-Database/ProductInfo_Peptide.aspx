@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductInfo_Peptide.aspx.cs" Inherits="Product_Database.ProductInfo_Peptides" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <form id="Form1" runat="server">

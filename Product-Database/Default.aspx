@@ -19,6 +19,10 @@
         {
             width: 428px;
         }
+
+        
+
+
         .searchCheckBox{
     margin-left:0px;
     padding-left: 0px;
@@ -186,6 +190,7 @@
             margin-right: 10px;
         }
 
+
        /*---------end of bottom part of products homepage */
 
 
@@ -212,6 +217,7 @@
             var timer = $find("<%=Timer1.ClientID%>")
             timer._startTimer();
         }
+
     </script>
 
     
@@ -254,7 +260,7 @@
                 <div class="HomeSearchDiv">
                    
                            <asp:PlaceHolder ID="search_box" runat="server"></asp:PlaceHolder>
-                           <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString %>"
+                           <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString %>"
                             SelectCommand="SELECT * FROM [ProductDB]"></asp:SqlDataSource>
                       
             </div>
@@ -288,10 +294,10 @@
                 <div class ="newPdtLeftColumn">
                     <asp:PlaceHolder ID="PlaceHolderNewPdtleft" runat="server">
                         <asp:SqlDataSource ID="SqlDataSourceNewPdtLeft" runat="server"
-                            ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString%>"
+                            ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
                             SelectCommand="SELECT [New_Product_Order], [Product_Number],[Product_Type_General], [Brief_Description]
                              FROM [ProductDB] WHERE New_Product_Order > 0 AND New_Product_Order <11 ORDER BY New_Product_Order" 
-                            ProviderName="<%$ ConnectionStrings:comp4900ConnectionString.ProviderName %>">                    <SelectParameters>
+                            ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">                    <SelectParameters>
                                 <asp:Parameter DefaultValue="Antibody" Name="Product_Type_General" Type="String" />
                             </SelectParameters>
                         </asp:SqlDataSource>
@@ -315,10 +321,10 @@
                     <div class ="newPdtRightColumn">
                     <asp:PlaceHolder ID="PlaceHolderNewPdtRight" runat="server">
                         <asp:SqlDataSource ID="SqlDataSourceNewPdtRight" runat="server"
-                            ConnectionString="<%$ ConnectionStrings:comp4900ConnectionString%>"
+                            ConnectionString="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString%>"
                             SelectCommand="SELECT [New_Product_Order], [Product_Number],[Product_Type_General], [Brief_Description]
                              FROM [ProductDB] WHERE New_Product_Order > 10 AND New_Product_Order <21 ORDER BY New_Product_Order" 
-                            ProviderName="<%$ ConnectionStrings:comp4900ConnectionString.ProviderName %>">
+                            ProviderName="<%$ ConnectionStrings:Kinexus Protein ProductDBConnectionString.ProviderName %>">
                                                 <SelectParameters>
                         <asp:Parameter DefaultValue="Antibody" Name="Product_Type_General" Type="String" />
                     </SelectParameters>
